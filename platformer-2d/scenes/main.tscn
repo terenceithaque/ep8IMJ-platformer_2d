@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b5ft6rt0it5fs"]
+
+[node name="MainMenu" type="Node" unique_id=186895237]
+
+[node name="PlayButton" type="Button" parent="." unique_id=559239155]
+offset_left = 450.0
+offset_top = 200.0
+offset_right = 722.0
+offset_bottom = 276.0
+text = "Jouer !"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1803596706]
+offset_left = 452.0
+offset_top = 308.0
+offset_right = 724.0
+offset_bottom = 406.0
+text = "Quitter"
