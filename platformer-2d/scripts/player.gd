@@ -11,11 +11,18 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("gauche", "droite")
 	
 	if direction < 0:
-		print("Déplacement vers la gauche")
+		$sprite.flip_h = true
+		$sprite.play("walk")
 	
 	elif direction > 0:
-		print("Déplacement vers la droite")
+		$sprite.flip_h = false
+		$sprite.play("walk")
+	
+	else:
+		$sprite.stop()
 		
 	
 	if Input.is_action_just_pressed("saut"):
-		print("Saut")			
+		print("Saut")
+		$sprite.play("jump")
+					
