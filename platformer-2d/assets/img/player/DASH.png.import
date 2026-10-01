@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt4jfc1v5ns07"
-path="res://.godot/imported/2015-02-26 [DB32](Generic Platformer)(Mountains).png-fe33687f0e3803f92dccb0a4aa3100fe.ctex"
+uid="uid://dcbthdcp8yqgw"
+path="res://.godot/imported/DASH.png-32e4346e8a12eba64f50ee1127585134.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/2015-02-26 [DB32](Generic Platformer)(Mountains).png"
-dest_files=["res://.godot/imported/2015-02-26 [DB32](Generic Platformer)(Mountains).png-fe33687f0e3803f92dccb0a4aa3100fe.ctex"]
+source_file="res://assets/img/player/DASH.png"
+dest_files=["res://.godot/imported/DASH.png-32e4346e8a12eba64f50ee1127585134.ctex"]
 
 [params]
 

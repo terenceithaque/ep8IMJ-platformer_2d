@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bal1o5brjprsv"
-path="res://.godot/imported/2015-02-26 [DB32](Generic Platformer)(Tileset).png-a0a02b663146c69b0293cbe00f61b385.ctex"
+uid="uid://37qspg34xa2m"
+path="res://.godot/imported/WALL CONTACT.png-3adbeb6c856f86bb4ec1b63330f31dfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/2015-02-26 [DB32](Generic Platformer)(Tileset).png"
-dest_files=["res://.godot/imported/2015-02-26 [DB32](Generic Platformer)(Tileset).png-a0a02b663146c69b0293cbe00f61b385.ctex"]
+source_file="res://assets/img/player/WALL CONTACT.png"
+dest_files=["res://.godot/imported/WALL CONTACT.png-3adbeb6c856f86bb4ec1b63330f31dfb.ctex"]
 
 [params]
 

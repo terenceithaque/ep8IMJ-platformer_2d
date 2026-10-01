@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wmuehxai23hc"
-path="res://.godot/imported/dr_strange.png-ebca14a79246f175524f11ef37b16bdb.ctex"
+uid="uid://bxw7xvb8e4q8i"
+path="res://.godot/imported/ATTACK 3.png-e9a5a97d1b74eeb93d65ac9abde07c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/creatures/mobs/dr_strange.png"
-dest_files=["res://.godot/imported/dr_strange.png-ebca14a79246f175524f11ef37b16bdb.ctex"]
+source_file="res://assets/img/player/ATTACK 3.png"
+dest_files=["res://.godot/imported/ATTACK 3.png-e9a5a97d1b74eeb93d65ac9abde07c5c.ctex"]
 
 [params]
 

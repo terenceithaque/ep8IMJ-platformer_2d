@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b45utijtosddq"
-path="res://.godot/imported/2015-02-26 [DB32](Generic Platformer)(Clouds).png-5fb8142c0606600fdb16d16df0b5ca01.ctex"
+uid="uid://curwd82f53qk3"
+path="res://.godot/imported/ATTACK 1.png-921af78925fd8a275361f5dcb248bd56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/2015-02-26 [DB32](Generic Platformer)(Clouds).png"
-dest_files=["res://.godot/imported/2015-02-26 [DB32](Generic Platformer)(Clouds).png-5fb8142c0606600fdb16d16df0b5ca01.ctex"]
+source_file="res://assets/img/player/ATTACK 1.png"
+dest_files=["res://.godot/imported/ATTACK 1.png-921af78925fd8a275361f5dcb248bd56.ctex"]
 
 [params]
 

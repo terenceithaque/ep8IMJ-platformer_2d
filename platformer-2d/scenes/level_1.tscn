@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://bafth08gdrcfw"]
 
+[ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_014kd"]
+
 [node name="level1" type="Node2D" unique_id=83082200]
 
 [node name="canvas" type="CanvasLayer" parent="." unique_id=802589224]
+
+[node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]

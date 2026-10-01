@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbvhp7i7dcfv4"
-path="res://.godot/imported/eater.png-16d3507b2f6c3e5eacd410d3352a37d9.ctex"
+uid="uid://dh0g4e5grhx8o"
+path="res://.godot/imported/JUMP.png-bbd01ccc075136d09e92fa89aa52de81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/creatures/mobs/eater.png"
-dest_files=["res://.godot/imported/eater.png-16d3507b2f6c3e5eacd410d3352a37d9.ctex"]
+source_file="res://assets/img/player/JUMP.png"
+dest_files=["res://.godot/imported/JUMP.png-bbd01ccc075136d09e92fa89aa52de81.ctex"]
 
 [params]
 

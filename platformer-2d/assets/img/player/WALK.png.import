@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7c5hh77ar0c6"
-path="res://.godot/imported/flying_eater.png-6a16fff90c9857d13473c114107d3c32.ctex"
+uid="uid://dkqtjjob4qrby"
+path="res://.godot/imported/WALK.png-1992f8406b37ee66f2523d8cb6947a5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/creatures/mobs/flying_eater.png"
-dest_files=["res://.godot/imported/flying_eater.png-6a16fff90c9857d13473c114107d3c32.ctex"]
+source_file="res://assets/img/player/WALK.png"
+dest_files=["res://.godot/imported/WALK.png-1992f8406b37ee66f2523d8cb6947a5c.ctex"]
 
 [params]
 
