@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bafth08gdrcfw"]
+
+[node name="level1" type="Node2D" unique_id=83082200]
+
+[node name="canvas" type="CanvasLayer" parent="." unique_id=802589224]
