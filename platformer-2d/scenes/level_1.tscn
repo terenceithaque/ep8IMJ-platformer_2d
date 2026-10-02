@@ -3,11 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="1_bswci"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bswci"]
+a = Vector2(4, 542)
+
 [node name="level1" type="Node2D" unique_id=83082200]
 
-[node name="canvas" type="TextureRect" parent="." unique_id=2124427708]
-offset_right = 1150.0
-offset_bottom = 650.0
+[node name="canvas" type="StaticBody2D" parent="." unique_id=455849484]
+position = Vector2(3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="canvas" unique_id=581745413]
+position = Vector2(574, 320)
+scale = Vector2(2.057143, 1.9625)
 texture = ExtResource("1_bswci")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="canvas" unique_id=1298555306]
+position = Vector2(-9, 1)
+shape = SubResource("SegmentShape2D_bswci")
+
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]
+position = Vector2(-429, -23)
