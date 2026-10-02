@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="1_bswci"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bswci"]
-a = Vector2(4, 542)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w52r0"]
+size = Vector2(1148, 102)
 
 [node name="level1" type="Node2D" unique_id=83082200]
 
@@ -17,8 +17,8 @@ scale = Vector2(2.057143, 1.9625)
 texture = ExtResource("1_bswci")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="canvas" unique_id=1298555306]
-position = Vector2(-9, 1)
-shape = SubResource("SegmentShape2D_bswci")
+position = Vector2(572, 592)
+shape = SubResource("RectangleShape2D_w52r0")
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]
 position = Vector2(-429, -23)
