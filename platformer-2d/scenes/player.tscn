@@ -382,4 +382,9 @@ shape = SubResource("CircleShape2D_bswci")
 position = Vector2(502, 508)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fspuo")
-animation = &"attack"
+animation = &"jump"
+
+[node name="jump_timer" type="Timer" parent="." unique_id=1805770777]
+wait_time = 2.0
+
+[connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
