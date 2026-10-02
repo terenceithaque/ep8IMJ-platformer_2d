@@ -20,9 +20,10 @@ func _physics_process(delta: float) -> void:
 	
 	else:
 		$sprite.stop()
+		$sprite.play("idle")
 		
 	
-	if Input.is_action_just_pressed("saut"):
+	if Input.is_action_pressed("saut"):
 		print("Saut")
 		$sprite.play("jump")
 					

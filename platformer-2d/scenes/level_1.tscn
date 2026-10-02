@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bafth08gdrcfw"]
 
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="1_bswci"]
 
 [node name="level1" type="Node2D" unique_id=83082200]
 
-[node name="canvas" type="CanvasLayer" parent="." unique_id=802589224]
+[node name="canvas" type="TextureRect" parent="." unique_id=2124427708]
+offset_right = 1150.0
+offset_bottom = 650.0
+texture = ExtResource("1_bswci")
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]
