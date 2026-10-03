@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var WALK_SPEED = 300.0
-var RUN_SPEED = WALK_SPEED * 1.5
+var RUN_SPEED = WALK_SPEED * 1.75
 var SPEED = WALK_SPEED
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var JUMP_VELOCITY = -6000
@@ -36,11 +36,20 @@ func fall(delta : float) -> void:
 # Fonction qui gère les mouvements du joueur
 func _physics_process(delta: float) -> void:
 	
+	if running:
+		$sprite.play("run")
+	
 	# Obtenir la direction du joueur
 	direction = Input.get_axis("gauche", "droite")
+	#print(direction)
 	
-	if abs(direction) == 1:
-		$sprite.play("walk")
+	if absi(direction) == 1:
+		if not running:
+			$sprite.play("walk")
+			
+		else:
+			print("Le joueur court")
+			$sprite.play("run")	
 		
 	else:
 		$sprite.stop()
@@ -59,12 +68,13 @@ func _physics_process(delta: float) -> void:
 		
 	
 	# Vérifier si le joueur est en train de courir
-	if Input.is_action_pressed("courir") and abs(direction) == 1:
-			SPEED = RUN_SPEED
-			running = true
+	if Input.is_action_pressed("courrir") and absi(direction) == 1:
+		SPEED = RUN_SPEED
+		running = true
 	
-	elif running and not Input.is_action_pressed("courir"):
-		SPEED = WALK_SPEED		
+	elif running and not Input.is_action_pressed("courrir"):
+		SPEED = WALK_SPEED
+		running = false		
 	
 			
 	
