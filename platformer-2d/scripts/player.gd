@@ -2,28 +2,31 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -2000.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var JUMP_VELOCITY = -6000
+
 var direction = 0.0
 
 
 # Fonction pour faire sauter le personnage
-func jump() -> void:
+func jump(delta : float) -> void:
 	
+	#$jump_timer.start()
 	
-	print("Sur le sol")
-	velocity.y += JUMP_VELOCITY
+	velocity.y = JUMP_VELOCITY
 	$sprite.play("jump")
 	move_and_slide()
 
 
 # Fonction qui fait tomber le joueur
-func fall() -> void:
+func fall(delta : float) -> void:
+	#JUMP_VELOCITY_PER_FRAME = abs(JUMP_VELOCITY_PER_FRAME)
+	$sprite.play("fall")
 	
-	while not is_on_floor():	
-		velocity.y -= JUMP_VELOCITY
-		move_and_slide()
+	velocity.y += gravity * delta
+	move_and_slide()
 	
-	$jump_timer.stop()	
+	#$jump_timer.stop()
 		
 
 
@@ -52,18 +55,21 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2(direction, 0.0) * SPEED
 	
 	
-		
+	
+	# Déplacer le personnage
+	move_and_slide()
 	
 	# Le personnage ne peut sauter que s'il est au sol
-	if is_on_floor():
-		if Input.is_action_just_released("saut"):
+	if is_on_floor() and Input.is_action_just_released("saut"):
 			print("Saut")
-			jump()
-			$jump_timer.start()	
+			jump(delta)
+	
+	elif not is_on_floor():
+		fall(delta)		
+	
 				
 	
-	# Déplacere le personnage
-	move_and_slide()	
+		
 
 
 # Gère les autres actions du joueur
@@ -74,5 +80,12 @@ func _process(float) -> void:
 		
 
 
-func _on_jump_timer_timeout() -> void:
-	fall()
+func _on_total_jump_timer_timeout() -> void:
+	"""var max_jump_height = velocity.y - 2000
+	
+	if velocity.y > max_jump_height:
+		jump()
+	
+	
+	else:
+		fall()"""
