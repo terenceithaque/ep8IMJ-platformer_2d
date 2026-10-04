@@ -6,7 +6,7 @@ var RUN_SPEED = WALK_SPEED * 1.75
 var SPEED = WALK_SPEED
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# Get the dimentions of the game window
+# Obtenir les dimensions de la fenetre de jeu
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
@@ -19,6 +19,17 @@ var direction = 0.0
 func _ready() -> void:
 	print("Largeur de la fenetre de jeu : ", screen_width)
 	print("Hauteur de la fenetre de jeu : ", screen_height)
+	
+
+func is_out_of_screen() -> bool:
+	if abs(position.x) > screen_width:
+		return true
+	
+	elif abs(position.y) > screen_height:
+		return true
+	
+	else:
+		return false		
 
 
 # Fonction pour faire sauter le personnage
@@ -54,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	#print(direction)
 	
 	if absi(direction) == 1:
+		print(position)
 		if not running:
 			$sprite.play("walk")
 			
