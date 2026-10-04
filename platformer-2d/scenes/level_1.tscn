@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="1_bswci"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w52r0"]
-size = Vector2(1148, 102)
-
 [node name="level1" type="Node2D" unique_id=83082200]
 
 [node name="canvas" type="StaticBody2D" parent="." unique_id=455849484]
@@ -16,9 +13,11 @@ position = Vector2(574, 320)
 scale = Vector2(2.057143, 1.9625)
 texture = ExtResource("1_bswci")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="canvas" unique_id=1298555306]
-position = Vector2(572, 592)
-shape = SubResource("RectangleShape2D_w52r0")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="canvas" unique_id=2094366732]
+position = Vector2(-3, 552.7799)
+scale = Vector2(0.99999994, 0.93519896)
+build_mode = 1
+polygon = PackedVector2Array(2.0000002, -6, 687.00006, -11, 839.0001, -169.00003, 977.0001, -165, 1123.0001, -23, 1153.0001, -21)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]
-position = Vector2(-405, -30)
+position = Vector2(-451, -26)
