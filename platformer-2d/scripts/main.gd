@@ -4,6 +4,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$music.play()
+	$title.add_theme_font_override("font", load("res://assets/fonts/Isometra-Regular.ttf"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
