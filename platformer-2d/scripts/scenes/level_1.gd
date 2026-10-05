@@ -11,5 +11,5 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 func _process(delta: float) -> void:
 	if $player.is_out_of_screen():
 		print("Le joueur est sorti de l'écran")
-		$player.position.x = clamp($player.position.x, 0, screen_width)
-		$player.position.y = clamp($player.position.y, 0, screen_height)
+		$player.position.x = -451.0
+		$player.position.y = 0.0

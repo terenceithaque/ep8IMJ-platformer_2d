@@ -22,10 +22,10 @@ func _ready() -> void:
 	
 
 func is_out_of_screen() -> bool:
-	if abs(position.x) > screen_width:
+	if abs(position.x) > screen_width / 2:
 		return true
 	
-	elif abs(position.y) > screen_height:
+	elif abs(position.y) > screen_height / 2:
 		return true
 	
 	else:

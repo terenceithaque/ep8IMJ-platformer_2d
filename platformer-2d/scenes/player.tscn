@@ -543,12 +543,14 @@ script = ExtResource("1_g2els")
 [node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1036086345]
 position = Vector2(513, 544)
 shape = SubResource("CircleShape2D_bswci")
+metadata/_edit_group_ = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=354775695]
 position = Vector2(502, 508)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fspuo")
 animation = &"run"
+metadata/_edit_group_ = true
 
 [node name="jump_timer" type="Timer" parent="." unique_id=1805770777]
 wait_time = 2.0
