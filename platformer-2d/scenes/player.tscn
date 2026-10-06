@@ -538,6 +538,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D" unique_id=1208761486]
+position = Vector2(3, 7)
 script = ExtResource("1_g2els")
 
 [node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1036086345]
@@ -557,6 +558,11 @@ wait_time = 2.0
 
 [node name="total_jump_timer" type="Timer" parent="." unique_id=370374457]
 wait_time = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1945464649]
+position = Vector2(567, 316)
+scale = Vector2(0.25, 0.25)
+drag_vertical_enabled = true
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="total_jump_timer" to="." method="_on_total_jump_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dvdlg008851s7"]
+
+[ext_resource type="Script" uid="uid://ogs64slfnsti" path="res://scripts/scenes/level_1.gd" id="1_olqkd"]
+[ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="2_2c2ak"]
+[ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="3_v7td4"]
+
+[node name="level1" type="Node2D" unique_id=83082200]
+script = ExtResource("1_olqkd")
+
+[node name="canvas" type="StaticBody2D" parent="." unique_id=455849484]
+position = Vector2(3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="canvas" unique_id=581745413]
+position = Vector2(574, 320)
+scale = Vector2(2.057143, 1.9625)
+texture = ExtResource("2_2c2ak")
+
+[node name="s" type="CollisionPolygon2D" parent="canvas" unique_id=2094366732]
+position = Vector2(-3, 552.7799)
+scale = Vector2(0.99999994, 0.93519896)
+build_mode = 1
+polygon = PackedVector2Array(2.0000002, -6, 687.00006, -11, 839.0001, -169.00003, 977.0001, -165, 1123.0001, -23, 1153.0001, -21)
+
+[node name="player" parent="." unique_id=1208761486 instance=ExtResource("3_v7td4")]
+position = Vector2(-451, -26)

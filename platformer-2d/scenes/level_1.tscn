@@ -15,7 +15,7 @@ position = Vector2(574, 320)
 scale = Vector2(2.057143, 1.9625)
 texture = ExtResource("1_bswci")
 
-[node name="s" type="CollisionPolygon2D" parent="canvas" unique_id=2094366732]
+[node name="collision" type="CollisionPolygon2D" parent="canvas" unique_id=2094366732]
 position = Vector2(-3, 552.7799)
 scale = Vector2(0.99999994, 0.93519896)
 build_mode = 1

@@ -97,6 +97,8 @@ func _physics_process(delta: float) -> void:
 		SPEED = WALK_SPEED
 		running = false		
 	
+	#$Camera2D.position = position
+	
 			
 	
 			
