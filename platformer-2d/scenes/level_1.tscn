@@ -15,10 +15,10 @@ position = Vector2(574, 320)
 scale = Vector2(1, 0.954)
 texture = ExtResource("1_bswci")
 
-[node name="first_platform_collision" type="CollisionPolygon2D" parent="canvas" unique_id=957694840]
-position = Vector2(-649.8626, 752.7221)
-scale = Vector2(1.0007887, 0.9795792)
-polygon = PackedVector2Array(16, 3, 154, 2, 251, 99, 359, 103, 427, 35, 465, 16, 647, 15, 650, 86)
+[node name="first_platform_collision" type="CollisionPolygon2D" parent="canvas" unique_id=537957742]
+position = Vector2(-640, 750)
+build_mode = 1
+polygon = PackedVector2Array(16, 1, 144, 2, 246, 100, 345, 103, 424, 35, 453, 18, 637, 17, 638, 85, 656, 90, 656, 134, 19, 131)
 
 [node name="second_platform_collision" type="CollisionPolygon2D" parent="canvas" unique_id=192152558]
 position = Vector2(50, 700)

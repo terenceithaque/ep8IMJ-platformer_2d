@@ -11,7 +11,7 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
 
-var JUMP_VELOCITY = -6000
+var JUMP_VELOCITY = -12000
 var running = false
 var looking_up = false
 var looking_down = false
@@ -24,10 +24,10 @@ func _ready() -> void:
 	
 
 func is_out_of_screen() -> bool:
-	if abs(position.x) > screen_width / 2:
+	if abs(position.x) > screen_width:
 		return true
 	
-	elif abs(position.y) > screen_height / 2:
+	elif abs(position.y) > screen_height:
 		return true
 	
 	else:
@@ -128,7 +128,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Le personnage ne peut sauter que s'il est au sol
-	if is_on_floor() and Input.is_action_just_released("saut"):
+	if is_on_floor() and Input.is_action_pressed("saut"):
 			print("Saut")
 			jump(delta)
 	
