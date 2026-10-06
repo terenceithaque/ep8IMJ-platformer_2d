@@ -562,6 +562,8 @@ wait_time = 3.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1945464649]
 position = Vector2(567, 316)
 scale = Vector2(0.25, 0.25)
+limit_enabled = false
+position_smoothing_enabled = true
 drag_vertical_enabled = true
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

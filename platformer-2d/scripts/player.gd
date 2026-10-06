@@ -50,6 +50,8 @@ func fall(delta : float) -> void:
 	velocity.y += gravity * delta
 	move_and_slide()
 	
+	
+	
 	#$jump_timer.stop()
 		
 
@@ -116,7 +118,8 @@ func _physics_process(delta: float) -> void:
 			jump(delta)
 	
 	elif not is_on_floor():
-		fall(delta)		
+		fall(delta)
+		$Camera2D.align()			
 	
 				
 	
