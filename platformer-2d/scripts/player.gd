@@ -13,6 +13,8 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 
 var JUMP_VELOCITY = -6000
 var running = false
+var looking_up = false
+var looking_down = false
 
 var direction = 0.0
 
@@ -53,7 +55,20 @@ func fall(delta : float) -> void:
 	
 	
 	#$jump_timer.stop()
-		
+	
+	
+func look_up() -> void:
+	
+	looking_down = false
+	if not looking_up:
+		$Camera2D.position.y -= 100
+		looking_up = true
+
+func look_down() -> void:
+	looking_up = false
+	if not looking_down:
+		$Camera2D.position.y += 100
+		looking_down = true	
 
 
 # Fonction qui gère les mouvements du joueur
@@ -131,6 +146,17 @@ func _process(float) -> void:
 	if Input.is_action_just_released("attaque"):
 		print("Attaque")
 		$sprite.play("attack")
+	
+	if Input.is_action_pressed("regarder_haut", true):
+		look_up()
+	
+	elif Input.is_action_pressed("regarder_bas", true):
+		look_down()
+	
+	else:
+		$Camera2D.align()
+		looking_up = false
+		looking_down = false
 		
 
 
