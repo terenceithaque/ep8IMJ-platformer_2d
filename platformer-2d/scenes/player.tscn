@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bxw7xvb8e4q8i" path="res://assets/img/player/ATTACK 3.png" id="4_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://c2iubs55d1wcg" path="res://assets/img/player/JUMP-TRANSITION.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://chgijqih4it42" path="res://assets/img/player/RUN.png" id="9_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://csfyl2b1p23xu" path="res://assets/sounds/player/player_walk.mp3" id="11_d2wvv"]
+[ext_resource type="AudioStream" uid="uid://cm7d5iprc6i3p" path="res://assets/sounds/player/player_run.mp3" id="12_3v2ag"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bswci"]
 radius = 33.01515
@@ -577,6 +579,14 @@ borderless = false
 [node name="text_content" type="Label" parent="Camera2D/tutorial_popup_1" unique_id=1958086330]
 offset_right = 299.0
 offset_bottom = 93.0
+
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="." unique_id=1134159331]
+stream = ExtResource("11_d2wvv")
+volume_db = 12.0
+
+[node name="run_sound" type="AudioStreamPlayer2D" parent="." unique_id=728272642]
+stream = ExtResource("12_3v2ag")
+volume_db = 12.0
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="total_jump_timer" to="." method="_on_total_jump_timer_timeout"]
