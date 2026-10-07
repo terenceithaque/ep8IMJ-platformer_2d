@@ -11,6 +11,38 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
 
+# Récupérer les touches utilisées pour les différentes actions du joueur
+var move_right_keys = ProjectSettings.get_setting("input/droite")
+var move_left_keys = ProjectSettings.get_setting("input/gauche")
+var jump_key = ProjectSettings.get_setting("input/saut")
+var run_key = ProjectSettings.get_setting("input/courrir")
+
+var camera_up_key = ProjectSettings.get_setting("input/regarder_haut")
+var camera_down_key = ProjectSettings.get_setting("input/regarder_bas")
+
+
+var attack_key = ProjectSettings.get_setting("input/attaque")
+
+
+var action_keys = [move_right_keys, move_left_keys, jump_key, run_key, camera_up_key,
+				   camera_down_key, attack_key]
+
+
+func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'action donnée en paramètre.
+	
+	# input_event_key est un objet de type Array (tableau)
+	var input_event_key = key["events"]
+		
+	# Le nom de la touche est compris dans le key code
+	var key_code = str(input_event_key[0]).split(",")[0]
+	var key_name = key_code.split(" ")[2]
+	
+	key_name = key_name.remove_chars("()")
+	return key_name
+
+
+
+
 var JUMP_VELOCITY = -12000
 var JUMP_VELOCITY_RUNNING = JUMP_VELOCITY * 1.5
 
@@ -21,8 +53,9 @@ var looking_down = false
 var direction = 0.0
 
 func _ready() -> void:
-	print("Largeur de la fenetre de jeu : ", screen_width)
-	print("Hauteur de la fenetre de jeu : ", screen_height)
+	
+	for key in action_keys:
+		print(get_key_name(key))
 	
 
 func is_out_of_screen() -> bool:

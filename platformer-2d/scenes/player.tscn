@@ -566,5 +566,17 @@ limit_enabled = false
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 
+[node name="tutorial_popup_1" type="Popup" parent="Camera2D" unique_id=971869172]
+oversampling_override = 1.0
+title = "Déplacements de base"
+position = Vector2i(10, 50)
+size = Vector2i(300, 100)
+visible = true
+borderless = false
+
+[node name="text_content" type="Label" parent="Camera2D/tutorial_popup_1" unique_id=1958086330]
+offset_right = 299.0
+offset_bottom = 93.0
+
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="total_jump_timer" to="." method="_on_total_jump_timer_timeout"]
