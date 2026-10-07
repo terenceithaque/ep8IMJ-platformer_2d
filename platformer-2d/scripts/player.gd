@@ -12,6 +12,8 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 
 
 var JUMP_VELOCITY = -12000
+var JUMP_VELOCITY_RUNNING = JUMP_VELOCITY * 1.5
+
 var running = false
 var looking_up = false
 var looking_down = false
@@ -39,7 +41,11 @@ func jump(delta : float) -> void:
 	
 	#$jump_timer.start()
 	
-	velocity.y = JUMP_VELOCITY
+	if running:
+		velocity.y = JUMP_VELOCITY_RUNNING
+	else:
+		velocity.y = JUMP_VELOCITY
+	
 	$sprite.play("jump")
 	move_and_slide()
 
