@@ -38,5 +38,13 @@ position = Vector2(597.5, 324.5)
 scale = Vector2(1.9767857, 2.0218751)
 texture = ExtResource("3_sugp2")
 
+[node name="name" type="LineEdit" parent="." unique_id=1211550041]
+offset_left = 452.0
+offset_top = 132.0
+offset_right = 721.0
+offset_bottom = 163.0
+placeholder_text = "Nom du joueur..."
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="text_changed" from="name" to="." method="_on_name_text_changed"]

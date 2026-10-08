@@ -197,6 +197,7 @@ func _process(float) -> void:
 	if Input.is_action_just_released("attaque"):
 		print("Attaque")
 		$sprite.play("attack")
+		$attack_sound.play()
 	
 	if Input.is_action_pressed("regarder_haut", true):
 		look_up()
