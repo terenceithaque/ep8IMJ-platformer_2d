@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5ft6rt0it5fs"]
 
 [ext_resource type="Script" uid="uid://cmw1df2rllone" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="AudioStream" uid="uid://devmnjl0eibv4" path="res://assets/music/main_menu.ogg" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://3yr0j7ywhvrx" path="res://assets/music/main_menu.mp3" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="3_sugp2"]
 
 [node name="MainMenu" type="Node" unique_id=186895237]
@@ -22,7 +22,7 @@ offset_bottom = 406.0
 text = "Quitter"
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1524609380]
-stream = ExtResource("2_0wfyh")
+stream = ExtResource("2_sugp2")
 
 [node name="title" type="Label" parent="." unique_id=543240036]
 offset_left = 452.0

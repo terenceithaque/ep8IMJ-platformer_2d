@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d3ot6dutkscjp"]
 
+[ext_resource type="AudioStream" uid="uid://bktqipdwong1a" path="res://assets/music/intro.mp3" id="1_ioskq"]
+
 [sub_resource type="Animation" id="Animation_ioskq"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,3 +57,6 @@ uppercase = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="context_label" unique_id=752260666]
 libraries/ = SubResource("AnimationLibrary_ioskq")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1722591858]
+stream = ExtResource("1_ioskq")
