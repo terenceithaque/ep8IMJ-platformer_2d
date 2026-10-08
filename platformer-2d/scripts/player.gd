@@ -163,7 +163,7 @@ func _physics_process(delta: float) -> void:
 	
 	elif running and not Input.is_action_pressed("courrir"):
 		SPEED = WALK_SPEED
-		running = false		
+		running = false
 	
 	#$Camera2D.position = position
 	

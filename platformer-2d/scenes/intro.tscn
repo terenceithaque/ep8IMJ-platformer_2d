@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d3ot6dutkscjp"]
+
+[node name="intro" type="Node2D" unique_id=492856997]
+
+[node name="context_label" type="Label" parent="." unique_id=1189793453]
+offset_right = 1149.0
+offset_bottom = 518.0
+text = "Il y a bien longtemps, à une époque lointaine, très lointaine...
+
+Le royaume japonais est en crise ! La princesse Cheap, unique fille du roi, à été enlevée par un démon maléfique afin de s'emparer d'un pouvoir sacré.
+"
