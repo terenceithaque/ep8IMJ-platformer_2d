@@ -67,3 +67,5 @@ stream = ExtResource("1_ioskq")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2019921254]
 position = Vector2(600, -200)
 scale = Vector2(3, 3)
+
+[connection signal="finished" from="music" to="." method="_on_music_finished"]
