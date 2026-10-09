@@ -90,6 +90,7 @@ func jump(delta : float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	$sprite.play("jump")
+	$jump_sound.play()
 	move_and_slide()
 
 
