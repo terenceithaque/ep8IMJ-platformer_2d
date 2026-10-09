@@ -6,6 +6,9 @@ var RUN_SPEED = WALK_SPEED * 1.75
 var SPEED = WALK_SPEED
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var max_life = 5 # Vie (coeurs) du joueur
+var life = 5
+
 # Obtenir les dimensions de la fenetre de jeu
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
@@ -61,6 +64,8 @@ func _ready() -> void:
 	print(move_right)
 	tutorial_label.text = "Utilisez les touches {move_left} et {move_right} pour déplacer
 	le samurai".format({"move_left":move_left, "move_right":move_right})
+	
+	$GUI/life_bar.update(life, max_life)
 	
 
 func is_out_of_screen() -> bool:

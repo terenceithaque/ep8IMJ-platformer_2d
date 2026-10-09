@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://csfyl2b1p23xu" path="res://assets/sounds/player/player_walk.mp3" id="11_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://cm7d5iprc6i3p" path="res://assets/sounds/player/player_run.mp3" id="12_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://4o5e5m5plrac" path="res://assets/sounds/player/player_attack.mp3" id="13_jej6c"]
+[ext_resource type="Script" uid="uid://re2t8vtocwa2" path="res://scripts/player_gui/life_bar.gd" id="14_f1ej7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bswci"]
 radius = 33.01515
@@ -591,6 +592,16 @@ volume_db = 12.0
 
 [node name="attack_sound" type="AudioStreamPlayer2D" parent="." unique_id=264015817]
 stream = ExtResource("13_jej6c")
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=1453674639]
+
+[node name="life_bar" type="ProgressBar" parent="GUI" unique_id=1117302809]
+offset_right = 172.0
+offset_bottom = 27.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+script = ExtResource("14_f1ej7")
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="total_jump_timer" to="." method="_on_total_jump_timer_timeout"]
