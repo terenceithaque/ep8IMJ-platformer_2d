@@ -8,7 +8,13 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
 
+
 func _process(delta: float) -> void:
+	
+	# Vérifier si le joueur a atteint le panneau de fin de niveau
+	
+	#print("Objet entré en collision avec le joueur :", $player.get_collision())
+	
 	if $player.is_out_of_screen():
 		print("Le joueur est sorti de l'écran")
 		$player.position.x = -451.0

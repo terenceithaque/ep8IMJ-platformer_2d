@@ -118,7 +118,17 @@ func look_down() -> void:
 	looking_up = false
 	if not looking_down:
 		$Camera2D.position.y += 100
-		looking_down = true	
+		looking_down = true
+
+
+func get_collision(): ## Retourne le nom de l'objet avec lequel le joueur est entré en collision
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var body := collision.get_collider()
+		return body.name # Renvoyer le nom de l'objet
+	
+	return ""
+	
 
 
 # Fonction qui gère les mouvements du joueur
@@ -132,7 +142,6 @@ func _physics_process(delta: float) -> void:
 	#print(direction)
 	
 	if absi(direction) == 1:
-		print(position)
 		if not running:
 			$sprite.play("walk")
 			#$run_sound.stop()

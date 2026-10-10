@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cgdkxes5d0oy2"]
+
+[ext_resource type="Script" uid="uid://06i2ksxmdxxh" path="res://scripts/scenes/level_ending_panel.gd" id="1_2di4h"]
+[ext_resource type="Texture2D" uid="uid://cwue3abqrt1h6" path="res://assets/img/scenes/level_ending_panel.png" id="1_vl657"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl657"]
+size = Vector2(54, 85)
+
+[node name="level_ending_panel" type="Node2D" unique_id=1524944001]
+position = Vector2(531, 228)
+script = ExtResource("1_2di4h")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1687682112]
+position = Vector2(3, 2)
+texture = ExtResource("1_vl657")
+metadata/_edit_group_ = true
+
+[node name="end_panel_area" type="Area2D" parent="." unique_id=652482248]
+
+[node name="end_panel_collision_shape" type="CollisionShape2D" parent="end_panel_area" unique_id=967849301]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_vl657")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="end_panel_area" to="." method="_on_body_entered"]

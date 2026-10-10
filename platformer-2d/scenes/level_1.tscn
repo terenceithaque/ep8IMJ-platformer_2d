@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="1_bswci"]
 [ext_resource type="Script" uid="uid://ogs64slfnsti" path="res://scripts/scenes/level_1.gd" id="1_rus8k"]
+[ext_resource type="PackedScene" uid="uid://cgdkxes5d0oy2" path="res://scenes/level_ending_panel.tscn" id="4_5xbjy"]
 
 [node name="level1" type="Node2D" unique_id=83082200]
 script = ExtResource("1_rus8k")
@@ -39,6 +40,9 @@ polygon = PackedVector2Array(20, -1, 302, -1, 304, 23, 324, 24, 323, 64, 297, 66
 position = Vector2(1250, 850)
 build_mode = 1
 polygon = PackedVector2Array(16, 0, 488, -9, 487, -24, 512, -23, 523, -16, 522, 37, 16, 39, 3, 24, -1, -3)
+
+[node name="level_ending_panel" parent="." unique_id=1524944001 instance=ExtResource("4_5xbjy")]
+position = Vector2(1704, 801)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]
 position = Vector2(-1079, 165)
