@@ -135,7 +135,7 @@ func _physics_process(delta: float) -> void:
 		print(position)
 		if not running:
 			$sprite.play("walk")
-			$run_sound.stop()
+			#$run_sound.stop()
 			$walk_sound.play()
 			
 		else:
@@ -145,8 +145,8 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		$sprite.stop()
-		$walk_sound.stop()
-		$run_sound.stop()
+		#$walk_sound.stop()
+		#$run_sound.stop()
 		
 		$sprite.play("idle")
 		velocity = Vector2(0.0, 0.0)
