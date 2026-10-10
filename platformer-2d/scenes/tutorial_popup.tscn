@@ -8,10 +8,12 @@ default_font = ExtResource("1_h4e10")
 
 [node name="tutorial_popup" type="Popup" unique_id=91063836]
 oversampling_override = 1.0
-position = Vector2i(10, 50)
+position = Vector2i(10, 51)
 size = Vector2i(300, 100)
 visible = true
 borderless = false
+extend_to_title = true
+keep_title_visible = true
 theme = SubResource("Theme_1j73w")
 script = ExtResource("2_4glws")
 

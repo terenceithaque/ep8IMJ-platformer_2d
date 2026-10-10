@@ -53,20 +53,35 @@ var running = false
 var looking_up = false
 var looking_down = false
 
+var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
+
 var direction = 0.0
 
 func _ready() -> void:
 	var first_tutorial_popup = get_node("Camera2D/tutorial_popup_1")
-	var tutorial_label = first_tutorial_popup.get_child(0)
+
 	var move_left = get_key_name(move_left_keys)
 	var move_right = get_key_name(move_right_keys)
+	var jump_key_name = get_key_name(jump_key)
+	var run_key_name = get_key_name(run_key)
+	
 	print(move_left)
 	print(move_right)
 	
-	$Camera2D/tutorial_popup_1.set_popup_title("Déplacements de base")
-	$Camera2D/tutorial_popup_1.set_popup_text("Utilisez les touches {move_left} et {move_right}
-	pour déplacer le samurai.".format({"move_left":move_left, "move_right":move_right}))	
 	
+	# 1ère popup de tutoriel
+	display_tutorial("Déplacements de base",
+		("Utilisez les touches {move_left} et {move_right}
+		pour déplacer le samurai.".format({"move_left":move_left, "move_right":move_right})))
+	
+	
+
+func display_tutorial(tutorial_title, tutorial_text): ## Affiche une nouvelle popup de tutoriel à l'écran
+	var popup = tutorial_popup_scene.instantiate()
+	popup.set_popup_title(tutorial_title)
+	popup.set_popup_text(tutorial_text)
+	
+	$Camera2D.add_child(popup)
 
 func is_out_of_screen() -> bool:
 	if abs(position.x) > screen_width:

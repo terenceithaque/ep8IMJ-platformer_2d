@@ -6,4 +6,8 @@ func set_popup_title(popup_title): ## Définit le titre de la popup
 
 
 func set_popup_text(popup_text):
-	$text_content.text = popup_text	
+	$text_content.text = popup_text
+	
+
+func set_visibility(visibility_setting): ## Change le paramètre de visibilité de la popup
+	visible = visibility_setting
