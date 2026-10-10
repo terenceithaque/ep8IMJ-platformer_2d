@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cccw4dudj2ut2"]
+
+[ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="1_h4e10"]
+[ext_resource type="Script" uid="uid://bg2yh8mg6dq4q" path="res://scripts/scenes/tutorial_popup.gd" id="2_4glws"]
+
+[sub_resource type="Theme" id="Theme_1j73w"]
+default_font = ExtResource("1_h4e10")
+
+[node name="tutorial_popup" type="Popup" unique_id=91063836]
+oversampling_override = 1.0
+position = Vector2i(10, 50)
+size = Vector2i(300, 100)
+visible = true
+borderless = false
+theme = SubResource("Theme_1j73w")
+script = ExtResource("2_4glws")
+
+[node name="text_content" type="Label" parent="." unique_id=1141524152]
+offset_right = 299.0
+offset_bottom = 93.0

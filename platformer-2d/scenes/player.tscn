@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxw7xvb8e4q8i" path="res://assets/img/player/ATTACK 3.png" id="4_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://c2iubs55d1wcg" path="res://assets/img/player/JUMP-TRANSITION.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://chgijqih4it42" path="res://assets/img/player/RUN.png" id="9_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://cccw4dudj2ut2" path="res://scenes/tutorial_popup.tscn" id="11_a8ls1"]
 [ext_resource type="AudioStream" uid="uid://csfyl2b1p23xu" path="res://assets/sounds/player/player_walk.mp3" id="11_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://cm7d5iprc6i3p" path="res://assets/sounds/player/player_run.mp3" id="12_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://4o5e5m5plrac" path="res://assets/sounds/player/player_attack.mp3" id="13_jej6c"]
@@ -571,17 +572,7 @@ limit_enabled = false
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 
-[node name="tutorial_popup_1" type="Popup" parent="Camera2D" unique_id=971869172]
-oversampling_override = 1.0
-title = "Déplacements de base"
-position = Vector2i(10, 50)
-size = Vector2i(300, 100)
-visible = true
-borderless = false
-
-[node name="text_content" type="Label" parent="Camera2D/tutorial_popup_1" unique_id=1958086330]
-offset_right = 299.0
-offset_bottom = 93.0
+[node name="tutorial_popup_1" parent="Camera2D" unique_id=91063836 instance=ExtResource("11_a8ls1")]
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="." unique_id=1134159331]
 stream = ExtResource("11_d2wvv")

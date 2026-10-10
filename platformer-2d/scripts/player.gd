@@ -62,10 +62,10 @@ func _ready() -> void:
 	var move_right = get_key_name(move_right_keys)
 	print(move_left)
 	print(move_right)
-	tutorial_label.text = "Utilisez les touches {move_left} et {move_right} pour déplacer
-	le samurai".format({"move_left":move_left, "move_right":move_right})
 	
-	$GUI/life_bar.update(life, max_life)
+	$Camera2D/tutorial_popup_1.set_popup_title("Déplacements de base")
+	$Camera2D/tutorial_popup_1.set_popup_text("Utilisez les touches {move_left} et {move_right}
+	pour déplacer le samurai.".format({"move_left":move_left, "move_right":move_right}))	
 	
 
 func is_out_of_screen() -> bool:
