@@ -571,18 +571,18 @@ limit_enabled = false
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 
-[node name="walk_sound" type="AudioStreamPlayer2D" parent="." unique_id=1134159331]
+[node name="walk_sound" type="AudioStreamPlayer" parent="." unique_id=549563080]
 stream = ExtResource("11_d2wvv")
 volume_db = 12.0
 
-[node name="run_sound" type="AudioStreamPlayer2D" parent="." unique_id=728272642]
+[node name="run_sound" type="AudioStreamPlayer" parent="." unique_id=1269969473]
 stream = ExtResource("12_3v2ag")
 volume_db = 12.0
 
-[node name="attack_sound" type="AudioStreamPlayer2D" parent="." unique_id=264015817]
+[node name="attack_sound" type="AudioStreamPlayer" parent="." unique_id=1061721905]
 stream = ExtResource("13_jej6c")
 
-[node name="jump_sound" type="AudioStreamPlayer2D" parent="." unique_id=1766719363]
+[node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=1799339294]
 stream = ExtResource("14_oprun")
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1453674639]

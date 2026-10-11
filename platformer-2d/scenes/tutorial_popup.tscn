@@ -25,3 +25,5 @@ offset_bottom = 93.0
 [node name="tutorial_sound" type="AudioStreamPlayer" parent="." unique_id=807647238]
 stream = ExtResource("3_rnl76")
 volume_db = 1.0
+
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]

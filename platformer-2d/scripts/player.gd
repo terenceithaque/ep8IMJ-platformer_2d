@@ -55,6 +55,13 @@ var looking_down = false
 
 var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
 
+var tutorial_completion_flags = {
+	"walk_tutorial_completed": false,
+	"run_tutorial_completed": false,
+	"jump_tutorial_completed": false,
+	"attack_tutorial_completed": false
+}
+
 var direction = 0.0
 
 func _ready() -> void:
@@ -71,14 +78,16 @@ func _ready() -> void:
 	# 1ère popup de tutoriel
 	display_tutorial("Déplacements de base",
 		("Utilisez les touches {move_left} et {move_right}
-		pour déplacer le samurai.".format({"move_left":move_left, "move_right":move_right})))
+		pour déplacer le samurai.".format({"move_left":move_left, "move_right":move_right})), "walk_tutorial_completed")
 	
+	print(get_tutorial_popups())
 	
 
-func display_tutorial(tutorial_title, tutorial_text): ## Affiche une nouvelle popup de tutoriel à l'écran
+func display_tutorial(tutorial_title:String, tutorial_text:String, flag_name:String): ## Affiche une nouvelle popup de tutoriel à l'écran
 	var popup = tutorial_popup_scene.instantiate()
 	popup.set_popup_title(tutorial_title)
 	popup.set_popup_text(tutorial_text)
+	popup.set_completion_flag_name(flag_name)
 	
 	$Camera2D.add_child(popup)
 
@@ -90,8 +99,24 @@ func is_out_of_screen() -> bool:
 		return true
 	
 	else:
-		return false		
+		return false
+		
 
+
+func get_tutorial_popups(): ## Renvoie un tableau des popups de tutoriel attachées à la caméra du jeu
+	var tutorials = []
+	
+	for element in $Camera2D.get_children():
+		print(element.name)
+
+
+func update_tutorial_completion_flags(completion_flag) -> void:
+	var flag_name = completion_flag["name"]
+	var flag_value = completion_flag["completed"]
+	
+	tutorial_completion_flags[flag_name] = flag_value
+	
+	print(tutorial_completion_flags)
 
 # Fonction pour faire sauter le personnage
 func jump(delta : float) -> void:
