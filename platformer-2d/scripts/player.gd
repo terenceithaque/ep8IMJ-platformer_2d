@@ -58,7 +58,6 @@ var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
 var direction = 0.0
 
 func _ready() -> void:
-	var first_tutorial_popup = get_node("Camera2D/tutorial_popup_1")
 
 	var move_left = get_key_name(move_left_keys)
 	var move_right = get_key_name(move_right_keys)

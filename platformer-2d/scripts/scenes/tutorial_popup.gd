@@ -11,3 +11,7 @@ func set_popup_text(popup_text):
 
 func set_visibility(visibility_setting): ## Change le paramètre de visibilité de la popup
 	visible = visibility_setting
+	
+
+func _ready():
+	$tutorial_sound.play()
