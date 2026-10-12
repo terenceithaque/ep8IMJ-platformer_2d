@@ -300,8 +300,8 @@ func _on_total_jump_timer_timeout() -> void:
 
 
 func _on_sprite_animation_finished() -> void:
+	print($sprite.animation)
 	if $sprite.animation == "attack":
-		attacking = false
 		$sprite.play("idle")
 	
 	if $sprite.animation == "walk" or $sprite.animation == "run":

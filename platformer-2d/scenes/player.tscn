@@ -262,7 +262,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bj30b")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -285,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_apa73")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"fall",
 "speed": 2.0
 }, {
@@ -320,7 +320,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dt7fs")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -343,7 +343,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4r5pv")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -396,7 +396,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdulj")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"run",
 "speed": 8.0
 }, {
@@ -437,7 +437,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jej6c")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -455,7 +455,7 @@ metadata/_edit_group_ = true
 position = Vector2(502, 508)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fspuo")
-animation = &"fall"
+animation = &"walk"
 metadata/_edit_group_ = true
 
 [node name="jump_timer" type="Timer" parent="." unique_id=1805770777]

@@ -45,4 +45,4 @@ polygon = PackedVector2Array(16, 0, 488, -9, 487, -24, 512, -23, 523, -16, 522, 
 position = Vector2(1704, 801)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_014kd")]
-position = Vector2(-1079, 165)
+position = Vector2(-1081, 183)
