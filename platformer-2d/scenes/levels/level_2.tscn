@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cmjf4pv1qkxsu"]
+
+[ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_j2425"]
+[ext_resource type="Texture2D" uid="uid://c1bqwpbuy1kt2" path="res://assets/img/background_elements/Samples/colored_forest.png" id="2_g2h2n"]
+[ext_resource type="Texture2D" uid="uid://ca6tgx1id80sj" path="res://assets/img/scenes/level_2.png" id="2_ra442"]
+
+[node name="level_2" type="Node2D" unique_id=266311822]
+
+[node name="canvas" type="StaticBody2D" parent="." unique_id=719906939]
+position = Vector2(3, 8)
+
+[node name="background_image" type="Sprite2D" parent="canvas" unique_id=1424611472]
+position = Vector2(721.99994, 249)
+scale = Vector2(1.5624999, 1.25)
+texture = ExtResource("2_g2h2n")
+
+[node name="platforms" type="Sprite2D" parent="canvas" unique_id=1343132224]
+position = Vector2(725, -84)
+texture = ExtResource("2_ra442")
+
+[node name="collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1475982382]
+position = Vector2(-80, 550)
+build_mode = 1
+polygon = PackedVector2Array(11, -1, 95, -1, 96, -19, 204, -18, 207, -33, 237, -33, 237, -15, 474, -17, 480, -33, 919, -33, 918, -16, 937, -15, 939, -2, 1146, -4, 1294, -2, 1297, -17, 1593, -17)
+
+[node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_j2425")]
+position = Vector2(-349, -149)
