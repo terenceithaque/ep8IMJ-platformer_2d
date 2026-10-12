@@ -53,6 +53,8 @@ var running = false
 var looking_up = false
 var looking_down = false
 var attacking = false
+var attack_number = 1
+
 
 var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
 
@@ -164,8 +166,19 @@ func look_down() -> void:
 func attack():
 	if not attacking:
 		attacking = true
-		$sprite.play("attack")
+		
+		if attack_number == 1:
+			$sprite.play("attack_1")
+		
+		elif attack_number == 2:
+			$sprite.play("attack_2")
+		
+		elif attack_number == 3:
+			$sprite.play("attack_3")
+			attack_number = 1
+		
 		$attack_sound.play()
+		attack_number += 1
 	
 	else:
 		attacking = false
@@ -300,8 +313,7 @@ func _on_total_jump_timer_timeout() -> void:
 
 
 func _on_sprite_animation_finished() -> void:
-	print($sprite.animation)
-	if $sprite.animation == "attack":
+	if "attack" in $sprite.animation:
 		$sprite.play("idle")
 	
 	if $sprite.animation == "walk" or $sprite.animation == "run":
@@ -309,3 +321,7 @@ func _on_sprite_animation_finished() -> void:
 	
 	elif $sprite.animation == "fall":
 		$sprite.play("idle")
+
+
+func _on_attack_animation_reset_timeout() -> void:
+	attack_number = 1
