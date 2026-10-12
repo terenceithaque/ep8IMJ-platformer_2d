@@ -52,6 +52,7 @@ var JUMP_VELOCITY_RUNNING = JUMP_VELOCITY * 1.5
 var running = false
 var looking_up = false
 var looking_down = false
+var attacking = false
 
 var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
 
@@ -65,7 +66,8 @@ var tutorial_completion_flags = {
 var direction = 0.0
 
 func _ready() -> void:
-
+	
+	$sprite.play("idle")
 	var move_left = get_key_name(move_left_keys)
 	var move_right = get_key_name(move_right_keys)
 	var jump_key_name = get_key_name(jump_key)
@@ -159,6 +161,14 @@ func look_down() -> void:
 		$Camera2D.position.y += 100
 		looking_down = true
 
+func attack():
+	if not attacking:
+		attacking = true
+		$sprite.play("attack")
+		$attack_sound.play()
+	
+	else:
+		attacking = false
 
 func get_collision(): ## Retourne le nom de l'objet avec lequel le joueur est entré en collision
 	for index in get_slide_collision_count():
@@ -167,6 +177,11 @@ func get_collision(): ## Retourne le nom de l'objet avec lequel le joueur est en
 		return body.name # Renvoyer le nom de l'objet
 	
 	return ""
+
+
+func is_animation_playing(): ## Renvoie true si une animation du joueur (autre que "idle") est active, sinon renvoie false
+	print($sprite.animation)
+	return $sprite.is_playing() and $sprite.animation != "idle"
 	
 
 
@@ -174,7 +189,8 @@ func get_collision(): ## Retourne le nom de l'objet avec lequel le joueur est en
 func _physics_process(delta: float) -> void:
 	
 	if running:
-		$sprite.play("run")
+		if $sprite.animation != "run":
+			$sprite.play("run")
 	
 	# Obtenir la direction du joueur
 	direction = Input.get_axis("gauche", "droite")
@@ -182,7 +198,9 @@ func _physics_process(delta: float) -> void:
 	
 	if absi(direction) == 1:
 		if not running:
-			$sprite.play("walk")
+			
+			if $sprite.animation != "walk":
+				$sprite.play("walk")
 			#$run_sound.stop()
 			$walk_sound.play()
 			
@@ -192,11 +210,15 @@ func _physics_process(delta: float) -> void:
 			$run_sound.play()
 		
 	else:
-		$sprite.stop()
+		#$sprite.stop()
 		#$walk_sound.stop()
 		#$run_sound.stop()
 		
-		$sprite.play("idle")
+		
+		#print("Animation en cours : ", is_animation_playing())
+		
+	
+		#$sprite.play("idle")
 		velocity = Vector2(0.0, 0.0)
 		
 		
@@ -249,9 +271,9 @@ func _physics_process(delta: float) -> void:
 # Gère les autres actions du joueur
 func _process(float) -> void:
 	if Input.is_action_just_released("attaque"):
-		print("Attaque")
-		$sprite.play("attack")
-		$attack_sound.play()
+		attack()
+		
+	
 	
 	if Input.is_action_pressed("regarder_haut", true):
 		look_up()
@@ -275,3 +297,15 @@ func _on_total_jump_timer_timeout() -> void:
 	
 	else:
 		fall()"""
+
+
+func _on_sprite_animation_finished() -> void:
+	if $sprite.animation == "attack":
+		attacking = false
+		$sprite.play("idle")
+	
+	if $sprite.animation == "walk" or $sprite.animation == "run":
+		$sprite.play("idle")
+	
+	elif $sprite.animation == "fall":
+		$sprite.play("idle")
