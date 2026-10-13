@@ -230,6 +230,9 @@ func _physics_process(delta: float) -> void:
 		
 		#print("Animation en cours : ", is_animation_playing())
 		
+		if $sprite.animation == "walk" or $sprite.animation == "run":
+			$sprite.play("idle")
+		
 	
 		#$sprite.play("idle")
 		velocity = Vector2(0.0, 0.0)
