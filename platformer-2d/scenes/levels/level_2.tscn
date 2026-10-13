@@ -1,27 +1,59 @@
 [gd_scene format=3 uid="uid://cmjf4pv1qkxsu"]
 
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="1_j2425"]
+[ext_resource type="Script" uid="uid://skwe6q0vybq6" path="res://scripts/scenes/level_2.gd" id="1_l37oo"]
 [ext_resource type="Texture2D" uid="uid://c1bqwpbuy1kt2" path="res://assets/img/background_elements/Samples/colored_forest.png" id="2_g2h2n"]
 [ext_resource type="Texture2D" uid="uid://ca6tgx1id80sj" path="res://assets/img/scenes/level_2.png" id="2_ra442"]
+[ext_resource type="AudioStream" uid="uid://cwbujl40lf4yu" path="res://assets/music/in_the_forest.mp3" id="4_fiq81"]
 
 [node name="level_2" type="Node2D" unique_id=266311822]
+position = Vector2(-58, -57)
+script = ExtResource("1_l37oo")
+metadata/_edit_group_ = true
 
 [node name="canvas" type="StaticBody2D" parent="." unique_id=719906939]
 position = Vector2(3, 8)
+metadata/_edit_group_ = true
 
 [node name="background_image" type="Sprite2D" parent="canvas" unique_id=1424611472]
 position = Vector2(721.99994, 249)
-scale = Vector2(1.5624999, 1.25)
+scale = Vector2(2, 1.6)
 texture = ExtResource("2_g2h2n")
 
 [node name="platforms" type="Sprite2D" parent="canvas" unique_id=1343132224]
 position = Vector2(725, -84)
 texture = ExtResource("2_ra442")
 
-[node name="collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1475982382]
-position = Vector2(-80, 550)
+[node name="platform_1_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1671861699]
+position = Vector2(-80.537544, 590)
+scale = Vector2(0.99458665, 1)
+polygon = PackedVector2Array(15, -3, 395, -9, 396, 17)
+
+[node name="platform_2_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1910566589]
+position = Vector2(320, 520)
+polygon = PackedVector2Array(17, -3, 892, -5, 891, 30, 19, 26)
+
+[node name="platform_3_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1152711178]
+position = Vector2(1300, 490)
+polygon = PackedVector2Array(16, 1, 197, -1, 196, 24, -1, 23, 0, -4)
+
+[node name="platform_4_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=653877691]
+position = Vector2(251, 410)
 build_mode = 1
-polygon = PackedVector2Array(11, -1, 95, -1, 96, -19, 204, -18, 207, -33, 237, -33, 237, -15, 474, -17, 480, -33, 919, -33, 918, -16, 937, -15, 939, -2, 1146, -4, 1294, -2, 1297, -17, 1593, -17)
+polygon = PackedVector2Array(10, 3, 722, -2, 728, -21, 783, -20, 783, -5, 913, -2, 933, -1, 932, 16, 175, 21, 177, 20, 11, 21)
+
+[node name="platform_5_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=309583418]
+position = Vector2(0, 370)
+polygon = PackedVector2Array(15, -2, 199, -5, 198, 13, 23, 14)
+
+[node name="platform_6_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=102422318]
+position = Vector2(200, 200)
+polygon = PackedVector2Array(16, -1, 747, 1, 748, -24, 816, -16, 820, 1, 880, 2, 882, 16, 1182, 18, 1182, 40, 666, 34, 666, 21, -7, 22, -2, -4)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_j2425")]
-position = Vector2(-349, -149)
+position = Vector2(-527, 19)
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=433561141]
+stream = ExtResource("4_fiq81")
+volume_db = 1.5
+parameters/looping = true
