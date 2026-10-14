@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cwbujl40lf4yu" path="res://assets/music/in_the_forest.mp3" id="4_fiq81"]
 
 [node name="level_2" type="Node2D" unique_id=266311822]
-position = Vector2(-58, -57)
+position = Vector2(-58, -55)
 script = ExtResource("1_l37oo")
 metadata/_edit_group_ = true
 
@@ -16,51 +16,69 @@ position = Vector2(3, 8)
 metadata/_edit_group_ = true
 
 [node name="background_image" type="Sprite2D" parent="canvas" unique_id=1424611472]
-position = Vector2(721.99994, 249)
-scale = Vector2(2, 1.6)
+position = Vector2(722.9999, 249)
+scale = Vector2(1.55, 2.5)
 texture = ExtResource("2_g2h2n")
 
 [node name="platforms" type="Sprite2D" parent="canvas" unique_id=1343132224]
 position = Vector2(725, -84)
 texture = ExtResource("2_ra442")
 
-[node name="platform_1_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1671861699]
-position = Vector2(-80.537544, 590)
-scale = Vector2(0.99458665, 1)
-polygon = PackedVector2Array(15, -3, 395, -9, 396, 17)
+[node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=318418735]
+position = Vector2(-80, 635)
+polygon = PackedVector2Array(18, -3, 308, -5, 338, -33, 351, -43, 407, -50, 407, -31, 362, -27, 359, 15, 9, 18)
 
-[node name="platform_2_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1910566589]
-position = Vector2(320, 520)
-polygon = PackedVector2Array(17, -3, 892, -5, 891, 30, 19, 26)
+[node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=759738963]
+position = Vector2(350, 540)
+polygon = PackedVector2Array(15, -1, 151, -2, 151, 17, 24, 17)
 
-[node name="platform_3_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1152711178]
-position = Vector2(1300, 490)
-polygon = PackedVector2Array(16, 1, 197, -1, 196, 24, -1, 23, 0, -4)
+[node name="platform_3_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1927998158]
+position = Vector2(560, 460)
+polygon = PackedVector2Array(17, -2, 611, -4, 621, -10, 871, -16, 870, -1, 839, -1, 838, 31, 790, 32, 790, 15, 553, 16, 551, 34, 486, 33, 482, 17, 20, 15)
 
-[node name="platform_4_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=653877691]
-position = Vector2(251, 410)
-build_mode = 1
-polygon = PackedVector2Array(10, 3, 722, -2, 728, -21, 783, -20, 783, -5, 913, -2, 933, -1, 932, 16, 175, 21, 177, 20, 11, 21)
+[node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=200579511]
+position = Vector2(1130, 265)
+polygon = PackedVector2Array(15, 0, 78, 1, 77, 20, 11, 20)
 
-[node name="platform_5_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=309583418]
-position = Vector2(0, 370)
-polygon = PackedVector2Array(15, -2, 199, -5, 198, 13, 23, 14)
+[node name="platform_5_collision" type="CollisionPolygon2D" parent="canvas" unique_id=695504346]
+position = Vector2(250, 110)
+polygon = PackedVector2Array(16, 0, 124, 0, 154.22183, 31.575043, 191, 70, 552, 73, 564, 60, 634, 64, 641, 76, 781, 79, 781, 94, 622, 93, 621, 110, 605, 110, 602, 95, 268, 95, 266, 109, 204, 110, 170, 69, 142, 43, 114, 15, 7, 15)
 
-[node name="platform_6_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=102422318]
-position = Vector2(200, 200)
-polygon = PackedVector2Array(16, -1, 747, 1, 748, -24, 816, -16, 820, 1, 880, 2, 882, 16, 1182, 18, 1182, 40, 666, 34, 666, 21, -7, 22, -2, -4)
+[node name="platform_6_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1167922463]
+position = Vector2(420, -30)
+polygon = PackedVector2Array(15, -3, 112, -5, 112, 12, 17, 10)
 
-[node name="platform_7_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=971523548]
-position = Vector2(1350, 140)
-polygon = PackedVector2Array(16, -1, 142, -1, 142, 20, 15, 17)
+[node name="platform_7_collision" type="CollisionPolygon2D" parent="canvas" unique_id=416098140]
+position = Vector2(550, -110)
+polygon = PackedVector2Array(14, -1, 430, -6, 431, -24, 511, -21, 512, -7, 604, -5, 605, 13, 18, 11)
 
-[node name="platform_8_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1273549702]
-position = Vector2(1200, 50)
-polygon = PackedVector2Array(-17, -5, -138, -7, -142, -26, -677, -28, -678, -47, -750, -46, -751, -27, -1057, -29, -1096, -63, -1113, -78, -1111, -97, -1200, -95, -1201, -65, -1122, -65, -1120, -52, -1102, -51, -1104, -37, -1086, -35, -1085, -17, -1070, -19, -1072, 0, -1057, -2, -1057, 11, -962, 11, -958, 25, -822, 28, -819, 10, -779, 11, -775, -4, -159, -4, -159, 14, -3, 12, 2, -4)
+[node name="platform_8_collision" type="CollisionPolygon2D" parent="canvas" unique_id=932586004]
+position = Vector2(1220, -230)
+polygon = PackedVector2Array(17, -2, 113, 1, 113, 20, 16, 21)
 
-[node name="platform_9_collision_shape" type="CollisionPolygon2D" parent="canvas" unique_id=1140242466]
-position = Vector2(100, -100)
-polygon = PackedVector2Array(15, -3, 209, -3, 211, -17, 224, -16, 226, -2, 1309, -2, 1326, -17, 1344, -35, 1359, -55, 1376, -67, 1391, -82, 1393, -114, 1412, -115, 1412, -70, 1393, -50, 1380, -35, 1364, -21, 1334, -1, 1317, 19, 1075, 18, 1075, 33, 1044, 32, 1039, 17, 706, 17, 705, 29, 591, 28, 590, 13, 226, 14, 226, 35, 131, 33, 129, 17, 12, 15)
+[node name="platform_9_collision" type="CollisionPolygon2D" parent="canvas" unique_id=505948755]
+position = Vector2(760, -500)
+polygon = PackedVector2Array(13, -3, 29, -2, 98, 75, 235, 79, 315, 162, 317, 176, 234, 98, 95, 96, 6, 7)
+
+[node name="platform_10_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1966619031]
+position = Vector2(570, -510)
+polygon = PackedVector2Array(17, -2, 122, -5, 121, 11, 13, 10)
+
+[node name="platform_11_collision" type="CollisionPolygon2D" parent="canvas" unique_id=380311382]
+position = Vector2(450, -590)
+polygon = PackedVector2Array(14, -2, 97, -5, 97, 13, 13, 11)
+
+[node name="platform_12_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1857798811]
+position = Vector2(600, -720)
+polygon = PackedVector2Array(16, 0, 124, -4, 124, 14, 19, 12)
+
+[node name="platform_13_collision" type="CollisionPolygon2D" parent="canvas" unique_id=26751930]
+position = Vector2(900, -720)
+polygon = PackedVector2Array(17, -1, 609, -6, 609, 14, 151, 13, 143, 30, 122, 11, 17, 11, 2, 7)
+
+[node name="platform_14_collision" type="CollisionPolygon2D" parent="canvas" unique_id=748870751]
+position = Vector2(1440, 530)
+polygon = PackedVector2Array(14, -3, 68, -5, 69, 9, 11, 9)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_j2425")]
 position = Vector2(-527, 19)
