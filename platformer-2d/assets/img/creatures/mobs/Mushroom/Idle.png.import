@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv6xd2sv8vhvu"
-path="res://.godot/imported/flying_eater.png-d907507720b9fc606584f9afc354cd6e.ctex"
+uid="uid://bb7ips1c44w5m"
+path="res://.godot/imported/Idle.png-fca96e4ba60229d60cf6a6422a1bb872.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/creatures/mobs/flying_eater.png"
-dest_files=["res://.godot/imported/flying_eater.png-d907507720b9fc606584f9afc354cd6e.ctex"]
+source_file="res://assets/img/creatures/mobs/Mushroom/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-fca96e4ba60229d60cf6a6422a1bb872.ctex"]
 
 [params]
 

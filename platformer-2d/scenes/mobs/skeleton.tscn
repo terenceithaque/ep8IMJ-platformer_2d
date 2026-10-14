@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ccgof4hwimuni"]
+
+[ext_resource type="Script" uid="uid://da5we8mk2unrx" path="res://scripts/skeleton.gd" id="1_34uab"]
+[ext_resource type="Texture2D" uid="uid://e4l47f5qee0" path="res://assets/img/creatures/mobs/Skeleton/Idle.png" id="1_qxc4t"]
+[ext_resource type="Texture2D" uid="uid://cj3gnp65myufu" path="res://assets/img/creatures/mobs/Skeleton/Walk.png" id="2_l7dce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7dce"]
+atlas = ExtResource("1_qxc4t")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34uab"]
+atlas = ExtResource("1_qxc4t")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0p64"]
+atlas = ExtResource("1_qxc4t")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kycrw"]
+atlas = ExtResource("1_qxc4t")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh3l3"]
+atlas = ExtResource("2_l7dce")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmtsy"]
+atlas = ExtResource("2_l7dce")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b25yd"]
+atlas = ExtResource("2_l7dce")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d760r"]
+atlas = ExtResource("2_l7dce")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i62uf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7dce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34uab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0p64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kycrw")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh3l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmtsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b25yd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d760r")
+}],
+"loop": 0,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="skeleton" type="CharacterBody2D" unique_id=170213127]
+script = ExtResource("1_34uab")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=2088527286]
+position = Vector2(523, 284)
+sprite_frames = SubResource("SpriteFrames_i62uf")
+animation = &"idle"
+
+[node name="change_direction_timer" type="Timer" parent="." unique_id=356901258]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]

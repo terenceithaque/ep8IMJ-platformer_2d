@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ylspjl03u5g"
-path="res://.godot/imported/dr_strange.png-b316c889796df21292fa2f43da44cb00.ctex"
+uid="uid://da8vu1fevt2wh"
+path="res://.godot/imported/Take Hit.png-26eba818c2a638b750a42b46287f7002.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/creatures/mobs/dr_strange.png"
-dest_files=["res://.godot/imported/dr_strange.png-b316c889796df21292fa2f43da44cb00.ctex"]
+source_file="res://assets/img/creatures/mobs/Goblin/Take Hit.png"
+dest_files=["res://.godot/imported/Take Hit.png-26eba818c2a638b750a42b46287f7002.ctex"]
 
 [params]
 
