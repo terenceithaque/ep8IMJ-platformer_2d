@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bqwpbuy1kt2" path="res://assets/img/background_elements/Samples/colored_forest.png" id="2_g2h2n"]
 [ext_resource type="Texture2D" uid="uid://ca6tgx1id80sj" path="res://assets/img/scenes/level_2.png" id="2_ra442"]
 [ext_resource type="AudioStream" uid="uid://cwbujl40lf4yu" path="res://assets/music/in_the_forest.mp3" id="4_fiq81"]
+[ext_resource type="PackedScene" uid="uid://ccgof4hwimuni" path="res://scenes/mobs/skeleton.tscn" id="6_qpwj6"]
 
 [node name="level_2" type="Node2D" unique_id=266311822]
 position = Vector2(-58, -55)
@@ -82,6 +83,9 @@ polygon = PackedVector2Array(14, -3, 68, -5, 69, 9, 11, 9)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_j2425")]
 position = Vector2(-527, 19)
+
+[node name="skeleton" parent="." unique_id=170213127 instance=ExtResource("6_qpwj6")]
+position = Vector2(-220, 280)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=433561141]
 stream = ExtResource("4_fiq81")
