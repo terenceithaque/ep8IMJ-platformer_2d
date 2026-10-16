@@ -73,6 +73,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y63fj"]
+radius = 32.89377
+
 [node name="skeleton" type="CharacterBody2D" unique_id=170213127]
 script = ExtResource("1_34uab")
 
@@ -80,6 +83,12 @@ script = ExtResource("1_34uab")
 position = Vector2(523, 284)
 sprite_frames = SubResource("SpriteFrames_i62uf")
 animation = &"idle"
+metadata/_edit_group_ = true
+
+[node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1867304212]
+position = Vector2(529, 283)
+shape = SubResource("CircleShape2D_y63fj")
+metadata/_edit_group_ = true
 
 [node name="change_direction_timer" type="Timer" parent="." unique_id=356901258]
 wait_time = 4.0

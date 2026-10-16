@@ -572,6 +572,7 @@ position = Vector2(567, 316)
 scale = Vector2(0.25, 0.25)
 limit_enabled = false
 position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 drag_vertical_enabled = true
 
 [node name="walk_sound" type="AudioStreamPlayer" parent="." unique_id=549563080]

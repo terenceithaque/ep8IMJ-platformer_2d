@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccgof4hwimuni" path="res://scenes/mobs/skeleton.tscn" id="6_qpwj6"]
 
 [node name="level_2" type="Node2D" unique_id=266311822]
-position = Vector2(-58, -55)
+position = Vector2(-42, -50)
 script = ExtResource("1_l37oo")
 metadata/_edit_group_ = true
 
@@ -27,7 +27,7 @@ texture = ExtResource("2_ra442")
 
 [node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=318418735]
 position = Vector2(-80, 635)
-polygon = PackedVector2Array(18, -3, 308, -5, 338, -33, 351, -43, 407, -50, 407, -31, 362, -27, 359, 15, 9, 18)
+polygon = PackedVector2Array(18, -3, 308, -5, 338, -33, 335, -49, 407, -50, 407, -31, 362, -27, 359, 15, 9, 18)
 
 [node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=759738963]
 position = Vector2(350, 540)
@@ -83,9 +83,10 @@ polygon = PackedVector2Array(14, -3, 68, -5, 69, 9, 11, 9)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_j2425")]
 position = Vector2(-527, 19)
+floor_stop_on_slope = false
 
 [node name="skeleton" parent="." unique_id=170213127 instance=ExtResource("6_qpwj6")]
-position = Vector2(-220, 280)
+position = Vector2(80, 150)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=433561141]
 stream = ExtResource("4_fiq81")

@@ -10,6 +10,8 @@ var attacking = false
 func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
 	
 	velocity.y += gravity * delta
+	
+	#print(velocity)
 
 
 func _process(delta:float) -> void:
