@@ -7,11 +7,17 @@ var direction = Vector2i.RIGHT
 var running = false
 var attacking = false
 
+@onready var player = get_parent().get_node("player")
+
 func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
 	
 	velocity.y += gravity * delta
 	
 	#print(velocity)
+	
+
+func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
+	return abs(velocity.x - player.velocity.x) <= 100
 
 
 func _process(delta:float) -> void:
@@ -30,6 +36,9 @@ func _process(delta:float) -> void:
 		
 		
 		$sprite.play("walk")
+		
+		if is_player_close():
+			print("Le joueur est à proximité du squelette")
 	
 	move_and_slide()
 
