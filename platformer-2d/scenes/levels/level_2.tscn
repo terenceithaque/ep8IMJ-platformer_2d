@@ -37,9 +37,6 @@ polygon = PackedVector2Array(15, -1, 151, -2, 151, 17, 24, 17)
 position = Vector2(560, 460)
 polygon = PackedVector2Array(17, -2, 611, -4, 621, -10, 871, -16, 870, -1, 839, -1, 838, 31, 790, 32, 790, 15, 553, 16, 551, 34, 486, 33, 482, 17, 20, 15)
 
-[node name="platform_3_area" type="Area2D" parent="canvas/platform_3_collision" unique_id=2028152765]
-position = Vector2(-560, -460)
-
 [node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=200579511]
 position = Vector2(1130, 265)
 polygon = PackedVector2Array(15, 0, 78, 1, 77, 20, 11, 20)

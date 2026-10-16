@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 200.0
+var RUN_SPEED = SPEED * 1.75
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2i.RIGHT
 
@@ -17,7 +18,9 @@ func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
 	
 
 func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
-	return abs(velocity.x - player.velocity.x) <= 100
+	var distance = abs(position.x - player.position.x)
+	print(distance)
+	return distance <= 400
 
 
 func _process(delta:float) -> void:
@@ -28,17 +31,41 @@ func _process(delta:float) -> void:
 	
 	else:
 		# Déplacements vers la gauche ou la droite
-		if direction.x == -1:
-			velocity = Vector2(direction.x, 0.0) * SPEED
+		if not running:
+			if direction.x == -1:
+				velocity = Vector2(direction.x, 0.0) * SPEED
+			
+			elif direction.x == 1:
+				velocity = Vector2(direction.x, 0.0) * SPEED
 		
-		elif direction.x == 1:
-			velocity = Vector2(direction.x, 0.0) * SPEED
+		else:
+			if not running:
+				if direction.x == -1:
+					velocity = Vector2(direction.x, 0.0) * RUN_SPEED
+				
+				elif direction.x == 1:
+					velocity = Vector2(direction.x, 0.0) * RUN_SPEED
 		
 		
 		$sprite.play("walk")
 		
 		if is_player_close():
-			print("Le joueur est à proximité du squelette")
+			print("Le squelette a repéré le joueur")
+			if position.x - player.position.x < 0:
+				direction = Vector2i.LEFT
+				$sprite.flip_h = true
+				running = true
+			
+			elif position.x - player.position.x > 0:
+				direction = Vector2i.RIGHT
+				$sprite.flip_h = true
+				running = true
+			
+			# Désactiver le timer de changement de direction
+			$change_direction_timer.stop()
+		
+		else:
+			running = false
 	
 	move_and_slide()
 
