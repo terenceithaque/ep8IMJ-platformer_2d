@@ -570,8 +570,8 @@ wait_time = 3.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1945464649]
 position = Vector2(567, 316)
 scale = Vector2(0.25, 0.25)
-limit_left = -25
-limit_top = -1300
+limit_left = -200
+limit_top = -1500
 limit_right = 1500
 limit_bottom = 1200
 position_smoothing_enabled = true

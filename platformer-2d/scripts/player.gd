@@ -96,10 +96,20 @@ func display_tutorial(tutorial_title:String, tutorial_text:String, flag_name:Str
 	$Camera2D.add_child(popup)
 
 func is_out_of_screen() -> bool:
-	if abs(position.x) > screen_width:
+	if position.x < $Camera2D.limit_left:
+		print("Le joueur est sorti de l'écran par la gauche")
 		return true
 	
-	elif abs(position.y) > screen_height:
+	elif position.x > $Camera2D.limit_right:
+		print("Le joueur est sorti de l'écran par la droite")
+		return true
+	
+	elif position.y < $Camera2D.limit_top:
+		print("Le joueur est sorti de l'écran par le haut")
+		return true
+	
+	elif position.y > $Camera2D.limit_bottom:
+		print("Le joueur est sorti de l'écran par le bas")
 		return true
 	
 	else:

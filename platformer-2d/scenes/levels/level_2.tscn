@@ -82,7 +82,7 @@ position = Vector2(1440, 530)
 polygon = PackedVector2Array(14, -3, 68, -5, 69, 9, 11, 9)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("1_j2425")]
-position = Vector2(-527, 19)
+position = Vector2(-200, 20)
 floor_stop_on_slope = false
 
 [node name="skeleton" parent="." unique_id=170213127 instance=ExtResource("6_qpwj6")]

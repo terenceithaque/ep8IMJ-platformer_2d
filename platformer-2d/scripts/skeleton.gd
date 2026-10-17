@@ -21,6 +21,41 @@ func is_player_close(): ## Renvoie true si le joueur est à proximité, false si
 	var distance = abs(position.x - player.position.x)
 	print(distance)
 	return distance <= 400
+	
+
+func change_direction(): ## Change la direction vers laquelle le squelette se dirige
+	if direction.x == -1:
+		direction = Vector2i.RIGHT
+	
+	else:
+		direction = Vector2i.LEFT
+
+func is_void_close(): ## Renvoie true si le vide est près du squelette, false sinon
+	return not $void_detection.is_colliding()
+
+func move(): ## Déplace le squelette selon sa direction actuelle
+	if not running:
+			if direction.x == -1:
+				velocity = Vector2(direction.x, 0.0) * SPEED
+			
+			elif direction.x == 1:
+				velocity = Vector2(direction.x, 0.0) * SPEED
+		
+	else:
+		if direction.x == -1:
+			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
+				
+		elif direction.x == 1:
+			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
+
+func update_void_detection_position(): ## Définit la position du noeud de détection du vide en fonction de la direction du squelette
+	if direction == Vector2i.LEFT:
+		$void_detection.target_position.x = $sprite.position.x - 20
+		$void_detection.target_position.y = $sprite.position.y
+	
+	else:
+		$void_detection.target_position.x = $sprite.position.x + 20
+		$void_detection.target_position.y = $sprite.position.y
 
 
 func _process(delta:float) -> void:
@@ -30,23 +65,17 @@ func _process(delta:float) -> void:
 		fall(delta)
 	
 	else:
-		# Déplacements vers la gauche ou la droite
-		if not running:
-			if direction.x == -1:
-				velocity = Vector2(direction.x, 0.0) * SPEED
+		
+		if is_void_close():
+			print("Le squelette est près du vide")
+			change_direction()
+			$sprite.flip_h = true
 			
-			elif direction.x == 1:
-				velocity = Vector2(direction.x, 0.0) * SPEED
-		
-		else:
-			if not running:
-				if direction.x == -1:
-					velocity = Vector2(direction.x, 0.0) * RUN_SPEED
-				
-				elif direction.x == 1:
-					velocity = Vector2(direction.x, 0.0) * RUN_SPEED
+			
+		# Déplacements vers la gauche ou la droite
 		
 		
+		move()
 		$sprite.play("walk")
 		
 		if is_player_close():
@@ -68,16 +97,13 @@ func _process(delta:float) -> void:
 			running = false
 	
 	move_and_slide()
+	update_void_detection_position()
+
 
 
 func _on_change_direction_timer_timeout() -> void:
 	
-	if direction == Vector2i.RIGHT:
-		direction = Vector2i.LEFT
-		$sprite.flip_h = true
-	
-	elif direction == Vector2i.LEFT:
-		direction = Vector2i.RIGHT
-		$sprite.flip_h = false
+	change_direction()
+	$sprite.flip_h = true
 	
 	print(direction)
