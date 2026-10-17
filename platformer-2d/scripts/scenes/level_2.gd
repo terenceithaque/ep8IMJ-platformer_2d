@@ -8,11 +8,18 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 func _ready() -> void:
 	$music.play()
 	"""var background_image = get_node("canvas/background_image")
-	var background_image_scale = screen_width / background_image.texture.get_size().x"""	
+	var background_image_scale = screen_width / background_image.texture.get_size().x"""
+	
+	var camera = get_node("player/Camera2D")
+	camera.limit_left = -400.0
+	camera.limit_top = -1500.0
+	camera.limit_right = 1500.0
+	camera.limit_bottom = 1200.0
 	
 	#background_image.set_scale(Vector2(background_image_scale, background_image_scale))
 
 func _process(delta:float) -> void:
+	
 	
 	if $player.is_out_of_screen():
 		#print("Le joueur est sorti de l'écran")
