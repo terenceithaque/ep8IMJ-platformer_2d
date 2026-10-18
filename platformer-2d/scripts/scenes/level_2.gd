@@ -18,6 +18,10 @@ func _ready() -> void:
 	
 	#background_image.set_scale(Vector2(background_image_scale, background_image_scale))
 
+
+	
+	
+
 func _process(delta:float) -> void:
 	
 	
@@ -26,10 +30,7 @@ func _process(delta:float) -> void:
 		$player.position = initial_player_position
 	
 	
-	
-	if $skeleton.is_on_floor():
-		pass
-		#print("Le squelette touche le sol")
-	
-	else:
-		pass
+	# Désactiver le squelette s'il sort de la fen
+	if $skeleton.is_out_of_window():
+		$skeleton.set_process(false)
+		print("Le squelette est sorti de l'écran et a été désactivé")

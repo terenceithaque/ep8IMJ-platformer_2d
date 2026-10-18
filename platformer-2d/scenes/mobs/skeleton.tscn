@@ -165,4 +165,7 @@ autostart = true
 
 [node name="void_detection" type="RayCast2D" parent="." unique_id=2146905706]
 
+[node name="void_detected" type="Timer" parent="." unique_id=1985317792]
+one_shot = true
+
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]

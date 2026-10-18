@@ -5,8 +5,12 @@ var RUN_SPEED = SPEED * 1.75
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2i.RIGHT
 
+var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
+var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
+
 var running = false
 var attacking = false
+var void_detected = false
 
 @onready var player = get_parent().get_node("player")
 
@@ -17,13 +21,24 @@ func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
 	#print(velocity)
 	
 
+func is_out_of_window() -> bool: ## Renvoie true si le squelette est sorti de l'écran, false sinon
+	if position.x > screen_width or position.x < -screen_width:
+		return true
+	
+	elif position.y > screen_height or position.y < -screen_height:
+		return true
+		
+	return false
+	
+
 func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
 	var distance = abs(position.x - player.position.x)
-	print(distance)
+	#print(distance)
 	return distance <= 400
 	
 
 func change_direction(): ## Change la direction vers laquelle le squelette se dirige
+	print("Changement de direction")
 	if direction.x == -1:
 		direction = Vector2i.RIGHT
 	
@@ -66,10 +81,22 @@ func _process(delta:float) -> void:
 	
 	else:
 		
-		if is_void_close():
+		if is_void_close() and $void_detected.is_stopped():
+			void_detected = true
+			$void_detected.start()
+		
+		else:
+			void_detected = false
+		
+		if void_detected:
 			print("Le squelette est près du vide")
 			change_direction()
+			#move()
 			$sprite.flip_h = true
+			$change_direction_timer.start()
+			$void_detected.start()
+		
+			
 			
 			
 		# Déplacements vers la gauche ou la droite
@@ -79,19 +106,21 @@ func _process(delta:float) -> void:
 		$sprite.play("walk")
 		
 		if is_player_close():
-			print("Le squelette a repéré le joueur")
-			if position.x - player.position.x < 0:
-				direction = Vector2i.LEFT
-				$sprite.flip_h = true
-				running = true
+			#print("Le squelette a repéré le joueur")
 			
-			elif position.x - player.position.x > 0:
-				direction = Vector2i.RIGHT
-				$sprite.flip_h = true
-				running = true
-			
-			# Désactiver le timer de changement de direction
-			$change_direction_timer.stop()
+			if not void_detected:
+				if position.x - player.position.x < 0:
+					direction = Vector2i.LEFT
+					$sprite.flip_h = true
+					running = true
+				
+				elif position.x - player.position.x > 0:
+					direction = Vector2i.RIGHT
+					$sprite.flip_h = true
+					running = true
+				
+				# Désactiver le timer de changement de direction
+				$change_direction_timer.stop()
 		
 		else:
 			running = false
@@ -106,4 +135,4 @@ func _on_change_direction_timer_timeout() -> void:
 	change_direction()
 	$sprite.flip_h = true
 	
-	print(direction)
+	#print(direction)
