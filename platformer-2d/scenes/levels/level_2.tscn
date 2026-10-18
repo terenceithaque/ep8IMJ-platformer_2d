@@ -18,7 +18,7 @@ metadata/_edit_group_ = true
 
 [node name="background_image" type="Sprite2D" parent="canvas" unique_id=1424611472]
 position = Vector2(722.9999, 249)
-scale = Vector2(1.55, 2.5)
+scale = Vector2(1.75, 2.75)
 texture = ExtResource("2_g2h2n")
 
 [node name="platforms" type="Sprite2D" parent="canvas" unique_id=1343132224]

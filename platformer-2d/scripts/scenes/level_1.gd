@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 	if $player.is_out_of_screen():
 		print("Le joueur est sorti de l'écran")
 		$player.position = initial_player_position
+		$player.dammage(1)
 	
 	if $level_ending_panel.reached:
 		get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")

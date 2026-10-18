@@ -28,9 +28,11 @@ func _process(delta:float) -> void:
 	if $player.is_out_of_screen():
 		#print("Le joueur est sorti de l'écran")
 		$player.position = initial_player_position
+		$player.dammage(1)
 	
 	
 	# Désactiver le squelette s'il sort de la fen
 	if $skeleton.is_out_of_window():
-		$skeleton.set_process(false)
-		print("Le squelette est sorti de l'écran et a été désactivé")
+		#$skeleton.set_process(false)
+		$skeleton.process_mode = Node.PROCESS_MODE_DISABLED
+		#print("Le squelette est sorti de l'écran et a été désactivé")

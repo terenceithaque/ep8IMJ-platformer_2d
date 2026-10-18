@@ -41,9 +41,11 @@ func change_direction(): ## Change la direction vers laquelle le squelette se di
 	print("Changement de direction")
 	if direction.x == -1:
 		direction = Vector2i.RIGHT
+		$sprite.flip_h = false
 	
 	else:
 		direction = Vector2i.LEFT
+		$sprite.flip_h = true
 
 func is_void_close(): ## Renvoie true si le vide est près du squelette, false sinon
 	return not $void_detection.is_colliding()
@@ -92,7 +94,7 @@ func _process(delta:float) -> void:
 			print("Le squelette est près du vide")
 			change_direction()
 			#move()
-			$sprite.flip_h = true
+			#$sprite.flip_h = true
 			$change_direction_timer.start()
 			$void_detected.start()
 		
@@ -111,12 +113,12 @@ func _process(delta:float) -> void:
 			if not void_detected:
 				if position.x - player.position.x < 0:
 					direction = Vector2i.LEFT
-					$sprite.flip_h = true
+					#$sprite.flip_h = true
 					running = true
 				
 				elif position.x - player.position.x > 0:
 					direction = Vector2i.RIGHT
-					$sprite.flip_h = true
+					#$sprite.flip_h = true
 					running = true
 				
 				# Désactiver le timer de changement de direction
@@ -133,6 +135,6 @@ func _process(delta:float) -> void:
 func _on_change_direction_timer_timeout() -> void:
 	
 	change_direction()
-	$sprite.flip_h = true
+	#$sprite.flip_h = true
 	
 	#print(direction)

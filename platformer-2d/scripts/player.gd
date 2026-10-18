@@ -6,8 +6,9 @@ var RUN_SPEED = WALK_SPEED * 1.75
 var SPEED = WALK_SPEED
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var max_life = 5 # Vie (coeurs) du joueur
-var life = 5
+var max_life = 5.0 # Vie (coeurs) du joueur
+var life = 5.0
+@onready var life_bar = get_node("GUI/life_bar")
 
 # Obtenir les dimensions de la fenetre de jeu
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
@@ -44,6 +45,11 @@ func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'acti
 	return key_name
 
 
+func dammage(points:int): ## Réduit la vie du joueur du nombre de points indiqués et met à jour la barre de vie
+	life -= points
+	print(life)
+	life_bar.value = (life / max_life) * 100
+	
 
 
 var JUMP_VELOCITY = -12000
@@ -296,6 +302,12 @@ func _physics_process(delta: float) -> void:
 
 # Gère les autres actions du joueur
 func _process(float) -> void:
+	
+	# Afficher l'écran de game over si le joueur n'a plus de vies
+	if life <= 0:
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		
+		
 	if Input.is_action_just_released("attaque"):
 		attack()
 		

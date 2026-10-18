@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b0yserxps5842"]
+
+[ext_resource type="Script" uid="uid://1d53bdjhbgwu" path="res://scripts/scenes/game_over.gd" id="1_tbwuq"]
+[ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="1_xeevv"]
+[ext_resource type="AudioStream" uid="uid://b02e3dxhfe61c" path="res://assets/sounds/player/game_over.mp3" id="2_wqhvx"]
+
+[node name="game_over" type="Node2D" unique_id=647913064]
+script = ExtResource("1_tbwuq")
+
+[node name="Label" type="Label" parent="." unique_id=133456506]
+offset_left = 500.0
+offset_top = 125.0
+offset_right = 627.0
+offset_bottom = 148.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xeevv")
+text = "Game Over !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="replay_button" type="Button" parent="." unique_id=432543944]
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 600.0
+offset_bottom = 231.0
+text = "Réessayer"
+
+[node name="quit_button" type="Button" parent="." unique_id=995614362]
+offset_left = 500.0
+offset_top = 250.0
+offset_right = 599.0
+offset_bottom = 281.0
+text = "Quitter
+"
+
+[node name="sound" type="AudioStreamPlayer" parent="." unique_id=325731056]
+stream = ExtResource("2_wqhvx")
