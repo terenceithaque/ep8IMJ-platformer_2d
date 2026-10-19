@@ -3,15 +3,27 @@
 [ext_resource type="Script" uid="uid://1d53bdjhbgwu" path="res://scripts/scenes/game_over.gd" id="1_tbwuq"]
 [ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="1_xeevv"]
 [ext_resource type="AudioStream" uid="uid://bequh6800a6sc" path="res://assets/sounds/player/die_1.mp3" id="3_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://dcwvgaahgr5u0" path="res://assets/img/background_elements/Samples/uncolored_castle.png" id="4_racf3"]
 
 [node name="game_over" type="Node2D" unique_id=647913064]
 script = ExtResource("1_tbwuq")
 
-[node name="Label" type="Label" parent="." unique_id=133456506]
-offset_left = 500.0
-offset_top = 125.0
-offset_right = 627.0
-offset_bottom = 148.0
+[node name="death" type="AudioStreamPlayer" parent="." unique_id=1913537268]
+stream = ExtResource("3_tbwuq")
+autoplay = true
+
+[node name="canvas" type="StaticBody2D" parent="." unique_id=1735878366]
+
+[node name="Sprite2D" type="Sprite2D" parent="canvas" unique_id=1221145061]
+position = Vector2(634.5, 458)
+scale = Vector2(0.99902344, 0.890625)
+texture = ExtResource("4_racf3")
+
+[node name="Label" type="Label" parent="canvas/Sprite2D" unique_id=1615876360]
+offset_left = -47.0
+offset_top = -137.0
+offset_right = 80.0
+offset_bottom = -114.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_xeevv")
@@ -19,23 +31,19 @@ text = "Game Over !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="replay_button" type="Button" parent="." unique_id=432543944]
-offset_left = 500.0
-offset_top = 200.0
-offset_right = 600.0
-offset_bottom = 231.0
+[node name="replay_button" type="Button" parent="canvas/Sprite2D" unique_id=990987691]
+offset_left = -30.0
+offset_top = -78.0
+offset_right = 70.0
+offset_bottom = -47.0
 text = "Réessayer"
 
-[node name="quit_button" type="Button" parent="." unique_id=995614362]
-offset_left = 500.0
-offset_top = 250.0
-offset_right = 599.0
-offset_bottom = 281.0
+[node name="quit_button" type="Button" parent="canvas/Sprite2D" unique_id=1767494609]
+offset_left = -28.0
+offset_top = 10.0
+offset_right = 71.0
+offset_bottom = 41.0
 text = "Quitter
 "
 
-[node name="death" type="AudioStreamPlayer" parent="." unique_id=1913537268]
-stream = ExtResource("3_tbwuq")
-autoplay = true
-
-[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="canvas/Sprite2D/quit_button" to="." method="_on_quit_button_pressed"]

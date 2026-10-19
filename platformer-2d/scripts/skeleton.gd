@@ -153,3 +153,6 @@ func _on_sprite_animation_finished() -> void:
 	print($sprite.animation)
 	if attacking:
 		$sprite.play("attack")
+	
+	else:
+		$sprite.play("walk")
