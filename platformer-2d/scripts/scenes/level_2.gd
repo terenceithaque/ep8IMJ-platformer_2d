@@ -36,3 +36,6 @@ func _process(delta:float) -> void:
 		#$skeleton.set_process(false)
 		$skeleton.process_mode = Node.PROCESS_MODE_DISABLED
 		#print("Le squelette est sorti de l'écran et a été désactivé")
+	
+	if $level_ending_panel.reached:
+		print("Le joueur a atteint la fin du niveau")
