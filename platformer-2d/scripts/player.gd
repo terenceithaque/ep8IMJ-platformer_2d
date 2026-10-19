@@ -14,8 +14,6 @@ var life = 5.0
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
-var nb_hits = 0 # Nombre de coups subits par le joueur
-
 
 # Récupérer les touches utilisées pour les différentes actions du joueur
 var move_right_keys = ProjectSettings.get_setting("input/droite")
@@ -51,23 +49,10 @@ func dammage(points:int): ## Réduit la vie du joueur du nombre de points indiqu
 	life -= points
 	print(life)
 	life_bar.value = (life / max_life) * 100
-	nb_hits += 1
+	var sound_number = randi_range(1, 5)
+	var chosen_hit_sound = get_node("hit_{0}".format([sound_number]))
+	chosen_hit_sound.play()
 	
-	if nb_hits == 1:
-		$hit_1.play()
-	
-	elif nb_hits == 2:
-		$hit_2.play()
-	
-	elif nb_hits == 3:
-		$hit_3.play()
-	
-	elif nb_hits == 4:
-		$hit_4.play()
-	
-	elif nb_hits == 5:
-		$hit_5.play()
-		nb_hits = 0
 	
 
 
