@@ -11,6 +11,8 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 var running = false
 var attacking = false
 var void_detected = false
+var void_detected_timeout = false
+var nb_void_detections = 0
 
 @onready var player = get_parent().get_node("player")
 
@@ -34,7 +36,7 @@ func is_out_of_window() -> bool: ## Renvoie true si le squelette est sorti de l'
 func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
 	var distance = abs(position.x - player.position.x)
 	#print(distance)
-	return distance <= 400
+	return distance <= 200
 	
 
 func change_direction(): ## Change la direction vers laquelle le squelette se dirige
@@ -75,28 +77,26 @@ func update_void_detection_position(): ## Définit la position du noeud de déte
 		$void_detection.target_position.y = $sprite.position.y
 
 
-func _process(delta:float) -> void:
-	
-	
+func _process(delta:float) -> void:	
 	if not is_on_floor():
 		fall(delta)
 	
 	else:
 		
-		if is_void_close() and $void_detected.is_stopped():
+		if is_void_close() and void_detected_timeout:
 			void_detected = true
-			$void_detected.start()
-		
-		else:
-			void_detected = false
-		
-		if void_detected:
-			print("Le squelette est près du vide")
+			void_detected_timeout = false
+			#print("Le squelette est près du vide")
 			change_direction()
 			#move()
 			#$sprite.flip_h = true
 			$change_direction_timer.start()
-			$void_detected.start()
+			#$void_detected.start()
+			nb_void_detections += 1
+		
+		else:
+			void_detected = false
+		
 		
 			
 			
@@ -104,13 +104,14 @@ func _process(delta:float) -> void:
 		# Déplacements vers la gauche ou la droite
 		
 		
-		move()
-		$sprite.play("walk")
+		
 		
 		if is_player_close():
 			#print("Le squelette a repéré le joueur")
 			
-			if not void_detected:
+			attacking = true
+			
+			"""if not void_detected:
 				if position.x - player.position.x < 0:
 					direction = Vector2i.LEFT
 					#$sprite.flip_h = true
@@ -122,10 +123,13 @@ func _process(delta:float) -> void:
 					running = true
 				
 				# Désactiver le timer de changement de direction
-				$change_direction_timer.stop()
+				$change_direction_timer.stop()"""
 		
 		else:
 			running = false
+			attacking = false
+			move()
+			$sprite.play("walk")
 	
 	move_and_slide()
 	update_void_detection_position()
@@ -138,3 +142,14 @@ func _on_change_direction_timer_timeout() -> void:
 	#$sprite.flip_h = true
 	
 	#print(direction)
+
+
+func _on_void_detected_timeout() -> void:
+	print(void_detected_timeout)
+	void_detected_timeout = true
+
+
+func _on_sprite_animation_finished() -> void:
+	print($sprite.animation)
+	if attacking:
+		$sprite.play("attack")
