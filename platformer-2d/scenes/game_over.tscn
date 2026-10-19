@@ -37,3 +37,5 @@ text = "Quitter
 [node name="death" type="AudioStreamPlayer" parent="." unique_id=1913537268]
 stream = ExtResource("3_tbwuq")
 autoplay = true
+
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

@@ -250,12 +250,19 @@ func _physics_process(delta: float) -> void:
 			if $sprite.animation != "walk":
 				$sprite.play("walk")
 			#$run_sound.stop()
-			$walk_sound.play()
+			
+			$run_sound.playing = false
+			
+			if not $walk_sound.playing:
+				$walk_sound.play()
 			
 		else:
 			$sprite.play("run")
 			#$walk_sound.stop()
-			$run_sound.play()
+			
+			$walk_sound.playing = false
+			if not $run_sound.playing:
+				$run_sound.play()
 		
 	else:
 		#$sprite.stop()
@@ -309,6 +316,10 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and Input.is_action_pressed("saut"):
 			print("Saut")
 			jump(delta)
+	
+	elif is_on_floor() and not Input.is_action_pressed("saut"):
+		if $sprite.animation == "jump":
+			$sprite.animation = "idle"
 	
 	elif not is_on_floor():
 		fall(delta)
