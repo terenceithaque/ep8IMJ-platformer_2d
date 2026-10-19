@@ -15,6 +15,11 @@
 [ext_resource type="AudioStream" uid="uid://4o5e5m5plrac" path="res://assets/sounds/player/player_attack.mp3" id="13_jej6c"]
 [ext_resource type="Script" uid="uid://re2t8vtocwa2" path="res://scripts/player_gui/life_bar.gd" id="14_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://dcsjr8wqlte70" path="res://assets/sounds/player/player_jump.mp3" id="14_oprun"]
+[ext_resource type="AudioStream" uid="uid://c2gqxkxkqdqta" path="res://assets/sounds/player/hit_1.mp3" id="16_a8ls1"]
+[ext_resource type="AudioStream" uid="uid://v1gdwm4kit5s" path="res://assets/sounds/player/hit_2.mp3" id="17_qfm1y"]
+[ext_resource type="AudioStream" uid="uid://c8i4uc4ugy7un" path="res://assets/sounds/player/hit_3.mp3" id="18_fulsm"]
+[ext_resource type="AudioStream" uid="uid://l6vqikdrmdek" path="res://assets/sounds/player/hit_4.mp3" id="19_4r5pv"]
+[ext_resource type="AudioStream" uid="uid://c6ibdy7jt3ri0" path="res://assets/sounds/player/hit_5.mp3" id="20_60mlk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bswci"]
 radius = 33.01515
@@ -605,6 +610,21 @@ script = ExtResource("14_f1ej7")
 
 [node name="attack_animation_reset" type="Timer" parent="." unique_id=1761043511]
 wait_time = 3.0
+
+[node name="hit_1" type="AudioStreamPlayer" parent="." unique_id=889360710]
+stream = ExtResource("16_a8ls1")
+
+[node name="hit_2" type="AudioStreamPlayer" parent="." unique_id=1886582801]
+stream = ExtResource("17_qfm1y")
+
+[node name="hit_3" type="AudioStreamPlayer" parent="." unique_id=1407446031]
+stream = ExtResource("18_fulsm")
+
+[node name="hit_4" type="AudioStreamPlayer" parent="." unique_id=1785347431]
+stream = ExtResource("19_4r5pv")
+
+[node name="hit_5" type="AudioStreamPlayer" parent="." unique_id=537559124]
+stream = ExtResource("20_60mlk")
 
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
