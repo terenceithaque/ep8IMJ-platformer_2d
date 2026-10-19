@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	
 	if $player.is_out_of_screen():
 		print("Le joueur est sorti de l'écran")
-		$player.position = initial_player_position
+		$player.position = $player.latest_ground_position
 		$player.dammage(1)
 	
 	if $level_ending_panel.reached:

@@ -14,6 +14,8 @@ var life = 5.0
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
+@onready var latest_ground_position = position
+
 
 # Récupérer les touches utilisées pour les différentes actions du joueur
 var move_right_keys = ProjectSettings.get_setting("input/droite")
@@ -305,6 +307,8 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor() and not Input.is_action_pressed("saut"):
 		if $sprite.animation == "jump":
 			$sprite.animation = "idle"
+		
+		latest_ground_position = position
 	
 	elif not is_on_floor():
 		fall(delta)
