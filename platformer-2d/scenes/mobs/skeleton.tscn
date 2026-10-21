@@ -168,6 +168,11 @@ autostart = true
 [node name="void_detected" type="Timer" parent="." unique_id=1985317792]
 wait_time = 1.25
 
+[node name="invincibility_timer" type="Timer" parent="." unique_id=1030653610]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]
 [connection signal="timeout" from="void_detected" to="." method="_on_void_detected_timeout"]
+[connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]

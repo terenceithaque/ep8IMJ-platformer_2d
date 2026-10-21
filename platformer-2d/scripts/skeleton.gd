@@ -14,6 +14,10 @@ var void_detected = false
 var void_detected_timeout = false
 var nb_void_detections = 0
 
+var max_life = 2.0
+var life = 0.0
+var invincible = false
+
 @onready var player = get_parent().get_node("player")
 
 func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
@@ -31,12 +35,32 @@ func is_out_of_window() -> bool: ## Renvoie true si le squelette est sorti de l'
 		return true
 		
 	return false
-	
+
+func dammage(points:int) -> void: ## Réduit la vie du squelette d'autant de points qu'indiqué. Si le squelette est dans une frame d'invincibilité, rien ne se passe.
+	if not invincible:
+		life -= points
+		
+		# Détruire le noeud du squelette si sa vie restante tombe à 0 ou en-dessous
+		if life <= 0:
+			queue_free()
+		
+		invincible = true
+		$invincibility_timer.start()
+			
+
 
 func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
 	var distance = abs(position.x - player.position.x)
 	#print(distance)
 	return distance <= 200
+
+func is_player_colliding() -> bool: ## Renvoie True si le joueur est en collision avec le squelette
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var body := collision.get_collider()
+		return body.name == "player"
+	
+	return false
 	
 
 func change_direction(): ## Change la direction vers laquelle le squelette se dirige
@@ -156,3 +180,7 @@ func _on_sprite_animation_finished() -> void:
 	
 	else:
 		$sprite.play("walk")
+
+
+func _on_invincibility_timer_timeout() -> void:
+	invincible = false

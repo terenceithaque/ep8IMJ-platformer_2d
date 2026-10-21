@@ -30,6 +30,8 @@ var camera_down_key = ProjectSettings.get_setting("input/regarder_bas")
 var attack_key = ProjectSettings.get_setting("input/attaque")
 
 
+
+
 var action_keys = [move_right_keys, move_left_keys, jump_key, run_key, camera_up_key,
 				   camera_down_key, attack_key]
 
@@ -67,6 +69,7 @@ var JUMP_VELOCITY_RUNNING = JUMP_VELOCITY * 1.5
 var running = false
 var looking_up = false
 var looking_down = false
+var attack_dammage = 5
 var attacking = false
 var attack_number = 1
 var invincible = false
