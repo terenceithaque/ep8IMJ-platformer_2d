@@ -572,6 +572,10 @@ wait_time = 2.0
 [node name="total_jump_timer" type="Timer" parent="." unique_id=370374457]
 wait_time = 3.0
 
+[node name="invincibility_timer" type="Timer" parent="." unique_id=1136872896]
+wait_time = 0.5
+one_shot = true
+
 [node name="walk_sound" type="AudioStreamPlayer" parent="." unique_id=549563080]
 stream = ExtResource("11_d2wvv")
 volume_db = 12.0
@@ -629,4 +633,5 @@ stream = ExtResource("20_60mlk")
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="total_jump_timer" to="." method="_on_total_jump_timer_timeout"]
+[connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="attack_animation_reset" to="." method="_on_attack_animation_reset_timeout"]

@@ -47,13 +47,16 @@ func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'acti
 	return key_name
 
 
-func dammage(points:int): ## Réduit la vie du joueur du nombre de points indiqués et met à jour la barre de vie
-	life -= points
-	print(life)
-	life_bar.value = (life / max_life) * 100
-	var sound_number = randi_range(1, 5)
-	var chosen_hit_sound = get_node("hit_{0}".format([sound_number]))
-	chosen_hit_sound.play()
+func dammage(points:int): ## Réduit la vie du joueur du nombre de points indiqués et met à jour la barre de vie. Si le joueur est dans une frame d'invincibilité, rien ne se passera.
+	if not invincible:
+		life -= points
+		print(life)
+		life_bar.value = (life / max_life) * 100
+		var sound_number = randi_range(1, 5)
+		var chosen_hit_sound = get_node("hit_{0}".format([sound_number]))
+		chosen_hit_sound.play()
+		invincible = true
+		$invincibility_timer.start()
 	
 	
 
@@ -66,6 +69,7 @@ var looking_up = false
 var looking_down = false
 var attacking = false
 var attack_number = 1
+var invincible = false
 
 
 var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
@@ -370,3 +374,7 @@ func _on_sprite_animation_finished() -> void:
 func _on_attack_animation_reset_timeout() -> void:
 	attack_number = 1
 	
+
+
+func _on_invincibility_timer_timeout() -> void:
+	invincible = false
