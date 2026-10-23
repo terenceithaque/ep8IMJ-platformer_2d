@@ -15,10 +15,16 @@ var void_detected_timeout = false
 var nb_void_detections = 0
 
 var max_life = 2.0
-var life = 0.0
+var life = 2.0
 var invincible = false
 
 @onready var player = get_parent().get_node("player")
+@onready var life_bar = get_node("display/life_bar")
+
+func update_life_bar(): ## Met à jour la position de la barre de vie du squelette ainsi que sa valeur
+	life_bar.position.x = position.x
+	life_bar.position.y = position.y - 50
+	life_bar.value = (life / max_life) * 100
 
 func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
 	
@@ -157,6 +163,7 @@ func _process(delta:float) -> void:
 	
 	move_and_slide()
 	update_void_detection_position()
+	update_life_bar()
 
 
 
