@@ -46,10 +46,12 @@ func _process(delta:float) -> void:
 		if $skeleton.is_player_colliding() and $player.attacking:
 			$skeleton.dammage($player.attack_dammage)
 		
-		# Vérifier si le joueur récupère une pièce
-		if $player.get_collision() == "coin":
-			print("Le joueur entre en collision avec une pièce")
-			$player.increase_coin(5)
+	# Vérifier si le joueur récupère une pièce
+	if $player.get_collision() == "coin":
+		print("Le joueur entre en collision avec une pièce")
+		$player.increase_coin(5)
+		$coin.collected = true
+		$coin.play_collected_sound()
 		
 	if $level_ending_panel.reached:
 		print("Le joueur a atteint la fin du niveau")
