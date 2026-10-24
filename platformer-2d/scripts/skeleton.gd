@@ -23,7 +23,7 @@ var invincible = false
 
 func update_life_bar(): ## Met à jour la position de la barre de vie du squelette ainsi que sa valeur
 	life_bar.position.x = position.x
-	life_bar.position.y = position.y - 50
+	life_bar.position.y = position.y
 	life_bar.value = (life / max_life) * 100
 
 func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
