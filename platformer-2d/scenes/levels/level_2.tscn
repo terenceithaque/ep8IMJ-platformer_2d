@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cwbujl40lf4yu" path="res://assets/music/in_the_forest.mp3" id="4_fiq81"]
 [ext_resource type="PackedScene" uid="uid://cgdkxes5d0oy2" path="res://scenes/levels/level_ending_panel.tscn" id="4_ibugp"]
 [ext_resource type="PackedScene" uid="uid://ccgof4hwimuni" path="res://scenes/mobs/skeleton.tscn" id="6_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://bv4mwcba1pvu0" path="res://scenes/coin.tscn" id="8_8qukl"]
 
 [node name="level_2" type="Node2D" unique_id=266311822]
 position = Vector2(-42, -50)
@@ -96,3 +97,6 @@ position = Vector2(80, 150)
 stream = ExtResource("4_fiq81")
 volume_db = 1.5
 parameters/looping = true
+
+[node name="coin" parent="." unique_id=667641555 instance=ExtResource("8_8qukl")]
+position = Vector2(500, 175)

@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://4o5e5m5plrac" path="res://assets/sounds/player/player_attack.mp3" id="13_jej6c"]
 [ext_resource type="Script" uid="uid://re2t8vtocwa2" path="res://scripts/player_gui/life_bar.gd" id="14_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://dcsjr8wqlte70" path="res://assets/sounds/player/player_jump.mp3" id="14_oprun"]
+[ext_resource type="Texture2D" uid="uid://brh3nc46vajb2" path="res://assets/img/GoldCoinSprite/Coin1.png" id="15_i4ail"]
 [ext_resource type="AudioStream" uid="uid://c2gqxkxkqdqta" path="res://assets/sounds/player/hit_1.mp3" id="16_a8ls1"]
 [ext_resource type="AudioStream" uid="uid://v1gdwm4kit5s" path="res://assets/sounds/player/hit_2.mp3" id="17_qfm1y"]
 [ext_resource type="AudioStream" uid="uid://c8i4uc4ugy7un" path="res://assets/sounds/player/hit_3.mp3" id="18_fulsm"]
@@ -602,6 +603,20 @@ position_smoothing_speed = 2.0
 drag_vertical_enabled = true
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1453674639]
+
+[node name="coin_bar" type="TextureProgressBar" parent="GUI" unique_id=1997187014]
+offset_left = 3.0
+offset_top = 30.0
+offset_right = 43.0
+offset_bottom = 70.0
+texture_under = ExtResource("15_i4ail")
+
+[node name="value_bar" type="ProgressBar" parent="GUI/coin_bar" unique_id=1859894223]
+layout_mode = 0
+offset_left = 30.0
+offset_right = 170.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [node name="life_bar" type="ProgressBar" parent="GUI" unique_id=1117302809]
 offset_right = 172.0

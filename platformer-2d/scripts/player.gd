@@ -10,6 +10,12 @@ var max_life = 5.0 # Vie (coeurs) du joueur
 var life = 5.0
 @onready var life_bar = get_node("GUI/life_bar")
 
+
+var max_coin = 100.0
+var coin = 0.0
+@onready var coin_bar = get_node("GUI/coin_bar")
+@onready var coin_bar_value = get_node("GUI/coin_bar/value_bar")
+
 # Obtenir les dimensions de la fenetre de jeu
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
@@ -48,6 +54,15 @@ func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'acti
 	key_name = key_name.remove_chars("()")
 	return key_name
 
+
+func increase_coin(amount:int) -> void: ## Augmente l'argent du joueur d'autant de points qu'indiqué
+	coin += amount
+	
+	if coin > max_coin:
+		coin = max_coin
+	
+	coin_bar_value.value = (coin / max_coin) * 100
+	
 
 func dammage(points:int): ## Réduit la vie du joueur du nombre de points indiqués et met à jour la barre de vie. Si le joueur est dans une frame d'invincibilité, rien ne se passera.
 	if not invincible:
