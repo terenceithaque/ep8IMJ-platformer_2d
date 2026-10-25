@@ -52,4 +52,5 @@ shape = SubResource("CircleShape2D_jig8b")
 [node name="collected" type="AudioStreamPlayer" parent="." unique_id=1488380118]
 stream = ExtResource("8_xmuha")
 
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="finished" from="collected" to="." method="_on_collected_finished"]

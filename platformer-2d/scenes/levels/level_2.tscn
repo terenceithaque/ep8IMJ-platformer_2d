@@ -98,5 +98,8 @@ stream = ExtResource("4_fiq81")
 volume_db = 1.5
 parameters/looping = true
 
-[node name="coin" parent="." unique_id=667641555 instance=ExtResource("8_8qukl")]
+[node name="coin" parent="." unique_id=667641555 groups=["coins"] instance=ExtResource("8_8qukl")]
 position = Vector2(500, 175)
+
+[node name="coin2" parent="." unique_id=994595980 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(450, 180)
