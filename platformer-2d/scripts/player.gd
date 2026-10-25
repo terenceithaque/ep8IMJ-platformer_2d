@@ -196,6 +196,7 @@ func set_pause(): ## Active ou désactive la pause selon son état actuel
 	
 	else:
 		paused = false
+		
 		$pause_menu.visible = false
 
 # Fonction qui fait tomber le joueur
@@ -388,6 +389,7 @@ func _process(float) -> void:
 		
 	if Input.is_action_just_pressed("pause") or $pause_menu.resume_button_clicked:
 		set_pause()
+		$pause_menu.resume_button_clicked = false
 		
 
 func _on_total_jump_timer_timeout() -> void:
