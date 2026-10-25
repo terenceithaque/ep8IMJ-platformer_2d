@@ -103,3 +103,54 @@ position = Vector2(500, 175)
 
 [node name="coin2" parent="." unique_id=994595980 groups=["coins"] instance=ExtResource("8_8qukl")]
 position = Vector2(450, 180)
+
+[node name="coin3" parent="." unique_id=2016321065 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(1080, -349)
+
+[node name="coin4" parent="." unique_id=137769613 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(939, -432)
+
+[node name="coin5" parent="." unique_id=1705806499 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(882, -435)
+
+[node name="coin6" parent="." unique_id=1934952387 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(666, -527)
+
+[node name="coin7" parent="." unique_id=363086093 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(605, -525)
+
+[node name="coin8" parent="." unique_id=8525424 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(527, -604)
+
+[node name="coin9" parent="." unique_id=1929160551 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(473, -603)
+
+[node name="coin10" parent="." unique_id=1613780974 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(639, -738)
+
+[node name="coin11" parent="." unique_id=1190555746 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(695, -739)
+
+[node name="coin12" parent="." unique_id=989947207 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(926, -738)
+
+[node name="coin13" parent="." unique_id=67105951 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(1028, -738)
+
+[node name="coin14" parent="." unique_id=201786093 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(1124, -738)
+
+[node name="coin15" parent="." unique_id=2073922271 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(1200, -736)
+
+[node name="coin16" parent="." unique_id=2081267068 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(402, 524)
+
+[node name="coin17" parent="." unique_id=1638185310 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(472, 524)
+
+[node name="coin18" parent="." unique_id=233303609 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(1179, 253)
+
+[node name="coin19" parent="." unique_id=604169383 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(1496, 513)
