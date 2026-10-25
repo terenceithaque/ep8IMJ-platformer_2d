@@ -154,3 +154,6 @@ position = Vector2(1179, 253)
 
 [node name="coin19" parent="." unique_id=604169383 groups=["coins"] instance=ExtResource("8_8qukl")]
 position = Vector2(1496, 513)
+
+[node name="coin20" parent="." unique_id=511657573 groups=["coins"] instance=ExtResource("8_8qukl")]
+position = Vector2(813, 441)

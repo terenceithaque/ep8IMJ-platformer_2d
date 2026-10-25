@@ -3,7 +3,7 @@ extends Node2D
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 @onready var initial_player_position = $player.position
-
+@onready var coins = get_tree().get_nodes_in_group("coins")
 
 func _ready() -> void:
 	$music.play()
@@ -17,13 +17,16 @@ func _ready() -> void:
 	camera.limit_bottom = 1200.0
 	
 	#background_image.set_scale(Vector2(background_image_scale, background_image_scale))
-
+	
+	for coin in coins:
+		$skeleton.add_collision_exception_with(coin)
 
 	
 	
 
 func _process(delta:float) -> void:
 	
+	coins = get_tree().get_nodes_in_group("coins")
 	
 	if $player.is_out_of_screen():
 		#print("Le joueur est sorti de l'écran")
@@ -47,7 +50,6 @@ func _process(delta:float) -> void:
 			$skeleton.dammage($player.attack_dammage)
 		
 	# Vérifier si le joueur récupère une pièce
-	var coins = get_tree().get_nodes_in_group("coins")
 	
 	for coin in coins:
 		if $player.get_collision() == coin.name:
