@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://c8i4uc4ugy7un" path="res://assets/sounds/player/hit_3.mp3" id="18_fulsm"]
 [ext_resource type="AudioStream" uid="uid://l6vqikdrmdek" path="res://assets/sounds/player/hit_4.mp3" id="19_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://c6ibdy7jt3ri0" path="res://assets/sounds/player/hit_5.mp3" id="20_60mlk"]
+[ext_resource type="PackedScene" uid="uid://bs06sjjv2nayf" path="res://scenes/pause_menu.tscn" id="22_a38lo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bswci"]
 radius = 33.01515
@@ -644,6 +645,8 @@ stream = ExtResource("19_4r5pv")
 
 [node name="hit_5" type="AudioStreamPlayer" parent="." unique_id=537559124]
 stream = ExtResource("20_60mlk")
+
+[node name="pause_menu" parent="." unique_id=137777546 instance=ExtResource("22_a38lo")]
 
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

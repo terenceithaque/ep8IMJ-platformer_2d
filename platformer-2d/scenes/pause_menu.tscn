@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bs06sjjv2nayf"]
+
+[ext_resource type="Script" uid="uid://bbl1ifbgx11h" path="res://scripts/scenes/pause_menu.gd" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="1_n87rw"]
+
+[node name="pause_menu" type="Node2D" unique_id=137777546]
+visible = false
+script = ExtResource("1_myx47")
+
+[node name="pause_label" type="Label" parent="." unique_id=1496668778]
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 657.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("1_n87rw")
+text = "Menu (jeu en pause)"
+
+[node name="resume_button" type="Button" parent="." unique_id=698981990]
+offset_left = 550.0
+offset_top = 250.0
+offset_right = 640.0
+offset_bottom = 281.0
+text = "Reprendre"
+
+[node name="quit_button" type="Button" parent="." unique_id=21128258]
+offset_left = 565.0
+offset_top = 290.0
+offset_right = 630.0
+offset_bottom = 321.0
+text = "Quitter"
+
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

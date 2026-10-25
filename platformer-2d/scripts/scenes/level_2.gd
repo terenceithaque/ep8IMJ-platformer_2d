@@ -34,30 +34,39 @@ func _process(delta:float) -> void:
 		$player.dammage(1)
 	
 	
-	# Désactiver le squelette s'il sort de la fenetre
 	
-	if has_node("skeleton"):
-		if $skeleton.is_out_of_window():
-			#$skeleton.set_process(false)
-			$skeleton.queue_free()
-			#print("Le squelette est sorti de l'écran et a été désactivé")
-		
-		
-		if $skeleton.is_player_colliding() and $skeleton.attacking:
-			$player.dammage(1)
-		
-		if $skeleton.is_player_colliding() and $player.attacking:
-			$skeleton.dammage($player.attack_dammage)
-		
-	# Vérifier si le joueur récupère une pièce
 	
-	for coin in coins:
-		if $player.get_collision() == coin.name:
+	# Ne mettre à jour l'état du niveau que si le jeu n'est pas en pause
+	if not $player.paused:
+		if has_node("skeleton"):
+			# Désactiver le squelette s'il sort de la fenetre
+			if $skeleton.is_out_of_window():
+				#$skeleton.set_process(false)
+				$skeleton.queue_free()
+				#print("Le squelette est sorti de l'écran et a été désactivé")
 			
-			if not coin.collected:
-				$player.increase_coin(5)
-				coin.collected = true
-				coin.play_collected_sound()
+			
+			if $skeleton.is_player_colliding() and $skeleton.attacking:
+				$player.dammage(1)
+			
+			if $skeleton.is_player_colliding() and $player.attacking:
+				$skeleton.dammage($player.attack_dammage)
+			
+		# Vérifier si le joueur récupère une pièce
 		
-	if $level_ending_panel.reached:
-		print("Le joueur a atteint la fin du niveau")
+		for coin in coins:
+			if $player.get_collision() == coin.name:
+				
+				if not coin.collected:
+					$player.increase_coin(5)
+					coin.collected = true
+					coin.play_collected_sound()
+			
+		if $level_ending_panel.reached:
+			print("Le joueur a atteint la fin du niveau")
+		
+	else:
+		$skeleton.set_process(false)
+		
+		for coin in coins:
+			coin.set_process(false)

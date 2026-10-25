@@ -20,6 +20,8 @@ var coin = 0.0
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
+var paused = false
+
 @onready var latest_ground_position = position
 
 
@@ -117,15 +119,19 @@ func _ready() -> void:
 	display_tutorial("Déplacements de base",
 		("Utilisez les touches {move_left} et {move_right}
 		pour déplacer le samurai.".format({"move_left":move_left, "move_right":move_right})), "walk_tutorial_completed")
-	
-	print(get_tutorial_popups())
-	
+		
 
 func display_tutorial(tutorial_title:String, tutorial_text:String, flag_name:String): ## Affiche une nouvelle popup de tutoriel à l'écran
 	var popup = tutorial_popup_scene.instantiate()
+	print(popup)
+	popup.visible = true
+	popup.add_to_group("tutorials")
 	popup.set_popup_title(tutorial_title)
 	popup.set_popup_text(tutorial_text)
 	popup.set_completion_flag_name(flag_name)
+	
+	
+	print("Tutoriels :", get_tree().get_nodes_in_group("tutorials"))
 	
 	$Camera2D.add_child(popup)
 
@@ -151,12 +157,13 @@ func is_out_of_screen() -> bool:
 		
 
 
-func get_tutorial_popups(): ## Renvoie un tableau des popups de tutoriel attachées à la caméra du jeu
-	var tutorials = []
+func update_tutorials(): ## Met à jour l'état de complétion de l'intégralité des tutoriels
+	var tutorials = get_tree().get_nodes_in_group("tutorials")
+	print(tutorials)
+	for tutorial in tutorials:
+		print("Tutoriel :", tutorial)
+		update_tutorial_completion_flags(tutorial.completion_flag)
 	
-	for element in $Camera2D.get_children():
-		print(element.name)
-
 
 func update_tutorial_completion_flags(completion_flag) -> void:
 	var flag_name = completion_flag["name"]
@@ -180,6 +187,16 @@ func jump(delta : float) -> void:
 	$jump_sound.play()
 	move_and_slide()
 
+
+func set_pause(): ## Active ou désactive la pause selon son état actuel
+	
+	if not paused:
+		paused = true
+		$pause_menu.visible = true
+	
+	else:
+		paused = false
+		$pause_menu.visible = false
 
 # Fonction qui fait tomber le joueur
 func fall(delta : float) -> void:
@@ -245,97 +262,99 @@ func is_animation_playing(): ## Renvoie true si une animation du joueur (autre q
 # Fonction qui gère les mouvements du joueur
 func _physics_process(delta: float) -> void:
 	
-	if running:
-		if $sprite.animation != "run":
-			$sprite.play("run")
-	
-	# Obtenir la direction du joueur
-	direction = Input.get_axis("gauche", "droite")
-	#print(direction)
-	
-	if absi(direction) == 1:
-		if not running:
-			
-			if $sprite.animation != "walk":
-				$sprite.play("walk")
-			#$run_sound.stop()
-			
-			$run_sound.playing = false
-			
-			if not $walk_sound.playing:
-				$walk_sound.play()
+	if not paused:
+		if running:
+			if $sprite.animation != "run":
+				$sprite.play("run")
+		
+		# Obtenir la direction du joueur
+		direction = Input.get_axis("gauche", "droite")
+		#print(direction)
+		
+		if absi(direction) == 1:
+			if not running:
+				
+				if $sprite.animation != "walk":
+					$sprite.play("walk")
+					update_tutorials()
+				#$run_sound.stop()
+				
+				$run_sound.playing = false
+				
+				if not $walk_sound.playing:
+					$walk_sound.play()
+				
+			else:
+				$sprite.play("run")
+				#$walk_sound.stop()
+				
+				$walk_sound.playing = false
+				if not $run_sound.playing:
+					$run_sound.play()
 			
 		else:
-			$sprite.play("run")
+			#$sprite.stop()
 			#$walk_sound.stop()
-			
-			$walk_sound.playing = false
-			if not $run_sound.playing:
-				$run_sound.play()
-		
-	else:
-		#$sprite.stop()
-		#$walk_sound.stop()
-		#$run_sound.stop()
-		
-		
-		#print("Animation en cours : ", is_animation_playing())
-		
-		if $sprite.animation == "walk" or $sprite.animation == "run":
-			$sprite.play("idle")
-		
-	
-		#$sprite.play("idle")
-		velocity = Vector2(0.0, 0.0)
-		
-		
-	if direction < 0:
-		$sprite.flip_h = true
-		velocity = Vector2(direction, 0.0) * SPEED
-		
-	
-	elif direction > 0:
-		$sprite.flip_h = false
-		velocity = Vector2(direction, 0.0) * SPEED
-		
-	
-	# Vérifier si le joueur est en train de courir
-	if Input.is_action_pressed("courrir") and absi(direction) == 1:
-		SPEED = RUN_SPEED
-		running = true
-	
-	elif running and not Input.is_action_pressed("courrir"):
-		SPEED = WALK_SPEED
-		running = false
-	
-	#$Camera2D.position = position
-	
-			
-	
+			#$run_sound.stop()
 			
 			
+			#print("Animation en cours : ", is_animation_playing())
 			
-	
-	
-	
-	# Déplacer le personnage
-	move_and_slide()
-	
-	# Le personnage ne peut sauter que s'il est au sol
-	if is_on_floor() and Input.is_action_pressed("saut"):
-			print("Saut")
-			jump(delta)
-	
-	elif is_on_floor() and not Input.is_action_pressed("saut"):
-		if $sprite.animation == "jump":
-			$sprite.animation = "idle"
+			if $sprite.animation == "walk" or $sprite.animation == "run":
+				$sprite.play("idle")
+			
 		
-		latest_ground_position = position
-	
-	elif not is_on_floor():
-		fall(delta)
-		$Camera2D.align()			
-	
+			#$sprite.play("idle")
+			velocity = Vector2(0.0, 0.0)
+			
+			
+		if direction < 0:
+			$sprite.flip_h = true
+			velocity = Vector2(direction, 0.0) * SPEED
+			
+		
+		elif direction > 0:
+			$sprite.flip_h = false
+			velocity = Vector2(direction, 0.0) * SPEED
+			
+		
+		# Vérifier si le joueur est en train de courir
+		if Input.is_action_pressed("courrir") and absi(direction) == 1:
+			SPEED = RUN_SPEED
+			running = true
+		
+		elif running and not Input.is_action_pressed("courrir"):
+			SPEED = WALK_SPEED
+			running = false
+		
+		#$Camera2D.position = position
+		
+				
+		
+				
+				
+				
+		
+		
+		
+		# Déplacer le personnage
+		move_and_slide()
+		
+		# Le personnage ne peut sauter que s'il est au sol
+		if is_on_floor() and Input.is_action_pressed("saut"):
+				print("Saut")
+				jump(delta)
+		
+		elif is_on_floor() and not Input.is_action_pressed("saut"):
+			if $sprite.animation == "jump":
+				$sprite.animation = "idle"
+			
+			latest_ground_position = position
+		
+		elif not is_on_floor():
+			fall(delta)
+			$Camera2D.align()			
+		
 				
 	
 		
@@ -344,50 +363,57 @@ func _physics_process(delta: float) -> void:
 # Gère les autres actions du joueur
 func _process(float) -> void:
 	
-	# Afficher l'écran de game over si le joueur n'a plus de vies
-	if life <= 0:
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	if not paused:
+		# Afficher l'écran de game over si le joueur n'a plus de vies
+		if life <= 0:
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+			
+			
+		if Input.is_action_just_released("attaque"):
+			attack()
+			
 		
 		
-	if Input.is_action_just_released("attaque"):
-		attack()
+		if Input.is_action_pressed("regarder_haut", true):
+			look_up()
 		
-	
-	
-	if Input.is_action_pressed("regarder_haut", true):
-		look_up()
-	
-	elif Input.is_action_pressed("regarder_bas", true):
-		look_down()
-	
-	else:
-		$Camera2D.align()
-		looking_up = false
-		looking_down = false
+		elif Input.is_action_pressed("regarder_bas", true):
+			look_down()
 		
-
+		else:
+			$Camera2D.align()
+			looking_up = false
+			looking_down = false
+		
+		
+	if Input.is_action_just_pressed("pause") or $pause_menu.resume_button_clicked:
+		set_pause()
+		
 
 func _on_total_jump_timer_timeout() -> void:
 	"""var max_jump_height = velocity.y - 2000
-	
+		
 	if velocity.y > max_jump_height:
 		jump()
-	
-	
+		
+		
 	else:
 		fall()"""
 
 
 func _on_sprite_animation_finished() -> void:
-	if "attack" in $sprite.animation:
-		$sprite.play("idle")
 	
-	if $sprite.animation == "walk" or $sprite.animation == "run":
-		$sprite.play("idle")
+	if not paused:
+		if "attack" in $sprite.animation:
+			$sprite.play("idle")
+		
+		if $sprite.animation == "walk" or $sprite.animation == "run":
+			$sprite.play("idle")
+		
+		elif $sprite.animation == "fall":
+			$sprite.play("idle")
 	
-	elif $sprite.animation == "fall":
-		$sprite.play("idle")
-
+	
 
 func _on_attack_animation_reset_timeout() -> void:
 	attack_number = 1

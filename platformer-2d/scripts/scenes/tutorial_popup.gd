@@ -2,7 +2,9 @@ extends Popup
 
 var completion_flag = {
 	"name":"",
-	"completed":false}
+	"completed":false
+
+}
 
 func set_popup_title(popup_title): ## Définit le titre de la popup
 	title = popup_title
@@ -26,8 +28,7 @@ func set_completion_flag_value(flag_value:bool) -> void: ## Définit la valeur d
 
 func _ready():
 	$tutorial_sound.play()
-
-
+	
 
 
 func _on_popup_hide() -> void:
