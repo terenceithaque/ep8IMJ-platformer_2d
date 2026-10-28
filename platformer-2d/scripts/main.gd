@@ -2,6 +2,7 @@ extends Node
 
 const SAVE = preload("res://scripts/save.gd")
 
+@onready var save_script = SAVE.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,14 +10,9 @@ func _ready() -> void:
 	$title.add_theme_font_override("font", load("res://assets/fonts/Isometra-Regular.ttf"))
 	$PlayButton.disabled = true
 	
-	var save_script = SAVE.new()
-	save_script.create_save_dir()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
+	save_script.create_saves_dir()
+	print(save_script.get_saved_players())
 	
 
 
@@ -25,7 +21,7 @@ func _on_play_button_pressed() -> void:
 	
 	#get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
-	
+	save_script.create_player_save($name.text)
 	
 
 
