@@ -60,7 +60,9 @@ func _process(delta:float) -> void:
 				if not coin.collected:
 					$player.increase_coin(5)
 					coin.collected = true
+					coin.dissapear()
 					coin.play_collected_sound()
+					coin.remove_from_group("coins")
 			
 		if $level_ending_panel.reached:
 			print("Le joueur a atteint la fin du niveau")
