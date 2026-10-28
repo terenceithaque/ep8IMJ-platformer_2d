@@ -147,6 +147,7 @@ radius = 32.89377
 
 [node name="skeleton" type="CharacterBody2D" unique_id=170213127]
 script = ExtResource("1_34uab")
+metadata/_edit_group_ = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=2088527286]
 position = Vector2(523, 284)
@@ -172,7 +173,7 @@ wait_time = 1.25
 wait_time = 0.5
 one_shot = true
 
-[node name="display" type="CanvasLayer" parent="." unique_id=362220131]
+[node name="display" type="Node2D" parent="." unique_id=1981558531]
 
 [node name="life_bar" type="ProgressBar" parent="display" unique_id=663578336]
 offset_right = 70.0
