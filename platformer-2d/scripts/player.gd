@@ -10,6 +10,8 @@ var max_life = 5.0 # Vie (coeurs) du joueur
 var life = 5.0
 @onready var life_bar = get_node("GUI/life_bar")
 
+var player_name = ""
+
 
 var max_coin = 100.0
 var coin = 0.0
@@ -43,6 +45,22 @@ var attack_key = ProjectSettings.get_setting("input/attaque")
 var action_keys = [move_right_keys, move_left_keys, jump_key, run_key, camera_up_key,
 				   camera_down_key, attack_key]
 
+
+func set_player_name(name:String) -> void: ## Définit le nom du personnage joueur
+	player_name = name
+	
+	
+
+func serialize_data() -> Dictionary: ## Classe les données du personnage joueur (nom, points de vie, pièces, etc) dans un format de dictionnaire JSON
+	var data = {
+		"player_name" : player_name,
+		"life" : life,
+		"max_life" : max_life,
+		"coin" : coin,
+		"max_coin" : max_coin
+	}
+	
+	return data
 
 func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'action donnée en paramètre.
 	
