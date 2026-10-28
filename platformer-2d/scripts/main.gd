@@ -1,11 +1,16 @@
 extends Node
 
+const SAVE = preload("res://scripts/save.gd")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$music.play()
 	$title.add_theme_font_override("font", load("res://assets/fonts/Isometra-Regular.ttf"))
 	$PlayButton.disabled = true
+	
+	var save_script = SAVE.new()
+	save_script.create_save_dir()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
