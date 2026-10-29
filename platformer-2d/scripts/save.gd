@@ -13,6 +13,12 @@ func create_player_save(player_name:String) -> void: ## Crée un dossier de sauv
 	
 	saves_dir.make_dir(player_name)
 	
+	# Créer les sous-dossiers nécessaires
+	var player_save_dir = DirAccess.open("user://saves/{0}".format([player_name]))
+	
+	player_save_dir.make_dir("mainchar")
+	player_save_dir.make_dir("levels")
+	
 func get_saved_players(): ## Renvoie une liste contenant le nom des joueurs ayant un dossier de sauvegarde
 	var saves_dir = DirAccess.open("user://saves")
 	
