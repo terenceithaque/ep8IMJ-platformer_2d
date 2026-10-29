@@ -592,6 +592,12 @@ stream = ExtResource("13_jej6c")
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=1799339294]
 stream = ExtResource("14_oprun")
 
+[node name="name_label" type="Label" parent="." unique_id=1586757275]
+offset_left = 500.0
+offset_top = 490.0
+offset_right = 560.0
+offset_bottom = 513.0
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=836005494]
 position = Vector2(567, 316)
 scale = Vector2(0.25, 0.25)
@@ -603,7 +609,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 drag_vertical_enabled = true
 
-[node name="GUI" type="CanvasLayer" parent="." unique_id=1453674639]
+[node name="GUI" type="CanvasLayer" parent="." unique_id=1869809353]
 
 [node name="coin_bar" type="TextureProgressBar" parent="GUI" unique_id=1997187014]
 offset_left = 3.0

@@ -123,6 +123,12 @@ var direction = 0.0
 
 func _ready() -> void:
 	
+	player_name = Global.player_name
+	
+	var name_label = $name_label
+	name_label.text = player_name
+	
+	print("Nom du joueur :", player_name)
 	$sprite.play("idle")
 	var move_left = get_key_name(move_left_keys)
 	var move_right = get_key_name(move_right_keys)
