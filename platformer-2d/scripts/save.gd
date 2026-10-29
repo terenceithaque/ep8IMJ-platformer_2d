@@ -18,6 +18,22 @@ func create_player_save(player_name:String) -> void: ## Crée un dossier de sauv
 	
 	player_save_dir.make_dir("mainchar")
 	player_save_dir.make_dir("levels")
+
+
+func save_player(player_data:Dictionary) -> void: ## Sauvegarde les données de joueur passées en paramètre dans un fichier JSON
+	
+	# Récupérer le nom du joueur
+	var player_name = player_data["player_name"]
+	
+	if not player_name in get_saved_players():
+		create_player_save(player_name)
+	
+	# Accéder au sous-dossier "mainchar"
+	var mainchar_dir = DirAccess.open("user://saves/{0}/mainchar".format([player_name]))
+	
+	var json_file = FileAccess.open("user://saves/{0}/mainchar/data.json".format([player_name]), FileAccess.WRITE)
+	
+	json_file.store_line(str(player_data))
 	
 func get_saved_players(): ## Renvoie une liste contenant le nom des joueurs ayant un dossier de sauvegarde
 	var saves_dir = DirAccess.open("user://saves")

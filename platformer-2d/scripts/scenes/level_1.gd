@@ -1,5 +1,8 @@
 extends Node2D
 
+const SAVE = preload("res://scripts/save.gd")
+@onready var save_script = SAVE.new()
+
 # Position d'apparition du joueur
 var SPAWN_POSITION = Vector2(0.0, 508.0)
 
@@ -29,4 +32,5 @@ func _process(delta: float) -> void:
 		$player.dammage(1)
 	
 	if $level_ending_panel.reached:
+		save_script.save_player($player.serialize_data())
 		get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")

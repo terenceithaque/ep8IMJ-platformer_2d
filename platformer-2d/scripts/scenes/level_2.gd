@@ -1,5 +1,8 @@
 extends Node2D
 
+const SAVE = preload("res://scripts/save.gd")
+@onready var save_script = SAVE.new()
+
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 @onready var initial_player_position = $player.position
@@ -65,6 +68,7 @@ func _process(delta:float) -> void:
 					coin.remove_from_group("coins")
 			
 		if $level_ending_panel.reached:
+			save_script.save_player($player.serialize_data())
 			print("Le joueur a atteint la fin du niveau")
 		
 	else:
