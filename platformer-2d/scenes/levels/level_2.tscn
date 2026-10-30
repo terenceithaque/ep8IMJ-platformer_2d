@@ -90,7 +90,7 @@ position = Vector2(1400, -760)
 position = Vector2(-200, 20)
 floor_stop_on_slope = false
 
-[node name="skeleton" parent="." unique_id=170213127 instance=ExtResource("6_qpwj6")]
+[node name="skeleton" parent="." unique_id=170213127 groups=["save"] instance=ExtResource("6_qpwj6")]
 position = Vector2(80, 150)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=433561141]

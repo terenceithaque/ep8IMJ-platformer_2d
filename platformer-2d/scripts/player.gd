@@ -10,7 +10,7 @@ var max_life = 5.0 # Vie (coeurs) du joueur
 var life = 5.0
 @onready var life_bar = get_node("GUI/life_bar")
 
-var player_name = ""
+var player_name = "player"
 
 
 var max_coin = 100.0
@@ -56,6 +56,8 @@ func serialize_data() -> Dictionary: ## Classe les données du personnage joueur
 		"player_name" : player_name,
 		"life" : life,
 		"max_life" : max_life,
+		"position": latest_ground_position,
+		"level": get_parent().get_path(),
 		"coin" : coin,
 		"max_coin" : max_coin
 	}
@@ -123,7 +125,8 @@ var direction = 0.0
 
 func _ready() -> void:
 	
-	player_name = Global.player_name
+	if Global.player_name:
+		player_name = Global.player_name
 	
 	var name_label = $name_label
 	name_label.text = player_name

@@ -34,6 +34,13 @@ func save_player(player_data:Dictionary) -> void: ## Sauvegarde les données de 
 	var json_file = FileAccess.open("user://saves/{0}/mainchar/data.json".format([player_name]), FileAccess.WRITE)
 	
 	json_file.store_line(str(player_data))
+
+func save_level(player_name:String, level_data:Dictionary) -> void: ## Sauvegarde les données du niveau passées en paramètre dans un fichier JSON
+	
+	# Accéder au sous-dossier "levels"
+	var levels_dir = DirAccess.open("user://saves/{0}/levels".format([player_name]))
+	var level_file = FileAccess.open("user://saves/{0}/levels/data.json".format([player_name]),FileAccess.WRITE)
+	level_file.store_line(str(level_data))
 	
 func get_saved_players(): ## Renvoie une liste contenant le nom des joueurs ayant un dossier de sauvegarde
 	var saves_dir = DirAccess.open("user://saves")

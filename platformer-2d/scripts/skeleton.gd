@@ -23,6 +23,15 @@ var invincible = false
 
 func _ready() -> void:
 	life_bar.position = Vector2(500, 175)
+
+
+func serialize_data() -> Dictionary: ## Regroupe les données du squelette dans un dictionnaire utilisable pour une sauvegarde
+	var data = {
+		"life": life,
+		"max_life": max_life,
+		"position": $sprite.position
+	}
+	return data
 	
 
 func update_life_bar(): ## Met à jour la valeur de la barre de vie du squelette

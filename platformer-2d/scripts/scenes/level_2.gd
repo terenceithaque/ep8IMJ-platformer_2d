@@ -23,8 +23,24 @@ func _ready() -> void:
 	
 	for coin in coins:
 		$skeleton.add_collision_exception_with(coin)
-
 	
+	add_coins_to_save()
+	
+	print(serialize_nodes())
+
+
+func add_coins_to_save() -> void: ## Ajoute toutes les pièces du groupe "coins" dans le groupe "save"
+	for coin in coins:
+		coin.add_to_group("save")
+
+
+func serialize_nodes() -> Dictionary: ## Regroupe les données de tous les noeuds du groupe "save" dans un dictionnaire
+	var data = {}
+	
+	for node in get_tree().get_nodes_in_group("save"):
+		data[node.name] = node.serialize_data()
+	
+	return data
 	
 
 func _process(delta:float) -> void:
@@ -69,6 +85,7 @@ func _process(delta:float) -> void:
 			
 		if $level_ending_panel.reached:
 			save_script.save_player($player.serialize_data())
+			save_script.save_level($player.name, serialize_nodes())
 			print("Le joueur a atteint la fin du niveau")
 		
 	else:
