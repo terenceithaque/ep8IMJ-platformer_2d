@@ -86,7 +86,7 @@ func _process(delta:float) -> void:
 			
 		if $level_ending_panel.reached:
 			save_script.save_player($player.serialize_data())
-			save_script.save_level($player.name, serialize_nodes())
+			save_script.save_level(Global.player_name, serialize_nodes())
 			print("Le joueur a atteint la fin du niveau")
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
 		
