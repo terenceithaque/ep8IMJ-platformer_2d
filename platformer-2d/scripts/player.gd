@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var SAVE = preload("res://scripts/save.gd")
+@onready var save_script = SAVE.new()
 
 var WALK_SPEED = 300.0
 var RUN_SPEED = WALK_SPEED * 1.75
@@ -63,6 +65,25 @@ func serialize_data() -> Dictionary: ## Classe les données du personnage joueur
 	}
 	
 	return data
+
+
+func setup_from_save(save_data:Dictionary) -> void: ## Redéfinit l'état du joueur selon les données de sauvegarde passées en paramètre
+	
+	var player_attributes = save_data["mainchar"]
+	
+	player_name = player_attributes["player_name"]
+	#$sprite.position = player_attributes["position"]
+	
+	coin = player_attributes["coin"]
+	max_coin = player_attributes["max_coin"]
+	
+	coin_bar_value.value = (coin / max_coin) * 100
+	
+	life = player_attributes["life"]
+	max_life = player_attributes["max_life"]
+	
+	life_bar.value = (life / max_life) * 100
+	
 
 func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'action donnée en paramètre.
 	
@@ -141,6 +162,9 @@ func _ready() -> void:
 	print(move_left)
 	print(move_right)
 	
+	# Actualiser les données du joueur s'il a une sauvegarde
+	if player_name in save_script.get_saved_players():
+		setup_from_save(save_script.open_player_save(player_name))
 	
 	# 1ère popup de tutoriel
 	display_tutorial("Déplacements de base",

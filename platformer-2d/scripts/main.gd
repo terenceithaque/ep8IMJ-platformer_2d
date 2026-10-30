@@ -29,8 +29,6 @@ func _on_play_button_pressed() -> void:
 	if not $name.text in saved_players:
 		save_script.create_player_save($name.text)
 	
-	else:
-		print(save_script.open_player_save($name.text))
 	
 
 
