@@ -26,8 +26,8 @@ func _ready() -> void:
 	
 	add_coins_to_save()
 	
-	print(serialize_nodes())
-
+	print(get_tree().get_nodes_in_group("save"))
+	
 
 func add_coins_to_save() -> void: ## Ajoute toutes les pièces du groupe "coins" dans le groupe "save"
 	for coin in coins:
@@ -82,11 +82,13 @@ func _process(delta:float) -> void:
 					coin.dissapear()
 					coin.play_collected_sound()
 					coin.remove_from_group("coins")
+					print(get_tree().get_nodes_in_group("save"))
 			
 		if $level_ending_panel.reached:
 			save_script.save_player($player.serialize_data())
 			save_script.save_level($player.name, serialize_nodes())
 			print("Le joueur a atteint la fin du niveau")
+			get_tree().change_scene_to_file("res://scenes/main.tscn")
 		
 	else:
 		$skeleton.set_process(false)
