@@ -163,7 +163,8 @@ func _ready() -> void:
 	print(move_right)
 	
 	# Actualiser les données du joueur s'il a une sauvegarde
-	if player_name in save_script.get_saved_players():
+	
+	if save_script.is_save_valid(player_name):
 		setup_from_save(save_script.open_player_save(player_name))
 	
 	# 1ère popup de tutoriel

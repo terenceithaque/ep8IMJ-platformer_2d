@@ -38,6 +38,22 @@ func save_player(player_data:Dictionary) -> void: ## Sauvegarde les données de 
 	json_file.store_line(JSON.stringify(player_data))
 	
 
+func is_save_valid(player_name:String) -> bool: ## Renvoie true si le dossier de sauvegarde du joueur indiqué existe et présente une structure valide, false sinon
+	
+	# Renvoyer false si le dossier de sauvegarde du joueur n'existe pas
+	if not player_name in get_saved_players():
+		return false
+	
+	else:
+		var mainchar_dir = DirAccess.open(get_player_save_dir(player_name, "/mainchar"))
+		var levels_dir = DirAccess.open(get_player_save_dir(player_name, "/levels"))
+		
+		if not "data.json" in mainchar_dir.get_files() or not "data.json" in levels_dir.get_files():
+			return false
+		
+		else:
+			return true
+
 func get_player_save_dir(player_name:String, subdir:String="") -> String: ## Renvoie le chemin du dossier de sauvegarde du joueur indiqué
 	return "user://saves/{0}".format([player_name]) + subdir
 	
