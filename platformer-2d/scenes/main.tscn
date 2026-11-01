@@ -7,7 +7,7 @@
 [node name="MainMenu" type="Node" unique_id=186895237]
 script = ExtResource("1_o5qli")
 
-[node name="PlayButton" type="Button" parent="." unique_id=559239155 groups=["menu_buttons"]]
+[node name="PlayButton" type="Button" parent="." unique_id=559239155]
 offset_left = 450.0
 offset_top = 200.0
 offset_right = 722.0
