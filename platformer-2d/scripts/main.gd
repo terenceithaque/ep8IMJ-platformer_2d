@@ -48,3 +48,20 @@ func _on_name_text_changed(new_text: String) -> void: ## Active ou désactive le
 	else:
 		$PlayButton.disabled = false
 	
+
+
+func _on_saves_button_pressed() -> void:
+	
+	# Désactiver les boutons du premier niveau de menu
+	for button in get_tree().get_nodes_in_group("menu_buttons"):
+		button.disabled = true
+		
+	$SavesWindow.visible = true
+
+
+func _on_close_saves_window_pressed() -> void:
+	$SavesWindow.visible = false
+	
+	# Réactiver les boutons du premier niveau de menu
+	for button in get_tree().get_nodes_in_group("menu_buttons"):
+		button.disabled = false
