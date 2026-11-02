@@ -56,6 +56,26 @@ func is_save_valid(player_name:String) -> bool: ## Renvoie true si le dossier de
 
 func get_player_save_dir(player_name:String, subdir:String="") -> String: ## Renvoie le chemin du dossier de sauvegarde du joueur indiqué
 	return "user://saves/{0}".format([player_name]) + subdir
+
+func rm_directory(path:String) -> void: ## Supprime récursivement un dossier et tout son contenu
+	
+	var directory = DirAccess.open(path)
+		
+	for file in directory.get_files():
+		directory.remove(file)
+	
+	for subdir in directory.get_directories():
+		rm_directory(subdir)
+	
+	DirAccess.remove_absolute(directory)
+
+	
+func rm_player_save(player_name:String) -> void: ## Supprime l'intégralité du dossier de sauvegarde du joueur indiqué
+	
+	var save_dir_path = get_player_save_dir(player_name) # Chemin du dossier de sauvegarde
+	rm_directory(save_dir_path)
+	
+	
 	
 
 func save_level(player_name:String, level_data:Dictionary) -> void: ## Sauvegarde les données du niveau passées en paramètre dans un fichier JSON

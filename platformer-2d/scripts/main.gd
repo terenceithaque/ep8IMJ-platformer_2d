@@ -17,6 +17,8 @@ func _ready() -> void:
 	save_script.create_saves_dir()
 	saved_players = save_script.get_saved_players()
 	
+	save_script.rm_player_save(saved_players[0])
+	
 
 
 func _on_play_button_pressed() -> void:
