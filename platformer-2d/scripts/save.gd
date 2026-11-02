@@ -62,17 +62,20 @@ func rm_directory(path:String) -> void: ## Supprime récursivement un dossier et
 	var directory = DirAccess.open(path)
 		
 	for file in directory.get_files():
+		print(file)
 		directory.remove(file)
 	
 	for subdir in directory.get_directories():
-		rm_directory(subdir)
+		print(path + "/" + subdir)
+		rm_directory(path + "/" + subdir)
 	
-	DirAccess.remove_absolute(directory)
+	DirAccess.remove_absolute(path)
 
 	
 func rm_player_save(player_name:String) -> void: ## Supprime l'intégralité du dossier de sauvegarde du joueur indiqué
 	
 	var save_dir_path = get_player_save_dir(player_name) # Chemin du dossier de sauvegarde
+	print(save_dir_path)
 	rm_directory(save_dir_path)
 	
 	
