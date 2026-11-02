@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dwll7obnry745"]
+
+[ext_resource type="Script" uid="uid://7ntrkpniuq1f" path="res://scripts/scenes/saves_window.gd" id="1_n5rnp"]
+
+[node name="SavesWindow" type="Window" unique_id=1316575485]
+oversampling_override = 1.0
+visible = false
+script = ExtResource("1_n5rnp")
+
+[node name="CloseSavesWindow" type="Button" parent="." unique_id=131914577 groups=["player_profiles"]]
+offset_left = 220.0
+offset_top = 265.0
+offset_right = 285.0
+offset_bottom = 296.0
+text = "Fermer"
+
+[connection signal="pressed" from="CloseSavesWindow" to="." method="_on_close_saves_window_pressed"]

@@ -59,9 +59,10 @@ func _on_saves_button_pressed() -> void:
 	$SavesWindow.visible = true
 
 
-func _on_close_saves_window_pressed() -> void:
-	$SavesWindow.visible = false
-	
+
+
+
+func _on_saves_window_close_requested() -> void:	
 	# Réactiver les boutons du premier niveau de menu
 	for button in get_tree().get_nodes_in_group("menu_buttons"):
 		button.disabled = false
