@@ -51,17 +51,31 @@ func _on_name_text_changed(new_text: String) -> void: ## Active ou désactive le
 
 func _on_saves_button_pressed() -> void:
 	
-	# Désactiver les boutons du premier niveau de menu
-	for button in get_tree().get_nodes_in_group("menu_buttons"):
-		button.disabled = true
+	if save_script.get_saved_players().is_empty():
+		$NoSaveWindow.visible = true
+		for button in get_tree().get_nodes_in_group("menu_buttons"):
+			button.disabled = true
+	
+	else:
+		$NoSaveWindow.visible = false
+		# Désactiver les boutons du premier niveau de menu
+		for button in get_tree().get_nodes_in_group("menu_buttons"):
+			button.disabled = true
 		
-	$SavesWindow.visible = true
+		$SavesWindow.visible = true
 
 
 
 
 
-func _on_saves_window_close_requested() -> void:	
+func _on_saves_window_close_requested() -> void:
+	$SavesWindow.visible = false
 	# Réactiver les boutons du premier niveau de menu
 	for button in get_tree().get_nodes_in_group("menu_buttons"):
 		button.disabled = false
+
+
+func _on_no_save_window_close_requested() -> void:
+	$NoSaveWindow.visible = false
+	for button in get_tree().get_nodes_in_group("menu_buttons"):
+			button.disabled = false
