@@ -215,7 +215,15 @@ func update_tutorials(): ## Met à jour l'état de complétion de l'intégralit�
 	for tutorial in tutorials:
 		print("Tutoriel :", tutorial)
 		update_tutorial_completion_flags(tutorial.completion_flag)
+
+
+func increase_life(points:int) -> void: ## Augmente la santé actuelle du joueur
+	life += points
 	
+	if life > max_life:
+		life = max_life
+	
+	life_bar.value = (life / max_life) * 100
 
 func update_tutorial_completion_flags(completion_flag) -> void:
 	var flag_name = completion_flag["name"]

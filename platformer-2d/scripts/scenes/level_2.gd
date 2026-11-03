@@ -7,6 +7,7 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 @onready var initial_player_position = $player.position
 @onready var coins = get_tree().get_nodes_in_group("coins")
+@onready var food = get_tree().get_nodes_in_group("food")
 
 func _ready() -> void:
 	$music.play()
@@ -83,6 +84,16 @@ func _process(delta:float) -> void:
 					coin.play_collected_sound()
 					coin.remove_from_group("coins")
 					print(get_tree().get_nodes_in_group("save"))
+		
+		# Vérifier si le joueur mange de la nourriture
+		for feeding in food:
+			if $player.get_collision() == feeding.name:
+				
+				if not feeding.consumed:
+					feeding.consumed = true
+					feeding.play_bite_sound()
+					feeding.dissapear()
+					$player.increase_life(2)
 			
 		if $level_ending_panel.reached:
 			save_script.save_player($player.serialize_data())
