@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgdkxes5d0oy2" path="res://scenes/levels/level_ending_panel.tscn" id="4_ibugp"]
 [ext_resource type="PackedScene" uid="uid://ccgof4hwimuni" path="res://scenes/mobs/skeleton.tscn" id="6_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://bv4mwcba1pvu0" path="res://scenes/coin.tscn" id="8_8qukl"]
+[ext_resource type="PackedScene" uid="uid://41reogxuyffx" path="res://scenes/apple.tscn" id="9_3p04p"]
 
 [node name="level_2" type="Node2D" unique_id=266311822]
 position = Vector2(-42, -50)
@@ -157,3 +158,6 @@ position = Vector2(1496, 513)
 
 [node name="coin20" parent="." unique_id=511657573 groups=["coins"] instance=ExtResource("8_8qukl")]
 position = Vector2(813, 441)
+
+[node name="apple" parent="." unique_id=117506058 instance=ExtResource("9_3p04p")]
+position = Vector2(360, 100)

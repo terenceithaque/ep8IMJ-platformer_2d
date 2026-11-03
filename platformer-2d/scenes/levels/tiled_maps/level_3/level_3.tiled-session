@@ -30,12 +30,14 @@
             "scale": 0.6966666666666665,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 388.9952153110048,
-                "y": 2956.9377990430626
+                "x": 1623.4449760765551,
+                "y": 2888.0382775119624
             }
         }
     },
+    "last.exportedFilePath": "/home/terencelethierrydennequin/Dropbox/Paris 8/cours/L1/introduction_moteurs_de_jeu-imj/semestre1/projets/ep8IMJ-platformer_2d/platformer-2d/scenes/levels",
     "last.imagePath": "/home/terencelethierrydennequin/Dropbox/Paris 8/cours/L1/introduction_moteurs_de_jeu-imj/semestre1/projets/ep8IMJ-platformer_2d/platformer-2d/assets/img/GrassLand/Background",
+    "map.lastUsedExportFilter": "Fichiers de Scène de Godot 4 (*.tscn)",
     "map.lastUsedFormat": "tmx",
     "openFiles": [
         "level_3.tmx",

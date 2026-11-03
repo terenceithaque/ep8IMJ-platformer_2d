@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://41reogxuyffx"]
+
+[ext_resource type="Texture2D" uid="uid://ffvkl1dpaecn" path="res://assets/img/food/apple.png" id="1_h071m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vr8k"]
+radius = 24.698177
+
+[node name="apple" type="RigidBody2D" unique_id=117506058]
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=352738022]
+texture = ExtResource("1_h071m")
+
+[node name="collision_shape" type="CollisionShape2D" parent="." unique_id=910535967]
+shape = SubResource("CircleShape2D_7vr8k")
