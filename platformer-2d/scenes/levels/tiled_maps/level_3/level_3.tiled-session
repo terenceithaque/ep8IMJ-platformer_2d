@@ -1,0 +1,58 @@
+{
+    "activeFile": "level_3.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "GrassLand_Background_Guide.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "GrassLand_Bush.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Grassland_Terrain_47Tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Grassland_Terrain_BgdTiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Grassland_Terrain_ExtraTiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level_3.tmx": {
+            "scale": 0.6966666666666665,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 388.9952153110048,
+                "y": 2956.9377990430626
+            }
+        }
+    },
+    "last.imagePath": "/home/terencelethierrydennequin/Dropbox/Paris 8/cours/L1/introduction_moteurs_de_jeu-imj/semestre1/projets/ep8IMJ-platformer_2d/platformer-2d/assets/img/GrassLand/Background",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "level_3.tmx",
+        "Grassland_Terrain_47Tiles.tsx",
+        "Grassland_Terrain_BgdTiles.tsx",
+        "Grassland_Terrain_ExtraTiles.tsx",
+        "GrassLand_Background_Guide.tsx"
+    ],
+    "project": "level_3.tiled-project",
+    "recentFiles": [
+        "GrassLand_Background_Guide.tsx",
+        "Grassland_Terrain_ExtraTiles.tsx",
+        "Grassland_Terrain_BgdTiles.tsx",
+        "Grassland_Terrain_47Tiles.tsx",
+        "level_3.tmx",
+        "GrassLand_Bush.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}
