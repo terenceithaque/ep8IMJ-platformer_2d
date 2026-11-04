@@ -14,10 +14,19 @@ func serialize_data() -> Dictionary: ## Convertit l'état de la pomme en un dict
 	var data = {
 		"consumed": consumed,
 		"visible": $sprite.visible,
-		"disabled": $collision_shape.disabled
-	}
+		"disabled": $collision_shape.disabled,
+		"groups": get_groups()}
 	
 	return data
+
+func set_state(save_dict:Dictionary) -> void:
+	consumed = save_dict["consumed"]
+	$sprite.visible = save_dict["visible"]
+	$collision_shape.disabled = save_dict["disabled"]
+	
+	# Ajouter le noeud aux groupes correspondants
+	for group in save_dict["groups"]:
+		add_to_group(group)
 
 func dissapear() -> void: ## Cache le sprite de la pomme et désactive sa boîte de collision
 	$sprite.visible = false

@@ -12,6 +12,7 @@ func serialize_data() -> Dictionary: ## Regroupe les données de la pièce dans 
 		"collected": collected,
 		"visible": $sprite.visible,
 		"disabled": $CollisionShape2D.disabled,
+		"groups": get_groups()
 	}
 	
 	return data
@@ -21,6 +22,10 @@ func set_state(save_dict:Dictionary) -> void: ## Actualise l'état de la pièce 
 	collected = save_dict["collected"]
 	$sprite.visible = save_dict["visible"]
 	$CollisionShape2D.disabled = save_dict["disabled"]
+	
+	# Ajouter le noeud aux groupes correspondants
+	for group in save_dict["groups"]:
+		add_to_group(group)
 
 func dissapear(): ## Rend le sprite de la pièce invisible et désactive la boîte de collision
 	$sprite.visible = false

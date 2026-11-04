@@ -22,12 +22,15 @@ func _on_play_button_pressed() -> void:
 	# Lancer le premier niveau
 	
 	#get_tree().change_scene_to_file("res://scenes/intro.tscn")
-	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+	
 	Global.set_player_name($name.text)
 	print("Nom du joueur après défintion :", Global.player_name)
 	if not $name.text in saved_players:
 		save_script.create_player_save($name.text)
+		get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	
+	else:
+		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
 	
 
 
