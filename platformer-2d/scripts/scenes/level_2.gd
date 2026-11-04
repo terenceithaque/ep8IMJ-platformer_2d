@@ -25,6 +25,9 @@ func _ready() -> void:
 	for coin in coins:
 		$skeleton.add_collision_exception_with(coin)
 	
+	for feeding in food:
+		$skeleton.add_collision_exception_with(feeding)
+	
 	add_coins_to_save()
 	
 	print(get_tree().get_nodes_in_group("save"))
