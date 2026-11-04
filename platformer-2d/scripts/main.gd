@@ -30,7 +30,10 @@ func _on_play_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	
 	else:
-		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+		var save_data = save_script.open_player_save($name.text)
+		Global.player_save_state = save_data["mainchar"]
+		Global.level_save_state = save_data["levels"]
+		get_tree().change_scene_to_file(Global.player_save_state["level"])
 	
 
 

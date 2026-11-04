@@ -28,14 +28,17 @@ func _ready() -> void:
 	for feeding in food:
 		$skeleton.add_collision_exception_with(feeding)
 	
-	add_coins_to_save()
+	add_items_to_save()
 	
 	print(get_tree().get_nodes_in_group("save"))
 	
 
-func add_coins_to_save() -> void: ## Ajoute toutes les pièces du groupe "coins" dans le groupe "save"
+func add_items_to_save() -> void: ## Ajoute tous les items du niveau dans le groupe "save"
 	for coin in coins:
 		coin.add_to_group("save")
+	
+	for feeding in food:
+		feeding.add_to_group("save")
 
 
 func serialize_nodes() -> Dictionary: ## Regroupe les données de tous les noeuds du groupe "save" dans un dictionnaire
@@ -45,7 +48,11 @@ func serialize_nodes() -> Dictionary: ## Regroupe les données de tous les noeud
 		data[node.name] = node.serialize_data()
 	
 	return data
+
+func load_state(save_dict:Dictionary) -> void: ## Charge et actualise l'état des objets du niveau selon les données de sauvegarde
 	
+	for item_node in save_dict:
+		print(item_node)
 
 func _process(delta:float) -> void:
 	
@@ -96,6 +103,7 @@ func _process(delta:float) -> void:
 					feeding.consumed = true
 					feeding.play_bite_sound()
 					feeding.dissapear()
+					feeding.remove_from_group("food")
 					$player.increase_life(2)
 			
 		if $level_ending_panel.reached:

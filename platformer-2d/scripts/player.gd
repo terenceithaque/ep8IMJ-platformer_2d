@@ -69,22 +69,21 @@ func serialize_data() -> Dictionary: ## Classe les données du personnage joueur
 	return data
 
 
-func setup_from_save(save_data:Dictionary) -> void: ## Redéfinit l'état du joueur selon les données de sauvegarde passées en paramètre
+func setup_from_save() -> void: ## Redéfinit l'état du joueur selon les données de sauvegarde du jeu
 	
-	var player_attributes = save_data["mainchar"]
 	
-	player_name = player_attributes["player_name"]
+	player_name = Global.player_save_state["player_name"]
 	#$sprite.position = player_attributes["position"]
 	
-	current_level = player_attributes["level"]
+	current_level = Global.player_save_state["level"]
 	
-	coin = player_attributes["coin"]
-	max_coin = player_attributes["max_coin"]
+	coin = Global.player_save_state["coin"]
+	max_coin = Global.player_save_state["max_coin"]
 	
 	coin_bar_value.value = (coin / max_coin) * 100
 	
-	life = player_attributes["life"]
-	max_life = player_attributes["max_life"]
+	life = Global.player_save_state["life"]
+	max_life = Global.player_save_state["max_life"]
 	
 	life_bar.value = (life / max_life) * 100
 	
@@ -171,7 +170,7 @@ func _ready() -> void:
 	# Actualiser les données du joueur s'il a une sauvegarde
 	
 	if save_script.is_save_valid(player_name):
-		setup_from_save(save_script.open_player_save(player_name))
+		setup_from_save()
 	
 	# 1ère popup de tutoriel
 	display_tutorial("Déplacements de base",
