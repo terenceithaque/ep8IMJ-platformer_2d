@@ -10,6 +10,14 @@ func _ready() -> void:
 func play_bite_sound():
 	$sound.play()
 
+func serialize_data() -> Dictionary: ## Convertit l'état de la pomme en un dictionnaire
+	var data = {
+		"consumed": consumed,
+		"visible": $sprite.visible,
+		"disabled": $collision_shape.disabled
+	}
+	
+	return data
 
 func dissapear() -> void: ## Cache le sprite de la pomme et désactive sa boîte de collision
 	$sprite.visible = false

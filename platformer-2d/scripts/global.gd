@@ -1,6 +1,6 @@
 extends Node
 
-var player_name = ""
+var player_name = "player"
 
 
 func set_player_name(name:String) -> void:

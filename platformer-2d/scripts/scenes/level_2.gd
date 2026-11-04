@@ -41,6 +41,8 @@ func add_coins_to_save() -> void: ## Ajoute toutes les pièces du groupe "coins"
 func serialize_nodes() -> Dictionary: ## Regroupe les données de tous les noeuds du groupe "save" dans un dictionnaire
 	var data = {}
 	
+	#var node_groups = Groups
+	
 	for node in get_tree().get_nodes_in_group("save"):
 		data[node.name] = node.serialize_data()
 	

@@ -28,6 +28,8 @@ var paused = false
 
 @onready var latest_ground_position = position
 
+@onready var current_level = get_parent().scene_file_path
+
 
 # Récupérer les touches utilisées pour les différentes actions du joueur
 var move_right_keys = ProjectSettings.get_setting("input/droite")
@@ -59,7 +61,7 @@ func serialize_data() -> Dictionary: ## Classe les données du personnage joueur
 		"life" : life,
 		"max_life" : max_life,
 		"position": latest_ground_position,
-		"level": get_parent().get_path(),
+		"level": current_level,
 		"coin" : coin,
 		"max_coin" : max_coin
 	}
@@ -74,6 +76,8 @@ func setup_from_save(save_data:Dictionary) -> void: ## Redéfinit l'état du jou
 	player_name = player_attributes["player_name"]
 	#$sprite.position = player_attributes["position"]
 	
+	current_level = player_attributes["level"]
+	
 	coin = player_attributes["coin"]
 	max_coin = player_attributes["max_coin"]
 	
@@ -83,6 +87,8 @@ func setup_from_save(save_data:Dictionary) -> void: ## Redéfinit l'état du jou
 	max_life = player_attributes["max_life"]
 	
 	life_bar.value = (life / max_life) * 100
+	
+	#get_tree().change_scene_to_file(current_level)
 	
 
 func get_key_name(key: Variant) -> String: ## Renvoie le nom de la touche d'action donnée en paramètre.

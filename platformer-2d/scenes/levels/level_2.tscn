@@ -159,8 +159,8 @@ position = Vector2(1496, 513)
 [node name="coin20" parent="." unique_id=511657573 groups=["coins"] instance=ExtResource("8_8qukl")]
 position = Vector2(813, 441)
 
-[node name="apple" parent="." unique_id=117506058 groups=["food"] instance=ExtResource("9_3p04p")]
+[node name="apple" parent="." unique_id=117506058 groups=["food", "save"] instance=ExtResource("9_3p04p")]
 position = Vector2(360, 100)
 
-[node name="apple2" parent="." unique_id=643985309 groups=["food"] instance=ExtResource("9_3p04p")]
+[node name="apple2" parent="." unique_id=643985309 groups=["food", "save"] instance=ExtResource("9_3p04p")]
 position = Vector2(700, -140)
