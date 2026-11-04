@@ -15,6 +15,12 @@ func serialize_data() -> Dictionary: ## Regroupe les données de la pièce dans 
 	}
 	
 	return data
+	
+
+func set_state(save_dict:Dictionary) -> void: ## Actualise l'état de la pièce selon le dictionnaire de sauvegarde indiqué
+	collected = save_dict["collected"]
+	$sprite.visible = save_dict["visible"]
+	$CollisionShape2D.disabled = save_dict["disabled"]
 
 func dissapear(): ## Rend le sprite de la pièce invisible et désactive la boîte de collision
 	$sprite.visible = false
