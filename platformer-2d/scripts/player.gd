@@ -60,7 +60,7 @@ func serialize_data() -> Dictionary: ## Classe les données du personnage joueur
 		"player_name" : player_name,
 		"life" : life,
 		"max_life" : max_life,
-		"position": latest_ground_position,
+		"position": [latest_ground_position.x, latest_ground_position.y],
 		"level": current_level,
 		"coin" : coin,
 		"max_coin" : max_coin
@@ -73,7 +73,11 @@ func setup_from_save() -> void: ## Redéfinit l'état du joueur selon les donné
 	
 	
 	player_name = Global.player_save_state["player_name"]
-	#$sprite.position = player_attributes["position"]
+	
+	var position_coordinates = Global.player_save_state["position"]
+	print("Position du joueur sauvegardée : ", position_coordinates)
+	$sprite.position.x = position_coordinates[0]
+	$sprite.position.y = position_coordinates[1]
 	
 	current_level = Global.player_save_state["level"]
 	
@@ -416,6 +420,8 @@ func _physics_process(delta: float) -> void:
 				$sprite.animation = "idle"
 			
 			latest_ground_position = position
+			print("Dernière position au sol :", latest_ground_position)
+			print((type_string(typeof(latest_ground_position[0]))), (type_string(typeof(latest_ground_position[1]))))
 		
 		elif not is_on_floor():
 			fall(delta)

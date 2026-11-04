@@ -35,6 +35,7 @@ func save_player(player_data:Dictionary) -> void: ## Sauvegarde les données de 
 	
 	var json_file = FileAccess.open(mainchar_dir_path + "/data.json", FileAccess.WRITE)
 	
+	print("Données sauvegardées du joueur :", JSON.stringify(player_data))
 	json_file.store_line(JSON.stringify(player_data))
 	
 
