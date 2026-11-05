@@ -8,6 +8,16 @@ title = "Profils de sauvegarde"
 visible = false
 script = ExtResource("1_n5rnp")
 
+[node name="DeleteSaveConfirm" type="ConfirmationDialog" parent="." unique_id=2138659648]
+oversampling_override = 1.0
+title = "Suppresion de sauvegarde"
+position = Vector2i(200, 100)
+size = Vector2i(749, 106)
+ok_button_text = "Supprimer sauvegarde"
+dialog_text = "Attention ! Une fois les données de sauvegarde supprimées, vous ne pourrez pas les récupérer.
+Voulez-vous vraiment faire cela ?"
+cancel_button_text = "Annuler"
+
 [node name="CloseSavesWindow" type="Button" parent="." unique_id=131914577]
 offset_left = 220.0
 offset_top = 265.0
@@ -15,4 +25,5 @@ offset_right = 285.0
 offset_bottom = 296.0
 text = "Fermer"
 
+[connection signal="confirmed" from="DeleteSaveConfirm" to="." method="_on_delete_save_confirm_confirmed"]
 [connection signal="pressed" from="CloseSavesWindow" to="." method="_on_close_saves_window_pressed"]

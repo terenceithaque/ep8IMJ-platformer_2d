@@ -3,6 +3,8 @@ extends Window
 const SAVE = preload("res://scripts/save.gd")
 @onready var save_script = SAVE.new()
 
+var player_to_delete = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -68,11 +70,19 @@ func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) ->
 		
 	
 	elif id == 1:
-		save_script.rm_player_save(player_name)
+		
+		$DeleteSaveConfirm.visible = true
+		player_to_delete = player_name
+		#save_script.rm_player_save(player_name)
 	
-		update_profiles_buttons()
-	
+
 
 func _on_close_saves_window_pressed() -> void:
 	visible = false
 	close_requested.emit()
+
+
+func _on_delete_save_confirm_confirmed() -> void:
+	
+	save_script.rm_player_save(player_to_delete)
+	update_profiles_buttons()
