@@ -46,4 +46,5 @@ offset_bottom = 41.0
 text = "Quitter
 "
 
+[connection signal="pressed" from="canvas/Sprite2D/replay_button" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="canvas/Sprite2D/quit_button" to="." method="_on_quit_button_pressed"]
