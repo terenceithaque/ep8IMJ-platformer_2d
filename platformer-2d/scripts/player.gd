@@ -71,13 +71,15 @@ func serialize_data() -> Dictionary: ## Classe les données du personnage joueur
 
 func setup_from_save() -> void: ## Redéfinit l'état du joueur selon les données de sauvegarde du jeu
 	
+	print("Données du joueur sauvegardées : ", Global.player_save_state)
 	
 	player_name = Global.player_save_state["player_name"]
 	
 	var position_coordinates = Global.player_save_state["position"]
 	print("Position du joueur sauvegardée : ", position_coordinates)
-	$sprite.position.x = position_coordinates[0]
-	$sprite.position.y = position_coordinates[1]
+	#$sprite.position.x = position_coordinates[0]
+	#$sprite.position.y = position_coordinates[1]
+	
 	
 	current_level = Global.player_save_state["level"]
 	
@@ -172,8 +174,9 @@ func _ready() -> void:
 	print(move_right)
 	
 	# Actualiser les données du joueur s'il a une sauvegarde
-	
+	print("Sauvegarde du joueur valide :", save_script.is_save_valid(player_name))
 	if save_script.is_save_valid(player_name):
+		print("Chargement des données de sauvegarde du joueur")
 		setup_from_save()
 	
 	# 1ère popup de tutoriel

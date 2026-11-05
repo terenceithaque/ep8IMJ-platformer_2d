@@ -59,11 +59,18 @@ func update_profiles_buttons() -> void: ## Actualise les boutons d'action sur le
 func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) -> void:
 	
 	# Effectuer l'opération correspondant à l'option
-	match id:
-		0: pass
-		1: save_script.rm_player_save(player_name)
 	
-	update_profiles_buttons()
+	if id == 0:
+		var save_data = save_script.open_player_save(player_name)
+		Global.player_save_state = save_data["mainchar"]
+		Global.level_save_state = save_data["levels"]
+		get_tree().change_scene_to_file(Global.player_save_state["level"])
+		
+	
+	elif id == 1:
+		save_script.rm_player_save(player_name)
+	
+		update_profiles_buttons()
 	
 
 func _on_close_saves_window_pressed() -> void:

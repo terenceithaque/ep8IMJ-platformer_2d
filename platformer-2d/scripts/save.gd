@@ -43,6 +43,7 @@ func is_save_valid(player_name:String) -> bool: ## Renvoie true si le dossier de
 	
 	# Renvoyer false si le dossier de sauvegarde du joueur n'existe pas
 	if not player_name in get_saved_players():
+		print("Le joueur ", player_name, " n'est pas dans les joueurs sauvegardés")
 		return false
 	
 	else:
@@ -50,9 +51,11 @@ func is_save_valid(player_name:String) -> bool: ## Renvoie true si le dossier de
 		var levels_dir = DirAccess.open(get_player_save_dir(player_name, "/levels"))
 		
 		if not "data.json" in mainchar_dir.get_files() or not "data.json" in levels_dir.get_files():
+			print("Le fichier data.json n'a pas été trouvé dans le dossier mainchar ou dans levels")
 			return false
 		
 		else:
+			print("La sauvegarde de ", player_name, " est valide")
 			return true
 
 func get_player_save_dir(player_name:String, subdir:String="") -> String: ## Renvoie le chemin du dossier de sauvegarde du joueur indiqué
