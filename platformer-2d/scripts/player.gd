@@ -75,6 +75,7 @@ func setup_from_save() -> void: ## Redéfinit l'état du joueur selon les donné
 	
 	player_name = Global.player_save_state["player_name"]
 	Global.player_name = player_name
+	$name_label.text = player_name
 	
 	print("Nom du joueur après chargement de la sauvegarde : ", player_name)
 	
@@ -176,7 +177,7 @@ func _ready() -> void:
 	#print(move_right)
 	
 	# Actualiser les données du joueur s'il a une sauvegarde
-	if save_script.is_save_valid(player_name):
+	if Global.player_save_state != {}:
 		print("Chargement des données de sauvegarde du joueur")
 		setup_from_save()
 	
