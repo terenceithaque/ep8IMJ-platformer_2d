@@ -39,12 +39,11 @@ offset_bottom = -47.0
 text = "Réessayer"
 
 [node name="quit_button" type="Button" parent="canvas/Sprite2D" unique_id=1767494609]
-offset_left = -28.0
-offset_top = 10.0
-offset_right = 71.0
-offset_bottom = 41.0
-text = "Quitter
-"
+offset_left = -38.537636
+offset_top = 8.982456
+offset_right = 86.462364
+offset_bottom = 39.982456
+text = "Menu principal"
 
 [connection signal="pressed" from="canvas/Sprite2D/replay_button" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="canvas/Sprite2D/quit_button" to="." method="_on_quit_button_pressed"]
