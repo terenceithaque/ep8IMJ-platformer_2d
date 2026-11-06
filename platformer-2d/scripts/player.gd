@@ -74,6 +74,9 @@ func setup_from_save() -> void: ## Redéfinit l'état du joueur selon les donné
 	print("Données du joueur sauvegardées : ", Global.player_save_state)
 	
 	player_name = Global.player_save_state["player_name"]
+	Global.player_name = player_name
+	
+	print("Nom du joueur après chargement de la sauvegarde : ", player_name)
 	
 	var position_coordinates = Global.player_save_state["position"]
 	print("Position du joueur sauvegardée : ", position_coordinates)
@@ -163,18 +166,16 @@ func _ready() -> void:
 	var name_label = $name_label
 	name_label.text = player_name
 	
-	print("Nom du joueur :", player_name)
 	$sprite.play("idle")
 	var move_left = get_key_name(move_left_keys)
 	var move_right = get_key_name(move_right_keys)
 	var jump_key_name = get_key_name(jump_key)
 	var run_key_name = get_key_name(run_key)
 	
-	print(move_left)
-	print(move_right)
+	#print(move_left)
+	#print(move_right)
 	
 	# Actualiser les données du joueur s'il a une sauvegarde
-	print("Sauvegarde du joueur valide :", save_script.is_save_valid(player_name))
 	if save_script.is_save_valid(player_name):
 		print("Chargement des données de sauvegarde du joueur")
 		setup_from_save()
@@ -187,7 +188,7 @@ func _ready() -> void:
 
 func display_tutorial(tutorial_title:String, tutorial_text:String, flag_name:String): ## Affiche une nouvelle popup de tutoriel à l'écran
 	var popup = tutorial_popup_scene.instantiate()
-	print(popup)
+	#print(popup)
 	popup.visible = true
 	popup.add_to_group("tutorials")
 	popup.set_popup_title(tutorial_title)
@@ -201,19 +202,15 @@ func display_tutorial(tutorial_title:String, tutorial_text:String, flag_name:Str
 
 func is_out_of_screen() -> bool:
 	if position.x < $Camera2D.limit_left:
-		print("Le joueur est sorti de l'écran par la gauche")
 		return true
 	
 	elif position.x > $Camera2D.limit_right:
-		print("Le joueur est sorti de l'écran par la droite")
 		return true
 	
 	elif position.y < $Camera2D.limit_top:
-		print("Le joueur est sorti de l'écran par le haut")
 		return true
 	
 	elif position.y > $Camera2D.limit_bottom:
-		print("Le joueur est sorti de l'écran par le bas")
 		return true
 	
 	else:
@@ -223,7 +220,7 @@ func is_out_of_screen() -> bool:
 
 func update_tutorials(): ## Met à jour l'état de complétion de l'intégralité des tutoriels
 	var tutorials = get_tree().get_nodes_in_group("tutorials")
-	print(tutorials)
+	#print(tutorials)
 	for tutorial in tutorials:
 		print("Tutoriel :", tutorial)
 		update_tutorial_completion_flags(tutorial.completion_flag)
@@ -327,7 +324,7 @@ func get_collision(): ## Retourne le nom de l'objet avec lequel le joueur est en
 
 
 func is_animation_playing(): ## Renvoie true si une animation du joueur (autre que "idle") est active, sinon renvoie false
-	print($sprite.animation)
+	#print($sprite.animation)
 	return $sprite.is_playing() and $sprite.animation != "idle"
 	
 
@@ -423,8 +420,8 @@ func _physics_process(delta: float) -> void:
 				$sprite.animation = "idle"
 			
 			latest_ground_position = position
-			print("Dernière position au sol :", latest_ground_position)
-			print((type_string(typeof(latest_ground_position[0]))), (type_string(typeof(latest_ground_position[1]))))
+			#print("Dernière position au sol :", latest_ground_position)
+			#print((type_string(typeof(latest_ground_position[0]))), (type_string(typeof(latest_ground_position[1]))))
 		
 		elif not is_on_floor():
 			fall(delta)

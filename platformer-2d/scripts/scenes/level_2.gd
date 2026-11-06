@@ -69,6 +69,11 @@ func _process(delta:float) -> void:
 	# Ne mettre à jour l'état du niveau que si le jeu n'est pas en pause
 	if not $player.paused:
 		if has_node("skeleton"):
+			
+			if not $skeleton.is_processing():
+				$skeleton.set_process(true)
+				
+				
 			# Désactiver le squelette s'il sort de la fenetre
 			if $skeleton.is_out_of_window():
 				#$skeleton.set_process(false)
@@ -113,7 +118,8 @@ func _process(delta:float) -> void:
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
 		
 	else:
-		$skeleton.set_process(false)
+		if has_node("skeleton"):
+			$skeleton.set_process(false)
 		
 		for coin in coins:
 			coin.set_process(false)

@@ -63,18 +63,17 @@ func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) ->
 	# Effectuer l'opération correspondant à l'option
 	
 	if id == 0:
+		print("Nom du joueur dont la sauvegarde doit être chargée :", player_name)
 		var save_data = save_script.open_player_save(player_name)
 		Global.player_save_state = save_data["mainchar"]
 		Global.level_save_state = save_data["levels"]
+		#Global.player_name = player_name
 		get_tree().change_scene_to_file(Global.player_save_state["level"])
 		
 	
 	elif id == 1:
-		
 		$DeleteSaveConfirm.visible = true
 		player_to_delete = player_name
-		#save_script.rm_player_save(player_name)
-	
 
 
 func _on_close_saves_window_pressed() -> void:
