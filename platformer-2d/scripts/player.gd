@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var max_life = 5.0 # Vie (coeurs) du joueur
 var life = 5.0
-@onready var life_bar = get_node("GUI/life_bar")
+@onready var life_bar = get_node("GUI/life_bar/value_bar")
 
 var player_name = "player"
 
