@@ -74,6 +74,7 @@ func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) ->
 	elif id == 1:
 		$DeleteSaveConfirm.visible = true
 		player_to_delete = player_name
+		print("Liste actualisée des joueurs sauvegardés : ", Global.saved_players)
 
 
 func _on_close_saves_window_pressed() -> void:
@@ -84,4 +85,8 @@ func _on_close_saves_window_pressed() -> void:
 func _on_delete_save_confirm_confirmed() -> void:
 	
 	save_script.rm_player_save(player_to_delete)
+	Global.update_saved_players()
 	update_profiles_buttons()
+	
+	if Global.saved_players.is_empty():
+		close_requested.emit()

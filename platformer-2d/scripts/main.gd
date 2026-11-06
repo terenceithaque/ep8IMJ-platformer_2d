@@ -4,7 +4,6 @@ const SAVE = preload("res://scripts/save.gd")
 
 @onready var save_script = SAVE.new()
 
-var saved_players = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +14,6 @@ func _ready() -> void:
 	
 	
 	save_script.create_saves_dir()
-	saved_players = save_script.get_saved_players()
 	
 
 func _on_play_button_pressed() -> void:
@@ -25,7 +23,7 @@ func _on_play_button_pressed() -> void:
 	
 	Global.set_player_name($name.text)
 	print("Nom du joueur après défintion :", Global.player_name)
-	if not $name.text in saved_players:
+	if not $name.text in Global.saved_players:
 		save_script.create_player_save($name.text)
 		get_tree().change_scene_to_file("res://scenes/intro.tscn")
 	
