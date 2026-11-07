@@ -12,6 +12,8 @@ var max_life = 5.0 # Vie (coeurs) du joueur
 var life = 5.0
 @onready var life_bar = get_node("GUI/life_bar/value_bar")
 
+@onready var pause_menu = get_node("GUI/pause_menu")
+
 var player_name = "player"
 
 
@@ -262,12 +264,12 @@ func set_pause(): ## Active ou désactive la pause selon son état actuel
 	
 	if not paused:
 		paused = true
-		$pause_menu.visible = true
+		pause_menu.visible = true
 	
 	else:
 		paused = false
 		
-		$pause_menu.visible = false
+		pause_menu.visible = false
 
 # Fonction qui fait tomber le joueur
 func fall(delta : float) -> void:
@@ -459,9 +461,9 @@ func _process(float) -> void:
 			looking_down = false
 		
 		
-	if Input.is_action_just_pressed("pause") or $pause_menu.resume_button_clicked:
+	if Input.is_action_just_pressed("pause") or pause_menu.resume_button_clicked:
 		set_pause()
-		$pause_menu.resume_button_clicked = false
+		pause_menu.resume_button_clicked = false
 		
 
 func _on_total_jump_timer_timeout() -> void:

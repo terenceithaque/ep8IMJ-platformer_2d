@@ -612,6 +612,9 @@ drag_vertical_enabled = true
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1869809353]
 
+[node name="pause_menu" parent="GUI" unique_id=137777546 instance=ExtResource("22_a38lo")]
+position = Vector2(3, 50)
+
 [node name="coin_bar" type="TextureProgressBar" parent="GUI" unique_id=1997187014]
 offset_left = 3.0
 offset_top = 30.0
@@ -659,8 +662,6 @@ stream = ExtResource("19_4r5pv")
 
 [node name="hit_5" type="AudioStreamPlayer" parent="." unique_id=537559124]
 stream = ExtResource("20_60mlk")
-
-[node name="pause_menu" parent="." unique_id=137777546 instance=ExtResource("22_a38lo")]
 
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
