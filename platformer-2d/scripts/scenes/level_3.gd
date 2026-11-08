@@ -12,6 +12,8 @@ func _ready() -> void:
 	# Positionner la caméra du joueur
 	player_camera.set_limits(-4000.0, -1500.0, 4000.0, 4000.0)
 	
+	$music.play()
+	
 
 
 func _process(delta:float) -> void:

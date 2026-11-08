@@ -24,11 +24,18 @@ offset_right = 722.0
 offset_bottom = 376.0
 text = "Sauvegardes..."
 
-[node name="QuitButton" type="Button" parent="." unique_id=1803596706 groups=["menu_buttons"]]
-offset_left = 452.0
+[node name="CreditsButton" type="Button" parent="." unique_id=1992030678]
+offset_left = 453.0
 offset_top = 400.0
-offset_right = 724.0
-offset_bottom = 498.0
+offset_right = 725.0
+offset_bottom = 490.0
+text = "Crédits"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1803596706 groups=["menu_buttons"]]
+offset_left = 453.0
+offset_top = 511.0
+offset_right = 725.0
+offset_bottom = 609.0
 text = "Quitter"
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1524609380]

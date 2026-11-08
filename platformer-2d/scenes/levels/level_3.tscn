@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b5hqbia08qj6i" path="res://scripts/scenes/level_3.gd" id="1_0qepi"]
 [ext_resource type="Texture2D" uid="uid://1mghdkhri71i" path="res://assets/img/scenes/level_3.png" id="2_44gv1"]
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="5_fmg3e"]
+[ext_resource type="AudioStream" uid="uid://bciobieibc5bk" path="res://assets/music/level_3.mp3" id="5_ftfob"]
 
 [node name="level_3" type="Node2D" unique_id=524926789]
 script = ExtResource("1_0qepi")
@@ -50,3 +51,6 @@ polygon = PackedVector2Array(18, 0, 772, -1, 771, 22, 699, 21, 699, 57, 440, 53,
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("5_fmg3e")]
 position = Vector2(-321, 2267)
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=633092249]
+stream = ExtResource("5_ftfob")
