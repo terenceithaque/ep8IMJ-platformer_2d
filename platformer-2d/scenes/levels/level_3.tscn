@@ -28,5 +28,25 @@ polygon = PackedVector2Array(26, -4, 796, 5, 1010, -189, 1019, -165, 790, 27, 39
 position = Vector2(1100, 2580)
 polygon = PackedVector2Array(24, -2, 169, -7, 169, 14, 28, 9)
 
+[node name="platform_3_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1203517848]
+position = Vector2(1530, 2420)
+polygon = PackedVector2Array(29, -10, 204, -16, 201, -46, 867, -46, 867, -19, 221, -25, 222, 11, 20, 9)
+
+[node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=268096035]
+position = Vector2(2620, 2390)
+polygon = PackedVector2Array(32, 0, 363, 1, 365, 37, 418, 37, 419, 4, 455, 7, 447, -26, 22, -24)
+
+[node name="platform_5_collision" type="CollisionPolygon2D" parent="canvas" unique_id=316945347]
+position = Vector2(3120, 2100)
+polygon = PackedVector2Array(22, 4, 75, 5, 71, -22, 19, -24)
+
+[node name="platform_6_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1318300859]
+position = Vector2(3350, 2070)
+polygon = PackedVector2Array(25, -3, 170, -132, 486, -126, 486, -150, 148, -154, 16, -20)
+
+[node name="platform_7_collision" type="CollisionPolygon2D" parent="canvas" unique_id=994451842]
+position = Vector2(4020, 1830)
+polygon = PackedVector2Array(18, 0, 772, -1, 771, 22, 699, 21, 699, 57, 440, 53, 437, 19, 31, 22)
+
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("5_fmg3e")]
 position = Vector2(-321, 2267)

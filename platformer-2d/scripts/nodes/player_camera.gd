@@ -7,8 +7,6 @@ var default_limit_top = -1500.0
 var default_limit_right = 1500.0
 var default_limit_bottom = 1200.0
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
