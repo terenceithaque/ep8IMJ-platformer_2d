@@ -106,3 +106,16 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
+
+
+# Crédits
+
+-- Développement principal --
+terenceithaque
+
+-- Création des assets --
+Ben Dunkle (police de caractères "Isometra Regular", Google Fonts)
+Human Antagonist (musique de niveau, OpenGameArt.org)
+Snabisch (musique de niveau, OpenGameArt.org)
+
+Certains artistes n'ont pas pus être retrouvés en ligne. Je leur adresse également mes remerciements.
