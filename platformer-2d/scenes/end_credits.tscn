@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dyr071gpmshc5"]
+
+[ext_resource type="Script" uid="uid://dppjcxk0l83w4" path="res://scripts/scenes/end_credits.gd" id="1_240hb"]
+[ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="1_325g6"]
+[ext_resource type="AudioStream" uid="uid://7fe2xoqefdas" path="res://assets/music/end_credits.mp3" id="1_dhn2b"]
+
+[node name="end_credits" type="Node2D" unique_id=322040250]
+script = ExtResource("1_240hb")
+
+[node name="canvas" type="CanvasLayer" parent="." unique_id=1284036204]
+
+[node name="development_label" type="RichTextLabel" parent="canvas" unique_id=1959147284]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -393.0
+offset_top = -300.0
+offset_right = 407.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/bold_font = ExtResource("1_325g6")
+bbcode_enabled = true
+text = "[b]Développé par[/b] 
+terenceithaque, [i]github.com/terenceithaque"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="musics_label" type="RichTextLabel" parent="canvas" unique_id=241714231]
+offset_left = 215.0
+offset_top = 300.0
+offset_right = 1015.0
+offset_bottom = 500.0
+bbcode_enabled = true
+text = "[b]Musiques du jeu par[/b]
+Human Antagonist, [i]OpenGameArt.org[/i]
+Snabisch, [i]OpenGameArt.org[/i]
+
+[b]Musique des crédits par[/b]
+CleytonKauffman, [i]OpenGameArt.org
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="canvas" unique_id=101415192]
+custom_minimum_size = Vector2(800, 200)
+offset_left = 200.0
+offset_top = 500.0
+offset_right = 240.0
+offset_bottom = 540.0
+bbcode_enabled = true
+text = "[b]Police d'écriture créée par[/b]
+Ben Dunkle, [i]fonts.google.com[/i], licence OFL."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=93737922]
+stream = ExtResource("1_dhn2b")
+
+[connection signal="finished" from="music" to="." method="_on_music_finished"]

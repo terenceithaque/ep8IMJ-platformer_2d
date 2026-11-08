@@ -83,3 +83,9 @@ func _on_no_save_window_close_requested() -> void:
 	$NoSaveWindow.visible = false
 	for button in get_tree().get_nodes_in_group("menu_buttons"):
 			button.disabled = false
+
+
+func _on_credits_button_pressed() -> void:
+	
+	# Jouer les crédits
+	get_tree().change_scene_to_file("res://scenes/end_credits.tscn")
