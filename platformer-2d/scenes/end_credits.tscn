@@ -36,6 +36,7 @@ offset_left = 215.0
 offset_top = 300.0
 offset_right = 1015.0
 offset_bottom = 500.0
+theme_override_fonts/bold_font = ExtResource("1_325g6")
 bbcode_enabled = true
 text = "[b]Musiques du jeu par[/b]
 Human Antagonist, [i]OpenGameArt.org[/i]
@@ -53,6 +54,7 @@ offset_left = 200.0
 offset_top = 500.0
 offset_right = 240.0
 offset_bottom = 540.0
+theme_override_fonts/bold_font = ExtResource("1_325g6")
 bbcode_enabled = true
 text = "[b]Police d'écriture créée par[/b]
 Ben Dunkle, [i]fonts.google.com[/i], licence OFL."
