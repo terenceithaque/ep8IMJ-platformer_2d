@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://1mghdkhri71i" path="res://assets/img/scenes/level_3.png" id="2_44gv1"]
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="5_fmg3e"]
 [ext_resource type="AudioStream" uid="uid://bciobieibc5bk" path="res://assets/music/level_3.mp3" id="5_ftfob"]
+[ext_resource type="PackedScene" uid="uid://cgdkxes5d0oy2" path="res://scenes/levels/level_ending_panel.tscn" id="6_ftfob"]
 
 [node name="level_3" type="Node2D" unique_id=524926789]
 script = ExtResource("1_0qepi")
@@ -58,3 +59,6 @@ position = Vector2(-2752, 3433)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=633092249]
 stream = ExtResource("5_ftfob")
+
+[node name="level_ending_panel" parent="." unique_id=1524944001 instance=ExtResource("6_ftfob")]
+position = Vector2(7100, 1950)
