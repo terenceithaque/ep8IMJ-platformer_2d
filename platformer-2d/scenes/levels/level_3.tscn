@@ -13,7 +13,7 @@ script = ExtResource("1_0qepi")
 
 [node name="background" type="Sprite2D" parent="canvas" unique_id=1373719022]
 position = Vector2(900, 1900)
-scale = Vector2(7.65, 2)
+scale = Vector2(13, 6)
 texture = ExtResource("1_0ljxa")
 
 [node name="platforms" type="Sprite2D" parent="canvas" unique_id=964174149]
@@ -21,36 +21,40 @@ position = Vector2(2400, 1680)
 scale = Vector2(2, 2)
 texture = ExtResource("2_44gv1")
 
-[node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=329051641]
-position = Vector2(0, 2850)
-polygon = PackedVector2Array(26, -4, 796, 5, 1010, -189, 1019, -165, 790, 27, 39, 20)
+[node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=2024248847]
+position = Vector2(-2400, 4050)
+polygon = PackedVector2Array(21, -2, 1582, -19, 2019, -408, 2012, -359, 1579, 28, 26, 23)
 
-[node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1148961901]
-position = Vector2(1100, 2580)
-polygon = PackedVector2Array(24, -2, 169, -7, 169, 14, 28, 9)
+[node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1500676284]
+position = Vector2(-200, 3500)
+polygon = PackedVector2Array(23, 6, 352, 2, 352, -60, -18, -60, -10, 1)
 
-[node name="platform_3_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1203517848]
-position = Vector2(1530, 2420)
-polygon = PackedVector2Array(29, -10, 204, -16, 201, -46, 867, -46, 867, -19, 221, -25, 222, 11, 20, 9)
+[node name="platform_3_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1717335735]
+position = Vector2(300, 3400)
+polygon = PackedVector2Array(18, -5, 428, -272, 763, -273, 763, -343, 2092, -338, 2095, -296, 822, -290, 814, -225, 400, -224, 84, 27, -6, 27)
 
-[node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=268096035]
-position = Vector2(2620, 2390)
-polygon = PackedVector2Array(32, 0, 363, 1, 365, 37, 418, 37, 419, 4, 455, 7, 447, -26, 22, -24)
+[node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=307458755]
+position = Vector2(2850, 3100)
+polygon = PackedVector2Array(30, 0, 703, 4, 704, 76, 822, 78, 817, 10, 895, 10, 889, -36, 0, -40)
 
-[node name="platform_5_collision" type="CollisionPolygon2D" parent="canvas" unique_id=316945347]
-position = Vector2(3120, 2100)
-polygon = PackedVector2Array(22, 4, 75, 5, 71, -22, 19, -24)
+[node name="platform_5_collision" type="CollisionPolygon2D" parent="canvas" unique_id=227574980]
+position = Vector2(3800, 2850)
+polygon = PackedVector2Array(24, -3, 64, 4, 122, -65, 252, -58, 387, -197, 379, -240, 333, -237, 339, -198, 254, -112, 88, -104, 64, -36, 22, -36)
 
-[node name="platform_6_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1318300859]
-position = Vector2(3350, 2070)
-polygon = PackedVector2Array(25, -3, 170, -132, 486, -126, 486, -150, 148, -154, 16, -20)
+[node name="platform_6_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1822131466]
+position = Vector2(4330, 2450)
+polygon = PackedVector2Array(29, 4, 51, 2, 302, -248, 934, -239, 936, -280, 300, -280, 49, -35, 0, -34)
 
-[node name="platform_7_collision" type="CollisionPolygon2D" parent="canvas" unique_id=994451842]
-position = Vector2(4020, 1830)
-polygon = PackedVector2Array(18, 0, 772, -1, 771, 22, 699, 21, 699, 57, 440, 53, 437, 19, 31, 22)
+[node name="platform_7_collision" type="CollisionPolygon2D" parent="canvas" unique_id=546671919]
+position = Vector2(5420, 2140)
+polygon = PackedVector2Array(26, -1, 105, 1, 96, -45, 12, -39)
+
+[node name="platform_8_collision" type="CollisionPolygon2D" parent="canvas" unique_id=600579407]
+position = Vector2(5680, 2000)
+polygon = PackedVector2Array(24, -4, 1511, -10, 1511, 30, 1354, 30, 1350, 84, 829, 80, 832, 20, 24, 16)
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("5_fmg3e")]
-position = Vector2(-321, 2267)
+position = Vector2(-2752, 3433)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=633092249]
 stream = ExtResource("5_ftfob")

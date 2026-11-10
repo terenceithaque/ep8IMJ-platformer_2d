@@ -10,7 +10,7 @@ func _ready() -> void:
 	print("Position de la caméra du joueur :", player_camera.position)
 	
 	# Positionner la caméra du joueur
-	player_camera.set_limits(-4000.0, -1500.0, 4000.0, 4000.0)
+	player_camera.set_limits(-4000.0, -1500.0, 8000.0, 5000.0)
 	
 	$music.play()
 	
