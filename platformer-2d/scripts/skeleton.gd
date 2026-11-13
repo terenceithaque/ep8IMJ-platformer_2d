@@ -14,6 +14,8 @@ var void_detected = false
 var void_detected_timeout = false
 var nb_void_detections = 0
 
+var dead = false
+
 var max_life = 2.0
 var life = 2.0
 var invincible = false
@@ -60,8 +62,7 @@ func dammage(points:int) -> void: ## Réduit la vie du squelette d'autant de poi
 		
 		# Détruire le noeud du squelette si sa vie restante tombe à 0 ou en-dessous
 		if life <= 0:
-			$sprite.play("death")
-			queue_free()
+			dead = true
 		
 		invincible = true
 		$invincibility_timer.start()
@@ -126,16 +127,17 @@ func _process(delta:float) -> void:
 	
 	else:
 		
-		if is_void_close() and void_detected_timeout:
-			void_detected = true
-			void_detected_timeout = false
-			#print("Le squelette est près du vide")
-			change_direction()
-			#move()
-			#$sprite.flip_h = true
-			$change_direction_timer.start()
-			#$void_detected.start()
-			nb_void_detections += 1
+		if not dead:
+			if is_void_close() and void_detected_timeout:
+				void_detected = true
+				void_detected_timeout = false
+				#print("Le squelette est près du vide")
+				change_direction()
+				#move()
+				#$sprite.flip_h = true
+				$change_direction_timer.start()
+				#$void_detected.start()
+				nb_void_detections += 1
 		
 		else:
 			void_detected = false
@@ -152,7 +154,8 @@ func _process(delta:float) -> void:
 		if is_player_close():
 			#print("Le squelette a repéré le joueur")
 			
-			attacking = true
+			if not dead:
+				attacking = true
 			
 			"""if not void_detected:
 				if position.x - player.position.x < 0:
@@ -197,6 +200,10 @@ func _on_sprite_animation_finished() -> void:
 	print($sprite.animation)
 	if attacking:
 		$sprite.play("attack")
+		
+	elif dead:
+		$sprite.play("death")
+		queue_free()
 	
 	else:
 		$sprite.play("walk")

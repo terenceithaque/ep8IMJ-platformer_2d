@@ -75,6 +75,31 @@ text = "[b]Images de fond des niveaux créées par[/b]
 Kenney Vleugels, [i]kenney.nl/assets[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="mobs_sounds_label" type="RichTextLabel" parent="canvas" unique_id=1028623528]
+offset_left = 194.0
+offset_top = 800.0
+offset_right = 994.0
+offset_bottom = 1000.0
+bbcode_enabled = true
+text = "[b] Sons des monstres réalisés par [/b]
+Ogrebane, [i]OpenGameArt.org[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="player_sounds_label" type="RichTextLabel" parent="canvas" unique_id=87169997]
+offset_left = 185.0
+offset_top = 982.0
+offset_right = 985.0
+offset_bottom = 1182.0
+bbcode_enabled = true
+text = "[b]Sons du joueur[/b]
+terenceithaque
+Rick Hoppman, [i]OpenGameArt.org[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=93737922]
 stream = ExtResource("1_dhn2b")

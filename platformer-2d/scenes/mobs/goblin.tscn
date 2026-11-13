@@ -3,6 +3,64 @@
 [ext_resource type="Texture2D" uid="uid://gd22agixf6pu" path="res://assets/img/creatures/mobs/Goblin/Idle.png" id="1_oxrpd"]
 [ext_resource type="Script" uid="uid://d062ce0fus3r5" path="res://scripts/goblin.gd" id="1_q5pu5"]
 [ext_resource type="Texture2D" uid="uid://bbp1jiipudho2" path="res://assets/img/creatures/mobs/Goblin/Run.png" id="2_5dtyf"]
+[ext_resource type="Texture2D" uid="uid://on1b8cqjhio0" path="res://assets/img/creatures/mobs/Goblin/Death.png" id="2_bnosw"]
+[ext_resource type="Texture2D" uid="uid://ccilukebubtff" path="res://assets/img/creatures/mobs/Goblin/Attack.png" id="2_cno4l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwcsa"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(0, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my5ao"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(120, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qates"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(240, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4pri"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(360, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e605e"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(480, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naum6"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(600, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar7ll"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(720, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hxci"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(840, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrrop"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(960, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0i5k"]
+atlas = ExtResource("2_cno4l")
+region = Rect2(1080, 0, 120, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7drpn"]
+atlas = ExtResource("2_bnosw")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ts1p"]
+atlas = ExtResource("2_bnosw")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_troct"]
+atlas = ExtResource("2_bnosw")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbkpx"]
+atlas = ExtResource("2_bnosw")
+region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dtyf"]
 atlas = ExtResource("1_oxrpd")
@@ -54,6 +112,58 @@ region = Rect2(1050, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yj4un"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwcsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my5ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qates")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4pri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e605e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naum6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar7ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hxci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrrop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0i5k")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7drpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ts1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_troct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbkpx")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5dtyf")
@@ -110,7 +220,7 @@ script = ExtResource("1_q5pu5")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=879480988]
 sprite_frames = SubResource("SpriteFrames_yj4un")
-animation = &"walk"
+animation = &"attack"
 metadata/_edit_group_ = true
 
 [node name="collision_shape" type="CollisionShape2D" parent="." unique_id=777771447]
@@ -120,5 +230,7 @@ metadata/_edit_group_ = true
 [node name="change_direction_timer" type="Timer" parent="." unique_id=115991266]
 wait_time = 4.0
 autostart = true
+
+[node name="void_detection" type="RayCast2D" parent="." unique_id=423979114]
 
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]

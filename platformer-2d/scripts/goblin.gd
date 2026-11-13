@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var SPEED = 200.0
+var RUN_SPEED = SPEED * 1.75
+
 const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2i.RIGHT
@@ -23,7 +25,7 @@ func _ready():
 	$sprite.play("walk")
 
 
-func serialize_data() -> Dictionary: ## Regroupe les données du squelette dans un dictionnaire utilisable pour une sauvegarde
+func serialize_data() -> Dictionary: ## Regroupe les données du goblin dans un dictionnaire utilisable pour une sauvegarde
 	var data = {
 		"life": life,
 		"max_life": max_life,
@@ -32,11 +34,49 @@ func serialize_data() -> Dictionary: ## Regroupe les données du squelette dans 
 	return data
 
 
-func fall(delta:float) -> void: ## Fait chuter le squelette selon la gravité
+func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	
 	velocity.y += gravity * delta
 
-func is_out_of_window() -> bool: ## Renvoie true si le squelette est sorti de l'écran, false sinon
+func change_direction(): ## Change la direction vers laquelle le goblin se dirige
+	print("Changement de direction")
+	if direction.x == -1:
+		direction = Vector2i.RIGHT
+		$sprite.flip_h = false
+	
+	else:
+		direction = Vector2i.LEFT
+		$sprite.flip_h = true
+
+
+func update_void_detection_position(): ## Définit la position du noeud de détection du vide en fonction de la direction du goblin
+	if direction == Vector2i.LEFT:
+		$void_detection.target_position.x = $sprite.position.x - 20
+		$void_detection.target_position.y = $sprite.position.y
+	
+	else:
+		$void_detection.target_position.x = $sprite.position.x + 20
+		$void_detection.target_position.y = $sprite.position.y
+
+func move(): ## Déplace le goblin selon sa direction actuelle
+	
+	print("Direction du goblin : ", direction.x)
+	if not running:
+			if direction.x == -1:
+				velocity = Vector2(direction.x, 0.0) * SPEED
+			
+			elif direction.x == 1:
+				velocity = Vector2(direction.x, 0.0) * SPEED
+		
+	else:
+		if direction.x == -1:
+			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
+				
+		elif direction.x == 1:
+			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
+
+
+func is_out_of_window() -> bool: ## Renvoie true si le goblin est sorti de l'écran, false sinon
 	if position.x > screen_width or position.x < -screen_width:
 		return true
 	
@@ -45,13 +85,17 @@ func is_out_of_window() -> bool: ## Renvoie true si le squelette est sorti de l'
 		
 	return false
 
-"""func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta"""
 
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	"""if not is_on_floor():
+		fall(delta)"""
+	
+	move()
+	
+	move_and_slide()
 	
 
 
 func _on_change_direction_timer_timeout() -> void:
-	$sprite.flip_h = true
+	change_direction()
