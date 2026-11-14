@@ -75,6 +75,8 @@ func move(): ## Déplace le goblin selon sa direction actuelle
 		elif direction.x == 1:
 			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
 	
+	$sprite.play("walk")
+	
 	
 func is_out_of_window() -> bool: ## Renvoie true si le goblin est sorti de l'écran, false sinon
 	if position.x > screen_width or position.x < -screen_width:
@@ -88,17 +90,25 @@ func is_out_of_window() -> bool: ## Renvoie true si le goblin est sorti de l'éc
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	"""if not is_on_floor():
-		fall(delta)"""
 	
-	move()
+	if is_processing():
+		if not is_on_floor():
+			fall(delta)
+		
+		else:
+			move()
+		
+		move_and_slide()
 	
-	move_and_slide()
+	else:
+		$sprite.stop()
 	
 
 
 func _on_change_direction_timer_timeout() -> void:
-	change_direction()
+	
+	if is_processing():
+		change_direction()
 
 
 func _on_walk_sound_timer_timeout() -> void:

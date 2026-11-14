@@ -29,6 +29,23 @@ func _process(delta:float) -> void:
 			$player.position = $player.latest_ground_position
 			$player.dammage(1) # Enlever 1 point de vie
 		
+		
+		# Gérer les ennemis
+		for enemy in enemies:
+			
+			if not enemy.is_processing():
+				enemy.set_process(true)
+			
+			"""if enemy.is_out_of_window():
+				enemy.queue_free()"""
+	
+	
+	else:
+		
+		print("Le jeu est en pause")
+		# Mettre les ennemis en pause
+		for enemy in enemies:
+			enemy.set_process(false)
 	
 	# Si le joueur a atteint la fin du niveau, passer au niveau suivant
 	if $level_ending_panel.reached:

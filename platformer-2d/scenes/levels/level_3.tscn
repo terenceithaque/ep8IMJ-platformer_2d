@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkeaifsu4w2cy" path="res://scenes/player.tscn" id="5_fmg3e"]
 [ext_resource type="AudioStream" uid="uid://bciobieibc5bk" path="res://assets/music/level_3.mp3" id="5_ftfob"]
 [ext_resource type="PackedScene" uid="uid://cgdkxes5d0oy2" path="res://scenes/levels/level_ending_panel.tscn" id="6_ftfob"]
+[ext_resource type="PackedScene" uid="uid://bciv3h04ofy82" path="res://scenes/mobs/goblin.tscn" id="7_fkk1g"]
 
 [node name="level_3" type="Node2D" unique_id=524926789]
 script = ExtResource("1_0qepi")
@@ -62,3 +63,6 @@ stream = ExtResource("5_ftfob")
 
 [node name="level_ending_panel" parent="." unique_id=1524944001 instance=ExtResource("6_ftfob")]
 position = Vector2(7100, 1950)
+
+[node name="goblin1" parent="." unique_id=1004090280 groups=["enemies", "save"] instance=ExtResource("7_fkk1g")]
+position = Vector2(1200, 3040)
