@@ -74,8 +74,8 @@ func move(): ## Déplace le goblin selon sa direction actuelle
 				
 		elif direction.x == 1:
 			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
-
-
+	
+	
 func is_out_of_window() -> bool: ## Renvoie true si le goblin est sorti de l'écran, false sinon
 	if position.x > screen_width or position.x < -screen_width:
 		return true
@@ -99,3 +99,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_change_direction_timer_timeout() -> void:
 	change_direction()
+
+
+func _on_walk_sound_timer_timeout() -> void:
+	if not $walk_sound.playing:
+		$walk_sound.play()
+		

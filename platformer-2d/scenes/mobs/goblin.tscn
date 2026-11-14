@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bbp1jiipudho2" path="res://assets/img/creatures/mobs/Goblin/Run.png" id="2_5dtyf"]
 [ext_resource type="Texture2D" uid="uid://on1b8cqjhio0" path="res://assets/img/creatures/mobs/Goblin/Death.png" id="2_bnosw"]
 [ext_resource type="Texture2D" uid="uid://ccilukebubtff" path="res://assets/img/creatures/mobs/Goblin/Attack.png" id="2_cno4l"]
+[ext_resource type="AudioStream" uid="uid://cnqas0llkr3av" path="res://assets/sounds/mobs/Goblin/monster-1.wav" id="6_kb44r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwcsa"]
 atlas = ExtResource("2_cno4l")
@@ -233,4 +234,12 @@ autostart = true
 
 [node name="void_detection" type="RayCast2D" parent="." unique_id=423979114]
 
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="." unique_id=6560843]
+stream = ExtResource("6_kb44r")
+
+[node name="walk_sound_timer" type="Timer" parent="." unique_id=350982812]
+wait_time = 1.5
+autostart = true
+
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]
+[connection signal="timeout" from="walk_sound_timer" to="." method="_on_walk_sound_timer_timeout"]
