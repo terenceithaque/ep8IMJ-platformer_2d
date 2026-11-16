@@ -31,7 +31,6 @@ func _process(delta:float) -> void:
 		
 		
 		# Gérer les pièces
-		print("Pièces restantes : ", coins)
 		for coin in coins:
 			
 			if is_instance_valid(coin):
@@ -47,6 +46,9 @@ func _process(delta:float) -> void:
 			
 			if not enemy.is_processing():
 				enemy.set_process(true)
+			
+			if enemy.is_player_close():
+				print(enemy.name, " est à proximité du joueur")
 			
 			"""if enemy.is_out_of_window():
 				enemy.queue_free()"""

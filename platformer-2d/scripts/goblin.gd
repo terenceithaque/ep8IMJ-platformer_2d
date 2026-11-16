@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2i.RIGHT
 
+var loot = preload("res://scenes/apple.tscn") # Loot du goblin (quand tué par le joueur)
+
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
@@ -38,8 +40,9 @@ func serialize_data() -> Dictionary: ## Regroupe les données du goblin dans un 
 
 func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
 	var distance = abs(position.x - player.position.x)
+	
 	#print(distance)
-	return distance <= 200
+	return distance <= 1000
 
 func is_player_colliding() -> bool: ## Renvoie True si le joueur est en collision avec le goblin
 	for index in get_slide_collision_count():
