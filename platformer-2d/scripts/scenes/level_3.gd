@@ -30,6 +30,18 @@ func _process(delta:float) -> void:
 			$player.dammage(1) # Enlever 1 point de vie
 		
 		
+		# Gérer les pièces
+		print("Pièces restantes : ", coins)
+		for coin in coins:
+			
+			if is_instance_valid(coin):
+				if $player.get_collision() == coin.name:
+					if not coin.collected:
+						$player.increase_coin(5)
+						coin.collect()
+						print(get_tree().get_nodes_in_group("save"))
+						coin.remove_from_group("coins")
+		
 		# Gérer les ennemis
 		for enemy in enemies:
 			

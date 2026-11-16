@@ -31,6 +31,11 @@ func dissapear(): ## Rend le sprite de la pièce invisible et désactive la boî
 	$sprite.visible = false
 	$CollisionShape2D.disabled = true
 
+func collect(): ## Marque la pièce comme collectée, la fait disparaître et joue le son de collecte
+	collected = true
+	dissapear()
+	play_collected_sound()
+
 func play_collected_sound():
 	if collected:
 		$collected.play()

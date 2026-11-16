@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://gtds1l8ixa6j"]
+
+[ext_resource type="Script" uid="uid://m1f16tma6n8p" path="res://scripts/scenes/jump_wings.gd" id="1_fevgw"]
+[ext_resource type="Texture2D" uid="uid://dd644dd2x67wf" path="res://assets/img/jump_wing.png" id="1_fyiur"]
+[ext_resource type="AudioStream" uid="uid://dhltiw6xlofcu" path="res://assets/sounds/wing_taken.mp3" id="3_x585j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y63fj"]
+size = Vector2(108, 78)
+
+[node name="jump_wings" type="RigidBody2D" unique_id=891189536]
+script = ExtResource("1_fevgw")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=112301913]
+position = Vector2(508, 341)
+scale = Vector2(0.0717423, 0.10156248)
+texture = ExtResource("1_fyiur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210968541]
+position = Vector2(508, 340)
+shape = SubResource("RectangleShape2D_y63fj")
+
+[node name="taken_sound" type="AudioStreamPlayer" parent="." unique_id=180100052]
+stream = ExtResource("3_x585j")

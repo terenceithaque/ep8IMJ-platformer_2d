@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bciobieibc5bk" path="res://assets/music/level_3.mp3" id="5_ftfob"]
 [ext_resource type="PackedScene" uid="uid://cgdkxes5d0oy2" path="res://scenes/levels/level_ending_panel.tscn" id="6_ftfob"]
 [ext_resource type="PackedScene" uid="uid://bciv3h04ofy82" path="res://scenes/mobs/goblin.tscn" id="7_fkk1g"]
+[ext_resource type="PackedScene" uid="uid://bv4mwcba1pvu0" path="res://scenes/coin.tscn" id="8_ugcn1"]
 
 [node name="level_3" type="Node2D" unique_id=524926789]
 script = ExtResource("1_0qepi")
@@ -14,7 +15,7 @@ script = ExtResource("1_0qepi")
 [node name="canvas" type="StaticBody2D" parent="." unique_id=1707610941]
 
 [node name="background" type="Sprite2D" parent="canvas" unique_id=1373719022]
-position = Vector2(900, 1900)
+position = Vector2(542.00006, 2031.0001)
 scale = Vector2(13, 6)
 texture = ExtResource("1_0ljxa")
 
@@ -25,7 +26,7 @@ texture = ExtResource("2_44gv1")
 
 [node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=2024248847]
 position = Vector2(-2400, 4050)
-polygon = PackedVector2Array(21, -2, 1582, -19, 2019, -408, 2012, -359, 1579, 28, 26, 23)
+polygon = PackedVector2Array(21, -2, 1582, -19, 2025, -393, 2012, -359, 1579, 28, 26, 23)
 
 [node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1500676284]
 position = Vector2(-200, 3500)
@@ -66,3 +67,15 @@ position = Vector2(7100, 1950)
 
 [node name="goblin1" parent="." unique_id=1004090280 groups=["enemies", "save"] instance=ExtResource("7_fkk1g")]
 position = Vector2(1200, 3040)
+
+[node name="coin1" parent="." unique_id=667641555 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(-1200, 4000)
+
+[node name="coin2" parent="." unique_id=1825603257 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(-1100, 4000)
+
+[node name="coin3" parent="." unique_id=894688997 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(-1000, 4000)
+
+[node name="coin4" parent="." unique_id=1547176046 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(-200, 3430)

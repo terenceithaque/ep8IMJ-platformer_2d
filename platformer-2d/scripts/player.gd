@@ -225,7 +225,7 @@ func update_tutorials(): ## Met à jour l'état de complétion de l'intégralit�
 	var tutorials = get_tree().get_nodes_in_group("tutorials")
 	#print(tutorials)
 	for tutorial in tutorials:
-		print("Tutoriel :", tutorial)
+		#print("Tutoriel :", tutorial)
 		update_tutorial_completion_flags(tutorial.completion_flag)
 
 
@@ -243,7 +243,7 @@ func update_tutorial_completion_flags(completion_flag) -> void:
 	
 	tutorial_completion_flags[flag_name] = flag_value
 	
-	print(tutorial_completion_flags)
+	#print(tutorial_completion_flags)
 
 # Fonction pour faire sauter le personnage
 func jump(delta : float) -> void:

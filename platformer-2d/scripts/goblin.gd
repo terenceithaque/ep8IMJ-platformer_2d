@@ -21,6 +21,8 @@ var max_life = 5.0
 var life = 5.0
 var invincible = false
 
+@onready var player = get_parent().get_node("player")
+
 func _ready():
 	$sprite.play("walk")
 
@@ -33,6 +35,19 @@ func serialize_data() -> Dictionary: ## Regroupe les données du goblin dans un 
 	}
 	return data
 
+
+func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
+	var distance = abs(position.x - player.position.x)
+	#print(distance)
+	return distance <= 200
+
+func is_player_colliding() -> bool: ## Renvoie True si le joueur est en collision avec le goblin
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var body := collision.get_collider()
+		return body.name == "player"
+	
+	return false
 
 func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	
@@ -60,7 +75,6 @@ func update_void_detection_position(): ## Définit la position du noeud de déte
 
 func move(): ## Déplace le goblin selon sa direction actuelle
 	
-	print("Direction du goblin : ", direction.x)
 	if not running:
 			if direction.x == -1:
 				velocity = Vector2(direction.x, 0.0) * SPEED
@@ -98,6 +112,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			move()
 		
+		if is_player_close():
+			print("Le goblin est à proximité du joueur")
+			
 		move_and_slide()
 	
 	else:

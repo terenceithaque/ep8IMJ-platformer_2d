@@ -90,15 +90,15 @@ func _process(delta:float) -> void:
 		# Vérifier si le joueur récupère une pièce
 		
 		for coin in coins:
+			
 			if $player.get_collision() == coin.name:
 				
-				if not coin.collected:
-					$player.increase_coin(5)
-					coin.collected = true
-					coin.dissapear()
-					coin.play_collected_sound()
-					coin.remove_from_group("coins")
-					print(get_tree().get_nodes_in_group("save"))
+				if is_instance_valid(coin):
+					if not coin.collected:
+						$player.increase_coin(5)
+						coin.collect()
+						coin.remove_from_group("coins")
+						print(get_tree().get_nodes_in_group("save"))
 		
 		# Vérifier si le joueur mange de la nourriture
 		for feeding in food:

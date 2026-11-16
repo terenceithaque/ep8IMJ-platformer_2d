@@ -118,9 +118,12 @@ Ben Dunkle (police de caractères "Isometra Regular", Google Fonts)
 Human Antagonist (musique de niveau, OpenGameArt.org)
 Snabisch (musique de niveau, OpenGameArt.org)
 CleytonKauffman (musique des crédits, OpenGameArt.org)
+Spring Spring (wingboots, OpenGameArt.org)
 
 -- Sons --
 Ogrebane (sons des monstres, OpenGameArt.org)
+NenadSimic (OpenGameArt.org)
+Luke.RSTLTD (OpenGameArt.org)
 terenceithaque et Rick Hoppman (OpenGameArt.org)
 
 Certains artistes n'ont pas pus être retrouvés en ligne. Je leur adresse également mes remerciements.
