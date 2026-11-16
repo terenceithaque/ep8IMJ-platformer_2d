@@ -19,6 +19,8 @@ var void_detected = false
 var void_detected_timeout = false
 var nb_void_detections = 0
 
+var dead = false
+
 var max_life = 5.0
 var life = 5.0
 var invincible = false
@@ -26,7 +28,7 @@ var invincible = false
 @onready var player = get_parent().get_node("player")
 
 func _ready():
-	$sprite.play("walk")
+	$sprite.play("idle")
 
 
 func serialize_data() -> Dictionary: ## Regroupe les données du goblin dans un dictionnaire utilisable pour une sauvegarde
@@ -105,6 +107,54 @@ func is_out_of_window() -> bool: ## Renvoie true si le goblin est sorti de l'éc
 	return false
 
 
+func is_void_close(): ## Renvoie true si le vide est près du squelette, false sinon
+	return not $void_detection.is_colliding()
+
+func _process(delta: float) -> void:
+	
+	print("Animation du goblin : ", $sprite.animation)
+	if not is_on_floor():
+		fall(delta)
+	
+	else:
+		
+		if not dead:
+			if is_void_close() and void_detected_timeout:
+				void_detected = true
+				void_detected_timeout = false
+				#print("Le squelette est près du vide")
+				change_direction()
+				#move()
+				#$sprite.flip_h = true
+				$change_direction_timer.start()
+				#$void_detected.start()
+				nb_void_detections += 1
+		
+		else:
+			void_detected = false
+		
+		
+			
+			
+					
+		if is_player_close():
+			#print("Le squelette a repéré le joueur")
+			
+			if not dead:
+				attacking = true
+				print("Le goblin passe à l'attaque")
+			
+
+		
+		else:
+			running = false
+			attacking = false
+			move()
+			$sprite.play("walk")
+	
+	update_void_detection_position()
+	#update_life_bar()
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	
@@ -113,10 +163,8 @@ func _physics_process(delta: float) -> void:
 			fall(delta)
 		
 		else:
-			move()
-		
-		if is_player_close():
-			print("Le goblin est à proximité du joueur")
+			if not attacking:
+				move()
 			
 		move_and_slide()
 	
@@ -127,11 +175,28 @@ func _physics_process(delta: float) -> void:
 
 func _on_change_direction_timer_timeout() -> void:
 	
-	if is_processing():
+	if is_processing() and not attacking:
 		change_direction()
 
 
 func _on_walk_sound_timer_timeout() -> void:
 	if not $walk_sound.playing:
 		$walk_sound.play()
+
+
+
+
+func _on_sprite_animation_finished() -> void:
+	print($sprite.animation)
+	
+
+	print("attacking : ", attacking)
+	if attacking:
+		$sprite.play("attack")
 		
+	elif dead:
+		$sprite.play("death")
+		queue_free()
+	
+	else:
+		$sprite.play("walk")
