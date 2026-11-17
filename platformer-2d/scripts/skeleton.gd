@@ -62,6 +62,7 @@ func dammage(points:int) -> void: ## Réduit la vie du squelette d'autant de poi
 		
 		# Détruire le noeud du squelette si sa vie restante tombe à 0 ou en-dessous
 		if life <= 0:
+			$sprite.play("death")
 			dead = true
 		
 		invincible = true
@@ -198,11 +199,10 @@ func _on_void_detected_timeout() -> void:
 
 func _on_sprite_animation_finished() -> void:
 	print($sprite.animation)
-	if attacking:
+	if attacking and not dead:
 		$sprite.play("attack")
 		
 	elif dead:
-		$sprite.play("death")
 		queue_free()
 	
 	else:

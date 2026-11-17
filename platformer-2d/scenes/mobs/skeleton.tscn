@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aha7x")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -137,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oobiw")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -186,7 +186,7 @@ metadata/_edit_group_ = true
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=2088527286]
 position = Vector2(523, 284)
 sprite_frames = SubResource("SpriteFrames_i62uf")
-animation = &"death"
+animation = &"attack"
 metadata/_edit_group_ = true
 
 [node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1867304212]
