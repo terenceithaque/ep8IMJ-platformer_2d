@@ -24,6 +24,7 @@ var dead = false
 var max_life = 5.0
 var life = 5.0
 var invincible = false
+@onready var life_bar = get_node("display/life_bar")
 
 @onready var player = get_parent().get_node("player")
 
@@ -40,6 +41,9 @@ func serialize_data() -> Dictionary: ## Regroupe les données du goblin dans un 
 	}
 	return data
 
+func update_life_bar(): ## Met à jour la valeur de la barre de vie du squelette
+	
+	life_bar.value = (life / max_life) * 100
 
 func is_player_close(): ## Renvoie true si le joueur est à proximité, false sinon
 	var distance = abs(position.x - player.position.x)
@@ -178,7 +182,7 @@ func _process(delta: float) -> void:
 		attacking = false
 		
 	update_void_detection_position()
-	#update_life_bar()
+	update_life_bar()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
