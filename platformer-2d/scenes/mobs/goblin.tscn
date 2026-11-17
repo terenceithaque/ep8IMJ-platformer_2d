@@ -222,7 +222,7 @@ script = ExtResource("1_q5pu5")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=879480988]
 sprite_frames = SubResource("SpriteFrames_yj4un")
-animation = &"walk"
+animation = &"attack"
 metadata/_edit_group_ = true
 
 [node name="collision_shape" type="CollisionShape2D" parent="." unique_id=777771447]
