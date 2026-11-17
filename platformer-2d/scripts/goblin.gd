@@ -81,6 +81,7 @@ func dammage(points:int) -> void: ## Réduit la vie du goblin d'autant de points
 	life -= points
 	
 	if life <= 0:
+		$death_sound.play()
 		$sprite.play("death")
 		dead = true
 	

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ccilukebubtff" path="res://assets/img/creatures/mobs/Goblin/Attack.png" id="2_cno4l"]
 [ext_resource type="AudioStream" uid="uid://cnqas0llkr3av" path="res://assets/sounds/mobs/Goblin/monster-1.wav" id="6_kb44r"]
 [ext_resource type="PackedScene" uid="uid://41reogxuyffx" path="res://scenes/apple.tscn" id="7_hkyqj"]
+[ext_resource type="AudioStream" uid="uid://dmsvjgpiotuv7" path="res://assets/sounds/mobs/Goblin/monster-5.wav" id="7_ptcgn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwcsa"]
 atlas = ExtResource("2_cno4l")
@@ -237,6 +238,10 @@ autostart = true
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="." unique_id=6560843]
 stream = ExtResource("6_kb44r")
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="." unique_id=1036590762]
+stream = ExtResource("7_ptcgn")
+volume_db = 9.0
 
 [node name="walk_sound_timer" type="Timer" parent="." unique_id=350982812]
 wait_time = 1.5
