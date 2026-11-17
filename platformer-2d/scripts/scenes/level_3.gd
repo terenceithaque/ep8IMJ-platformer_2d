@@ -64,7 +64,6 @@ func _process(delta:float) -> void:
 	
 	else:
 		
-		print("Le jeu est en pause")
 		# Mettre les ennemis en pause
 		for enemy in enemies:
 			

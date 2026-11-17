@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2i.RIGHT
 
-var loot = preload("res://scenes/apple.tscn") # Loot du goblin (quand tué par le joueur)
+var loot_chances = 0.3 # Chances qu'une pomme apparaisse à la mort du goblin
 
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
@@ -29,6 +29,7 @@ var invincible = false
 
 func _ready():
 	$sprite.play("idle")
+	$loot.visible = false
 
 
 func serialize_data() -> Dictionary: ## Regroupe les données du goblin dans un dictionnaire utilisable pour une sauvegarde
@@ -53,6 +54,16 @@ func is_player_colliding() -> bool: ## Renvoie True si le joueur est en collisio
 		return body.name == "player"
 	
 	return false
+
+func loots() -> void: ## Tire le score de probabilité qu'une pomme apparaisse, et fait apparaître une pomme si ce score est favorable.
+	var score = randf() # Tirer une valeur aléatoire entre 0 et 1
+	print("Score de loot : ", score)
+	#if score >= (1 - loot_chances):
+		# Faire apparaître une pomme
+	$loot.visible = true
+	$loot.position = position
+	print("Loot : ", $loot)
+	print("Position du loot : ", $loot.position)
 
 func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	
@@ -205,6 +216,7 @@ func _on_sprite_animation_finished() -> void:
 		$sprite.play("attack")
 		
 	elif dead:
+		loots()
 		queue_free()
 	
 	else:
