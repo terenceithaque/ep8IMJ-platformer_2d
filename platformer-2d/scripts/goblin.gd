@@ -21,8 +21,8 @@ var nb_void_detections = 0
 
 var dead = false
 
-var max_life = 5.0
-var life = 5.0
+var max_life = 10.0
+var life = 10.0
 var invincible = false
 @onready var life_bar = get_node("display/life_bar")
 
@@ -78,12 +78,13 @@ func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	velocity.y += gravity * delta
 
 func dammage(points:int) -> void: ## Réduit la vie du goblin d'autant de points qu'indiqué.
-	life -= points
-	
-	if life <= 0:
-		$death_sound.play()
-		$sprite.play("death")
-		dead = true
+	if not invincible:
+		life -= points
+		
+		if life <= 0:
+			$death_sound.play()
+			$sprite.play("death")
+			dead = true
 	
 func change_direction(): ## Change la direction vers laquelle le goblin se dirige
 	print("Changement de direction")
@@ -230,3 +231,11 @@ func _on_sprite_animation_finished() -> void:
 	
 	else:
 		$sprite.play("walk")
+
+
+func _on_invincibility_timer_timeout() -> void:
+	if invincible:
+		invincible = false
+	
+	else:
+		invincible = true

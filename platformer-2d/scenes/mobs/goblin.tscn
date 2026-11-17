@@ -247,6 +247,9 @@ volume_db = 9.0
 wait_time = 1.5
 autostart = true
 
+[node name="invincibility_timer" type="Timer" parent="." unique_id=736220569]
+wait_time = 0.5
+
 [node name="loot" parent="." unique_id=117506058 instance=ExtResource("7_hkyqj")]
 visible = false
 
@@ -260,3 +263,4 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="change_direction_timer" to="." method="_on_change_direction_timer_timeout"]
 [connection signal="timeout" from="walk_sound_timer" to="." method="_on_walk_sound_timer_timeout"]
+[connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]
