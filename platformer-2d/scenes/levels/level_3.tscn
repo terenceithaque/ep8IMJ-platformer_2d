@@ -24,35 +24,31 @@ position = Vector2(2400, 1680)
 scale = Vector2(2, 2)
 texture = ExtResource("2_44gv1")
 
-[node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=2024248847]
-position = Vector2(-2400, 4050)
-polygon = PackedVector2Array(21, -2, 1582, -19, 2009, -418, 2042, -366, 1579, 28, 26, 23)
+[node name="platform_1_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1929071626]
+position = Vector2(-2400, 4070)
+polygon = PackedVector2Array(21, -4, 1589, 2, 1839, -206, 2021, -322, 2159, -397, 2289, -451, 2358, -525, 2353, -582, 2557, -582, 2555, -618, 2333, -616, 2336, -579, 2207, -474, 2080, -402, 1934, -333, 1868, -261, 1760, -200, 1681, -128, 1611, -66, 1527, -43, 18, -43)
 
-[node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1500676284]
-position = Vector2(-200, 3500)
-polygon = PackedVector2Array(23, 6, 352, 2, 352, -60, -18, -60, -10, 1)
-
-[node name="platform_3_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1717335735]
+[node name="platform_2_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1717335735]
 position = Vector2(300, 3400)
 polygon = PackedVector2Array(18, -5, 428, -272, 763, -273, 763, -343, 2092, -338, 2095, -296, 822, -290, 814, -225, 400, -224, 84, 27, -6, 27)
 
-[node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=307458755]
+[node name="platform_3_collision" type="CollisionPolygon2D" parent="canvas" unique_id=307458755]
 position = Vector2(2850, 3100)
 polygon = PackedVector2Array(30, 0, 703, 4, 704, 76, 822, 78, 817, 10, 895, 10, 889, -36, 0, -40)
 
-[node name="platform_5_collision" type="CollisionPolygon2D" parent="canvas" unique_id=227574980]
+[node name="platform_4_collision" type="CollisionPolygon2D" parent="canvas" unique_id=227574980]
 position = Vector2(3800, 2850)
 polygon = PackedVector2Array(24, -3, 64, 4, 122, -65, 252, -58, 387, -197, 379, -240, 333, -237, 339, -198, 254, -112, 88, -104, 64, -36, 22, -36)
 
-[node name="platform_6_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1822131466]
+[node name="platform_5_collision" type="CollisionPolygon2D" parent="canvas" unique_id=1822131466]
 position = Vector2(4330, 2450)
 polygon = PackedVector2Array(29, 4, 51, 2, 302, -248, 934, -239, 936, -280, 300, -280, 49, -35, 0, -34)
 
-[node name="platform_7_collision" type="CollisionPolygon2D" parent="canvas" unique_id=546671919]
+[node name="platform_6_collision" type="CollisionPolygon2D" parent="canvas" unique_id=546671919]
 position = Vector2(5420, 2140)
 polygon = PackedVector2Array(26, -1, 105, 1, 96, -45, 12, -39)
 
-[node name="platform_8_collision" type="CollisionPolygon2D" parent="canvas" unique_id=600579407]
+[node name="platform_7_collision" type="CollisionPolygon2D" parent="canvas" unique_id=600579407]
 position = Vector2(5680, 2000)
 polygon = PackedVector2Array(24, -4, 1511, -10, 1511, 30, 1354, 30, 1350, 84, 829, 80, 832, 20, 24, 16)
 
@@ -78,4 +74,7 @@ position = Vector2(-1100, 4000)
 position = Vector2(-1000, 4000)
 
 [node name="coin4" parent="." unique_id=1547176046 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
-position = Vector2(-200, 3430)
+position = Vector2(-192, 3550)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=945547118]
+position = Vector2(2568.764, 6052.837)

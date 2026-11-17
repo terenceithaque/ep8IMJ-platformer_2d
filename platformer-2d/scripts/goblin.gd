@@ -60,9 +60,13 @@ func loots() -> void: ## Tire le score de probabilité qu'une pomme apparaisse, 
 	print("Score de loot : ", score)
 	#if score >= (1 - loot_chances):
 		# Faire apparaître une pomme
+		
+	print("Visibilité du goblin : ", visible)
 	$loot.visible = true
-	$loot.position = position
+	$loot.global_position = get_viewport().get_camera_2d().global_position
+	get_parent().add_child($loot)
 	print("Loot : ", $loot)
+	print("Position globale du loot : ", $loot.global_position)
 	print("Position du loot : ", $loot.position)
 
 func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
