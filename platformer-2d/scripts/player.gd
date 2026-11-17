@@ -149,6 +149,7 @@ var attacking = false
 var attack_number = 1
 var invincible = false
 
+var direction = 0.0
 
 var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
 
@@ -159,7 +160,7 @@ var tutorial_completion_flags = {
 	"attack_tutorial_completed": false
 }
 
-var direction = 0.0
+
 
 func _ready() -> void:
 	

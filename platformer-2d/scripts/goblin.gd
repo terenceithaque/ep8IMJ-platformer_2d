@@ -58,6 +58,13 @@ func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	
 	velocity.y += gravity * delta
 
+func dammage(points:int) -> void: ## Réduit la vie du goblin d'autant de points qu'indiqué.
+	life -= points
+	
+	if life <= 0:
+		$sprite.play("death")
+		dead = true
+	
 func change_direction(): ## Change la direction vers laquelle le goblin se dirige
 	print("Changement de direction")
 	if direction.x == -1:
@@ -152,6 +159,9 @@ func _process(delta: float) -> void:
 			move()
 			$sprite.play("walk")
 	
+	if dead:
+		attacking = false
+		
 	update_void_detection_position()
 	#update_life_bar()
 
@@ -163,7 +173,7 @@ func _physics_process(delta: float) -> void:
 			fall(delta)
 		
 		else:
-			if not attacking:
+			if not attacking and not dead:
 				move()
 			
 		move_and_slide()
@@ -191,11 +201,10 @@ func _on_sprite_animation_finished() -> void:
 	
 
 	print("attacking : ", attacking)
-	if attacking:
+	if attacking and not dead:
 		$sprite.play("attack")
 		
 	elif dead:
-		$sprite.play("death")
 		queue_free()
 	
 	else:

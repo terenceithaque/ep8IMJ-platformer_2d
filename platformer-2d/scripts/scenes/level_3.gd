@@ -44,14 +44,22 @@ func _process(delta:float) -> void:
 		# Gérer les ennemis
 		for enemy in enemies:
 			
-			if not enemy.is_processing():
-				enemy.set_process(true)
-			
-			if enemy.is_player_close():
-				print(enemy.name, " est à proximité du joueur")
-			
-			"""if enemy.is_out_of_window():
-				enemy.queue_free()"""
+			# On ne traite l'ennemi que s'il n'a pas été libéré de la mémoire
+			if is_instance_valid(enemy):
+				if not enemy.is_processing():
+					enemy.set_process(true)
+				
+				if enemy.is_player_close():
+					print(enemy.name, " est à proximité du joueur")
+				
+				if enemy.is_player_colliding() and enemy.attacking:
+					$player.dammage(1)
+				
+				if enemy.is_player_colliding() and $player.attacking:
+					enemy.dammage($player.attack_dammage)
+				
+				"""if enemy.is_out_of_window():
+					enemy.queue_free()"""
 	
 	
 	else:
@@ -59,7 +67,9 @@ func _process(delta:float) -> void:
 		print("Le jeu est en pause")
 		# Mettre les ennemis en pause
 		for enemy in enemies:
-			enemy.set_process(false)
+			
+			if is_instance_valid(enemy):
+				enemy.set_process(false)
 	
 	# Si le joueur a atteint la fin du niveau, passer au niveau suivant
 	if $level_ending_panel.reached:
