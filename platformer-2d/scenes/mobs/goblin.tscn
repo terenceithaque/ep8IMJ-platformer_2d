@@ -248,7 +248,7 @@ wait_time = 1.5
 autostart = true
 
 [node name="invincibility_timer" type="Timer" parent="." unique_id=736220569]
-wait_time = 0.5
+autostart = true
 
 [node name="loot" parent="." unique_id=117506058 instance=ExtResource("7_hkyqj")]
 visible = false

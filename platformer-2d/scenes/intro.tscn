@@ -68,4 +68,11 @@ stream = ExtResource("1_ioskq")
 position = Vector2(600, -200)
 scale = Vector2(3, 3)
 
+[node name="skip_button" type="Button" parent="." unique_id=567898828]
+offset_top = 150.0
+offset_right = 59.0
+offset_bottom = 181.0
+text = "Passer"
+
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="pressed" from="skip_button" to="." method="_on_skip_button_pressed"]
