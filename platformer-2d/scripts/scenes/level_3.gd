@@ -2,6 +2,7 @@ extends Node2D
 
 
 @onready var coins = get_tree().get_nodes_in_group("coins") # Récupérer les pièces dans le niveau
+@onready var food = get_tree().get_nodes_in_group("food")
 @onready var enemies = get_tree().get_nodes_in_group("enemies") # Récupérer les ennemis dans le niveau
 const SAVE = preload("res://scripts/save.gd")
 @onready var save_script = SAVE.new()
@@ -16,11 +17,22 @@ func _ready() -> void:
 	
 	$music.play()
 	
+	# Définir les exceptions de collision
+	for enemy in enemies:
+		for coin in coins:
+			enemy.add_collision_exception_with(coin)
+				
+		
+		for enemy2 in enemies:
+			enemy.add_collision_exception_with(enemy2)
 
 
 func _process(delta:float) -> void:
 	
 	
+	food = get_tree().get_nodes_in_group("food")
+	print("Food : ", food)
+	print("Ennemis : ", enemies)
 	# N'effectuer les traitements que si le jeu n'est pas en pause
 	if not $player.paused:
 		
@@ -58,7 +70,7 @@ func _process(delta:float) -> void:
 				if enemy.is_player_colliding() and $player.attacking:
 					enemy.dammage($player.attack_dammage)
 				
-				"""if enemy.is_out_of_window():
+				"""if enemy.is_out_of_window() and enemy.falling:
 					enemy.queue_free()"""
 	
 	
@@ -74,3 +86,11 @@ func _process(delta:float) -> void:
 	if $level_ending_panel.reached:
 		save_script.save_player($player.serialize_data())
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	
+	if "loot" in node.name:
+		node.visible = true
+		node.add_to_group("food")
+		print("Food : ", food)

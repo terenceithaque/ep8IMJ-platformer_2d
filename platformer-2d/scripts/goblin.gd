@@ -15,6 +15,7 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 
 var running = false
 var attacking = false
+var falling = false
 var void_detected = false
 var void_detected_timeout = false
 var nb_void_detections = 0
@@ -66,16 +67,19 @@ func loots() -> void: ## Tire le score de probabilité qu'une pomme apparaisse, 
 		# Faire apparaître une pomme
 		
 	print("Visibilité du goblin : ", visible)
-	$loot.visible = true
 	$loot.global_position = get_viewport().get_camera_2d().global_position
-	get_parent().add_child($loot)
-	print("Loot : ", $loot)
+	$loot.reparent(get_parent())
+	#get_parent().add_child($loot)
+	"""print("Loot : ", $loot)
 	print("Position globale du loot : ", $loot.global_position)
-	print("Position du loot : ", $loot.position)
+	print("Position du loot : ", $loot.position)"""
 
 func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	
 	velocity.y += gravity * delta
+	falling = true
+	
+	
 
 func dammage(points:int) -> void: ## Réduit la vie du goblin d'autant de points qu'indiqué.
 	if not invincible:
@@ -145,7 +149,7 @@ func _process(delta: float) -> void:
 		fall(delta)
 	
 	else:
-		
+		falling = false
 		if not dead:
 			if is_void_close() and void_detected_timeout:
 				void_detected = true
