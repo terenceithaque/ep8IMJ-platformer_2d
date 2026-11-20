@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dq37njcpgoplc"]
+
+[ext_resource type="Texture2D" uid="uid://bt5u5ge4p4eo" path="res://assets/img/projectile.png" id="1_c8fcr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3m7n"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_softn"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2a6"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byeak"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6aapk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3m7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_softn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q2a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byeak")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="projectile" type="RigidBody2D" unique_id=943349792]
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=2143046160]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_6aapk")
