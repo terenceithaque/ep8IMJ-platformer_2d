@@ -10,10 +10,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var max_life = 5.0 # Vie (coeurs) du joueur
 var life = 5.0
+var dead = false
 @onready var life_bar = get_node("GUI/life_bar/value_bar")
 
 @onready var pause_menu = get_node("GUI/pause_menu")
 
+var falling = false
 var player_name = "player"
 
 
@@ -95,6 +97,8 @@ func setup_from_save() -> void: ## Redéfinit l'état du joueur selon les donné
 	coin_bar_value.value = (coin / max_coin) * 100
 	
 	life = Global.player_save_state["life"]
+	if life <= 0:
+		life = 1.0
 	max_life = Global.player_save_state["max_life"]
 	
 	life_bar.value = (life / max_life) * 100
@@ -442,7 +446,8 @@ func _process(float) -> void:
 	if not paused:
 		# Afficher l'écran de game over si le joueur n'a plus de vies
 		if life <= 0:
-			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+			dead = true
+			$sprite.play("death")
 			
 			
 		if Input.is_action_just_released("attaque"):
@@ -489,6 +494,9 @@ func _on_sprite_animation_finished() -> void:
 		
 		elif $sprite.animation == "fall":
 			$sprite.play("idle")
+		
+		elif $sprite.animation == "death":
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	
 	
 

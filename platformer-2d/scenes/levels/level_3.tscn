@@ -337,7 +337,7 @@ tile_map_data = PackedByteArray("AABp/0kAAAABAAQAAABq/0kAAAABAAQAAABr/0kAAAABAAQ
 tile_set = SubResource("TileSet_fspuo")
 
 [node name="player" parent="." unique_id=1208761486 instance=ExtResource("5_fmg3e")]
-position = Vector2(-2752, 3459)
+position = Vector2(-2765, 3507)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=633092249]
 stream = ExtResource("5_ftfob")
