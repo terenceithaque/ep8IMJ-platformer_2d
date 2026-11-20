@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://bktqipdwong1a" path="res://assets/music/intro.mp3" id="1_ioskq"]
 [ext_resource type="Script" uid="uid://j3hbklh25b68" path="res://scripts/scenes/intro.gd" id="1_yjqpq"]
+[ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="2_4bx60"]
 
 [sub_resource type="Animation" id="Animation_ioskq"]
 length = 14.0
@@ -43,23 +44,24 @@ _data = {
 [node name="intro" type="Node2D" unique_id=492856997]
 script = ExtResource("1_yjqpq")
 
-[node name="context_label" type="Label" parent="." unique_id=1189793453]
+[node name="context_label" type="RichTextLabel" parent="." unique_id=55014238]
 offset_right = 1186.0
 offset_bottom = 231.0
-text = "Il y a bien longtemps, à une époque lointaine, très lointaine...
+theme_override_fonts/normal_font = ExtResource("2_4bx60")
+bbcode_enabled = true
+text = "[b][i]Il y a bien longtemps, à une époque lointaine, très lointaine...[/i][/b]
 
 Le royaume japonais est en crise ! La princesse Cheap, unique fille du roi, a été enlevée par un démon maléfique afin de s'emparer d'un pouvoir sacré.
 Ce pouvoir, placé entre des mains maléfiques, pourrait renverser le cours de l'économie nationale.
 
-Le roi, ne souhaitant pas laisser une terrible menace sur le pays, a envoyé l'un de ses plus valeureux guerriers dans l'espoir de
- rétablir l'ordre et la justice.
-Ce dernier fait route vers le chateau où la  princesse est retenue prisionnière, mais son chemin sera semé d'embuches...
+Le roi, ne souhaitant pas laisser une terrible menace planer sur le pays, a envoyé l'un de ses plus valeureux guerriers dans l'espoir de rétablir l'ordre et la justice.
+Ce dernier fait route vers le château où la  princesse est retenue prisionnière, mais son chemin sera semé d'embûches...
 "
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="context_label" unique_id=752260666]
 libraries/ = SubResource("AnimationLibrary_ioskq")
-speed_scale = 0.15
+speed_scale = 0.2
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1722591858]
 stream = ExtResource("1_ioskq")
