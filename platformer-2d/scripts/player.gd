@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
+# Chargement des scripts et scènes externes
 var SAVE = preload("res://scripts/save.gd")
+var PROJECTILE = preload("res://scenes/projectile.tscn")
+
 @onready var save_script = SAVE.new()
+
 
 var WALK_SPEED = 300.0
 var RUN_SPEED = WALK_SPEED * 1.75
@@ -452,6 +456,12 @@ func _process(float) -> void:
 			
 		if Input.is_action_just_released("attaque"):
 			attack()
+			
+		if Input.is_action_pressed("lancer_projectile"):
+			print("Lancement d'un projectile")
+			var projectile = PROJECTILE.instantiate()
+			print(projectile)
+			projectile.set_direction("right")
 			
 		
 		
