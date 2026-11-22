@@ -53,6 +53,20 @@ func _process(delta:float) -> void:
 						print(get_tree().get_nodes_in_group("save"))
 						coin.remove_from_group("coins")
 		
+		# Gérer la nourriture
+		for feeding in food:
+			
+			if is_instance_valid(feeding):
+				print("Position de la nourriture : ", feeding.position)
+				print("Masque de collision de la nourriture : ", feeding.collision_mask)
+				print("Couche de collision de la nourriture : ", feeding.collision_layer)
+				
+				if $player.get_collision() == feeding.name:
+					feeding.play_bite_sound()
+					feeding.dissapear()
+					$player.increase_life(2)
+					feeding.remove_from_group("food")
+		
 		# Gérer les ennemis
 		for enemy in enemies:
 			

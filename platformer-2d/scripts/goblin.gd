@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = Vector2i.RIGHT
 
+var latest_ground_position = position
+
 var loot_chances = 0.3 # Chances qu'une pomme apparaisse à la mort du goblin
 
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
@@ -67,12 +69,20 @@ func loots() -> void: ## Tire le score de probabilité qu'une pomme apparaisse, 
 		# Faire apparaître une pomme
 		
 	print("Visibilité du goblin : ", visible)
-	$loot.global_position = get_viewport().get_camera_2d().global_position
-	$loot.reparent(get_parent())
+	$loot.global_position = latest_ground_position
+	await move_loot()	
 	#get_parent().add_child($loot)
 	"""print("Loot : ", $loot)
 	print("Position globale du loot : ", $loot.global_position)
 	print("Position du loot : ", $loot.position)"""
+
+
+func move_loot(): ## Re-parente le loot du goblin quand la frame physique suivante est terminée
+	$loot.freeze = true
+	
+	$loot.reparent.call_deferred(get_parent(), true)
+	
+	print("Reparentage programmé")
 
 func fall(delta:float) -> void: ## Fait chuter le goblin selon la gravité
 	
@@ -127,6 +137,7 @@ func move(): ## Déplace le goblin selon sa direction actuelle
 			velocity = Vector2(direction.x, 0.0) * RUN_SPEED
 	
 	$sprite.play("walk")
+	latest_ground_position = position
 	
 	
 func is_out_of_window() -> bool: ## Renvoie true si le goblin est sorti de l'écran, false sinon
@@ -179,6 +190,7 @@ func _process(delta: float) -> void:
 
 		
 		else:
+			print("Le goblin n'est pas à proximité du joueur")
 			running = false
 			attacking = false
 			move()
@@ -228,6 +240,7 @@ func _on_sprite_animation_finished() -> void:
 	print("attacking : ", attacking)
 	if attacking and not dead:
 		$sprite.play("attack")
+		invincible = false
 		
 	elif dead:
 		loots()
