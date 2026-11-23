@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dwll7obnry745"]
 
 [ext_resource type="Script" uid="uid://7ntrkpniuq1f" path="res://scripts/scenes/saves_window.gd" id="1_n5rnp"]
+[ext_resource type="AudioStream" uid="uid://crfjac4688cpo" path="res://assets/sounds/menu/metal_click.mp3" id="2_2enft"]
+[ext_resource type="AudioStream" uid="uid://2t7xec3o7a27" path="res://assets/sounds/menu/toom_click.mp3" id="3_syj16"]
+[ext_resource type="AudioStream" uid="uid://bb3483cugshla" path="res://assets/sounds/menu/cloud_click.mp3" id="4_voccg"]
 
 [node name="SavesWindow" type="Window" unique_id=1316575485]
 oversampling_override = 1.0
@@ -25,5 +28,18 @@ offset_right = 285.0
 offset_bottom = 296.0
 text = "Fermer"
 
+[node name="click_sound" type="AudioStreamPlayer" parent="." unique_id=1353008593]
+stream = ExtResource("2_2enft")
+volume_db = 4.0
+
+[node name="accept_sound" type="AudioStreamPlayer" parent="." unique_id=1477624250]
+stream = ExtResource("3_syj16")
+volume_db = 4.0
+
+[node name="cancel_sound" type="AudioStreamPlayer" parent="." unique_id=444427308]
+stream = ExtResource("4_voccg")
+volume_db = 4.0
+
+[connection signal="canceled" from="DeleteSaveConfirm" to="." method="_on_delete_save_confirm_canceled"]
 [connection signal="confirmed" from="DeleteSaveConfirm" to="." method="_on_delete_save_confirm_confirmed"]
 [connection signal="pressed" from="CloseSavesWindow" to="." method="_on_close_saves_window_pressed"]

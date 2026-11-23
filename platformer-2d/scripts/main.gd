@@ -17,9 +17,8 @@ func _ready() -> void:
 	
 
 func _on_play_button_pressed() -> void:
-	# Lancer le premier niveau
 	
-	#get_tree().change_scene_to_file("res://scenes/intro.tscn")
+	$accept_sound.play()
 	
 	Global.set_player_name($name.text)
 	print("Nom du joueur après défintion :", Global.player_name)
@@ -40,6 +39,7 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
+	$click_sound.play()
 	# Quitter le jeu
 	get_tree().quit()
 
@@ -54,6 +54,8 @@ func _on_name_text_changed(new_text: String) -> void: ## Active ou désactive le
 
 
 func _on_saves_button_pressed() -> void:
+	
+	$click_sound.play()
 	
 	if save_script.get_saved_players().is_empty():
 		$NoSaveWindow.visible = true
@@ -73,6 +75,8 @@ func _on_saves_button_pressed() -> void:
 
 
 func _on_saves_window_close_requested() -> void:
+	
+	$cancel_sound.play()
 	$SavesWindow.visible = false
 	# Réactiver les boutons du premier niveau de menu
 	for button in get_tree().get_nodes_in_group("menu_buttons"):
@@ -80,6 +84,7 @@ func _on_saves_window_close_requested() -> void:
 
 
 func _on_no_save_window_close_requested() -> void:
+	$cancel_sound.play()
 	$NoSaveWindow.visible = false
 	for button in get_tree().get_nodes_in_group("menu_buttons"):
 			button.disabled = false
@@ -87,5 +92,6 @@ func _on_no_save_window_close_requested() -> void:
 
 func _on_credits_button_pressed() -> void:
 	
+	$click_sound.play()
 	# Jouer les crédits
 	get_tree().change_scene_to_file("res://scenes/end_credits.tscn")

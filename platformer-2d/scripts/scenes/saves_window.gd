@@ -63,6 +63,7 @@ func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) ->
 	# Effectuer l'opération correspondant à l'option
 	
 	if id == 0:
+		$accept_sound.play()
 		print("Nom du joueur dont la sauvegarde doit être chargée :", player_name)
 		var save_data = save_script.open_player_save(player_name)
 		Global.player_save_state = save_data["mainchar"]
@@ -72,21 +73,28 @@ func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) ->
 		
 	
 	elif id == 1:
+		$click_sound.play()
 		$DeleteSaveConfirm.visible = true
 		player_to_delete = player_name
 		print("Liste actualisée des joueurs sauvegardés : ", Global.saved_players)
 
 
 func _on_close_saves_window_pressed() -> void:
+	$cancel_sound.play()
 	visible = false
 	close_requested.emit()
 
 
 func _on_delete_save_confirm_confirmed() -> void:
-	
+	$accept_sound.play()
 	save_script.rm_player_save(player_to_delete)
 	Global.update_saved_players()
 	update_profiles_buttons()
 	
 	if Global.saved_players.is_empty():
 		close_requested.emit()
+
+
+func _on_delete_save_confirm_canceled() -> void:
+	$cancel_sound.play()
+	$DeleteSaveConfirm.visible = false

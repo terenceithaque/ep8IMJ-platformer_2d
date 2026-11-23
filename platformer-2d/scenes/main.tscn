@@ -4,6 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://3yr0j7ywhvrx" path="res://assets/music/main_menu.mp3" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dwll7obnry745" path="res://scenes/saves_window.tscn" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://crfjac4688cpo" path="res://assets/sounds/menu/metal_click.mp3" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://2t7xec3o7a27" path="res://assets/sounds/menu/toom_click.mp3" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bb3483cugshla" path="res://assets/sounds/menu/cloud_click.mp3" id="7_o6xl0"]
 
 [sub_resource type="Theme" id="Theme_tbgi4"]
 
@@ -79,6 +82,17 @@ theme = SubResource("Theme_tbgi4")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Aucune sauvegarde n'a été trouvée."
+
+[node name="click_sound" type="AudioStreamPlayer" parent="." unique_id=374470182]
+stream = ExtResource("5_tbgi4")
+volume_db = 5.0
+
+[node name="accept_sound" type="AudioStreamPlayer" parent="." unique_id=1384569780]
+stream = ExtResource("6_tefeu")
+
+[node name="cancel_sound" type="AudioStreamPlayer" parent="." unique_id=246081411]
+stream = ExtResource("7_o6xl0")
+volume_db = 4.0
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="SavesButton" to="." method="_on_saves_button_pressed"]
