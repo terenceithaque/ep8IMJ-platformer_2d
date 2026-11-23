@@ -344,10 +344,11 @@ func is_animation_playing(): ## Renvoie true si une animation du joueur (autre q
 # Fonction qui gère les mouvements du joueur
 func _physics_process(delta: float) -> void:
 	
-	if not paused:
+	if not paused and not dead:
 		if running:
 			if $sprite.animation != "run":
 				$sprite.play("run")
+		
 		
 		# Obtenir la direction du joueur
 		direction = Input.get_axis("gauche", "droite")
@@ -456,7 +457,7 @@ func _process(float) -> void:
 			print(projectile)
 			print("Position du projectile : ", projectile.position)
 	
-	if not paused:
+	if not paused and not dead:
 		# Afficher l'écran de game over si le joueur n'a plus de vies
 		if life <= 0:
 			dead = true

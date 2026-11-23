@@ -13,7 +13,7 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 
 func _ready():
 	var camera = get_node("player/Camera2D")
-	camera.limit_left = -1100.0
+	camera.limit_left = -1400.0
 	camera.limit_top = -1500.0
 	camera.limit_right = 2000.0
 	camera.limit_bottom = 1200.0
