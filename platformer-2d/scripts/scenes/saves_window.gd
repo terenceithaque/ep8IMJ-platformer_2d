@@ -73,7 +73,7 @@ func _on_profile_option_selected(id:int, popup:PopupMenu, player_name:String) ->
 		
 	
 	elif id == 1:
-		$click_sound.play()
+		$save_delete_warning.play()
 		$DeleteSaveConfirm.visible = true
 		player_to_delete = player_name
 		print("Liste actualisée des joueurs sauvegardés : ", Global.saved_players)

@@ -104,4 +104,12 @@ vertical_alignment = 1
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=93737922]
 stream = ExtResource("1_dhn2b")
 
+[node name="skip_button" type="Button" parent="." unique_id=1875893530]
+offset_left = 50.0
+offset_top = 700.0
+offset_right = 109.0
+offset_bottom = 731.0
+text = "Passer"
+
 [connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="pressed" from="skip_button" to="." method="_on_skip_button_pressed"]

@@ -11,3 +11,7 @@ func _on_music_finished() -> void:
 	
 	# Retourner au menu principal quand la musique s'achève
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_skip_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
