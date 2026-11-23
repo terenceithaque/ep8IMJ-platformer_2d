@@ -36,4 +36,5 @@ func _process(delta:float) -> void:
 	# Vérifier si le projectile sort de l'écran
 	if is_out_of_window():
 		print("Le projectile est sorti de l'écran")
+		queue_free() # Libérer le projectile
 	

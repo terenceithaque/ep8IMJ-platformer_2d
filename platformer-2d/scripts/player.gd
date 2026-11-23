@@ -448,7 +448,14 @@ func _physics_process(delta: float) -> void:
 func _process(float) -> void:
 	
 	var projectiles = get_tree().get_nodes_in_group("projectiles") # Projectiles lancés par le joueur
-
+	print(projectiles)
+	
+	for projectile in projectiles:
+		
+		if is_instance_valid(projectile):
+			print(projectile)
+			print("Position du projectile : ", projectile.position)
+	
 	if not paused:
 		# Afficher l'écran de game over si le joueur n'a plus de vies
 		if life <= 0:
@@ -459,14 +466,16 @@ func _process(float) -> void:
 		if Input.is_action_just_released("attaque"):
 			attack()
 			
-		if Input.is_action_pressed("lancer_projectile"):
+		if Input.is_action_pressed("lancer_projectile") and coin == max_coin:
 			print("Lancement d'un projectile")
 			var projectile = PROJECTILE.instantiate()
 			projectile.add_to_group("projectiles")
-			print(projectiles)
 			print(projectile)
-			print(projectile.position)
+			projectile.position = position
 			projectile.set_direction("right")
+			get_parent().add_child(projectile)
+			coin = 0.0
+			coin_bar_value.value = 0.0
 			
 		
 		
