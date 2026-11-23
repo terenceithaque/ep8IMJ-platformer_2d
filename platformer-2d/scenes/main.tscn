@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cmw1df2rllone" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="AudioStream" uid="uid://3yr0j7ywhvrx" path="res://assets/music/main_menu.mp3" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dvt3ptqrpsbee" path="res://assets/img/scenes/level_1.png" id="3_sugp2"]
+[ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://dwll7obnry745" path="res://scenes/saves_window.tscn" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://crfjac4688cpo" path="res://assets/sounds/menu/metal_click.mp3" id="5_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://2t7xec3o7a27" path="res://assets/sounds/menu/toom_click.mp3" id="6_tefeu"]
@@ -44,12 +45,14 @@ text = "Quitter"
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1524609380]
 stream = ExtResource("2_sugp2")
 
-[node name="title" type="Label" parent="." unique_id=543240036]
-offset_left = 452.0
-offset_top = 50.0
-offset_right = 709.0
-offset_bottom = 156.0
-text = "The Resurgeance"
+[node name="title" type="RichTextLabel" parent="." unique_id=1417247451]
+offset_left = 457.0
+offset_top = 24.0
+offset_right = 714.0
+offset_bottom = 123.0
+theme_override_fonts/italics_font = ExtResource("3_tipki")
+bbcode_enabled = true
+text = "[i]The Resurgeance[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bbl1ifbgx11h" path="res://scripts/scenes/pause_menu.gd" id="1_myx47"]
 [ext_resource type="FontFile" uid="uid://e5gmwjqburfp" path="res://assets/fonts/Isometra-Regular.ttf" id="1_n87rw"]
+[ext_resource type="AudioStream" uid="uid://crfjac4688cpo" path="res://assets/sounds/menu/metal_click.mp3" id="3_kukqi"]
+[ext_resource type="AudioStream" uid="uid://bb3483cugshla" path="res://assets/sounds/menu/cloud_click.mp3" id="4_5d2l8"]
 
 [node name="pause_menu" type="Node2D" unique_id=137777546]
 visible = false
@@ -28,6 +30,12 @@ offset_top = 290.0
 offset_right = 660.0
 offset_bottom = 321.0
 text = "Menu principal"
+
+[node name="resume_sound" type="AudioStreamPlayer" parent="." unique_id=1562166065]
+stream = ExtResource("3_kukqi")
+
+[node name="quit_sound" type="AudioStreamPlayer" parent="." unique_id=1163612463]
+stream = ExtResource("4_5d2l8")
 
 [connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

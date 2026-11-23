@@ -127,6 +127,7 @@ NenadSimic (OpenGameArt.org)
 Luke.RSTLTD (OpenGameArt.org)
 Michel Baradari (OpenGameArt.org)
 Mobeyee Sounds (sons des menus, OpenGameArt.org)
+EZduzziteh (OpenGameArt.org)
 terenceithaque et Rick Hoppman (OpenGameArt.org)
 
 Certains artistes n'ont pas pus être retrouvés en ligne. Je leur adresse également mes remerciements.
