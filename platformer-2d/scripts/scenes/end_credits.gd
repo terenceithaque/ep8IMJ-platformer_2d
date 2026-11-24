@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	
 	$music.play()
+	$labels/scroll.play("scroll")
 
 
 func _on_music_finished() -> void:

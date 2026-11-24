@@ -28,7 +28,7 @@ offset_right = 722.0
 offset_bottom = 376.0
 text = "Sauvegardes..."
 
-[node name="CreditsButton" type="Button" parent="." unique_id=1992030678]
+[node name="CreditsButton" type="Button" parent="." unique_id=1992030678 groups=["menu_buttons"]]
 offset_left = 453.0
 offset_top = 400.0
 offset_right = 725.0
