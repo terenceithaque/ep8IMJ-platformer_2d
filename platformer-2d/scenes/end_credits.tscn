@@ -116,6 +116,7 @@ offset_left = 261.0
 offset_top = 768.0
 offset_right = 1061.0
 offset_bottom = 968.0
+theme_override_fonts/bold_font = ExtResource("1_325g6")
 bbcode_enabled = true
 text = "[b] Sons des monstres réalisés par [/b]
 Ogrebane, [i]OpenGameArt.org[/i]"
@@ -127,6 +128,7 @@ offset_left = 261.0
 offset_top = 918.0
 offset_right = 1061.0
 offset_bottom = 1118.0
+theme_override_fonts/bold_font = ExtResource("1_325g6")
 bbcode_enabled = true
 text = "[b]Sons du joueur[/b]
 terenceithaque
