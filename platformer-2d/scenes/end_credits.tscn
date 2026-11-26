@@ -158,6 +158,16 @@ speed_scale = 0.35
 
 [node name="CanvasGroup" type="CanvasGroup" parent="labels" unique_id=1879037402]
 
+[node name="all_thanks_label" type="RichTextLabel" parent="labels" unique_id=1308903447]
+offset_left = 261.0
+offset_top = 1400.0
+offset_right = 1061.0
+offset_bottom = 1600.0
+bbcode_enabled = true
+text = "[i]En remerciement à tous les artistes qui ont permis la création de ce jeu[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=93737922]
 stream = ExtResource("1_dhn2b")
 
