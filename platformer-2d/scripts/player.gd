@@ -441,21 +441,29 @@ func _physics_process(delta: float) -> void:
 			$Camera2D.align()			
 		
 				
-	
-		
 
+func get_active_projectiles() -> Array:
+	"""Renvoie le tableau des projectiles lancés par le joueur et qui sont encore actifs.
+	Cela correspond à filtrer les membres du groupe projectiles avec is_instance_valid()."""
+	
+	var projectiles = get_tree().get_nodes_in_group("projectiles")
+	
+	var active_projectiles = []
+	
+	for projectile in projectiles:
+		if is_instance_valid(projectile):
+			active_projectiles.append(projectile)
+			
+	return active_projectiles
 
 # Gère les autres actions du joueur
 func _process(float) -> void:
 	
-	var projectiles = get_tree().get_nodes_in_group("projectiles") # Projectiles lancés par le joueur
-	print(projectiles)
-	
+	var projectiles = get_active_projectiles()
 	for projectile in projectiles:
 		
-		if is_instance_valid(projectile):
-			print(projectile)
-			print("Position du projectile : ", projectile.position)
+		print(projectile)
+		print("Position du projectile : ", projectile.position)
 	
 	if not paused and not dead:
 		# Afficher l'écran de game over si le joueur n'a plus de vies
