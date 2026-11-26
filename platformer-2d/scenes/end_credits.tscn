@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://7fe2xoqefdas" path="res://assets/music/end_credits.mp3" id="1_dhn2b"]
 
 [sub_resource type="Animation" id="Animation_55m7m"]
-length = 0.001
+length = 20.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -21,7 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_240hb"]
 resource_name = "scroll"
-length = 20.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,10 +29,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.014444, 10.984445, 12.024445, 13.004444, 14.028643, 15.008642, 16.018642, 17.028643, 18.018642),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.014444, 10.984445, 12.024445, 13.004444, 14.028643, 15.008642, 16.018642, 17.028643, 18.018642, 19.00811, 19.982681),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 700), Vector2(0, 600), Vector2(0, 500), Vector2(0, 400), Vector2(0, 300), Vector2(0, 200), Vector2(0, 100), Vector2(0, 0), Vector2(0, -100), Vector2(0, -200), Vector2(0, -300), Vector2(0, -400), Vector2(0, -500), Vector2(0, -600), Vector2(0, -700), Vector2(0, -800), Vector2(0, -900), Vector2(0, -1000), Vector2(0, -1100)]
+"values": [Vector2(0, 700), Vector2(0, 600), Vector2(0, 500), Vector2(0, 400), Vector2(0, 300), Vector2(0, 200), Vector2(0, 100), Vector2(0, 0), Vector2(0, -100), Vector2(0, -200), Vector2(0, -300), Vector2(0, -400), Vector2(0, -500), Vector2(0, -600), Vector2(0, -700), Vector2(0, -800), Vector2(0, -900), Vector2(0, -1000), Vector2(0, -1100), Vector2(0, -1200), Vector2(0, -1300)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_55m7m"]
@@ -133,6 +133,22 @@ bbcode_enabled = true
 text = "[b]Sons du joueur[/b]
 terenceithaque
 Rick Hoppman, [i]OpenGameArt.org[/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="other_sounds" type="RichTextLabel" parent="labels" unique_id=1493469448]
+offset_left = 261.0
+offset_top = 1100.0
+offset_right = 1061.0
+offset_bottom = 1300.0
+theme_override_fonts/bold_font = ExtResource("1_325g6")
+bbcode_enabled = true
+text = "[b]Autres sons[/b]
+NenadSimic, [i]OpenGameArt.org[/i]
+Luke.RSTLTD, [i]OpenGameArt.org[/i]
+Michel Baradari, [i]OpenGameArt.org[/i]
+Mobeyee Sounds, [i]OpenGameArt.org[/i]
+EZduzziteh, [i]OpenGameArt.org[/i]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
