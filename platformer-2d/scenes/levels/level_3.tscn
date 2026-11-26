@@ -355,7 +355,7 @@ position = Vector2(1795, 3385)
 position = Vector2(2756, 3034)
 
 [node name="goblin4" parent="." unique_id=361362138 groups=["enemies", "save"] instance=ExtResource("7_fkk1g")]
-position = Vector2(4169, 2911)
+position = Vector2(4178, 2942)
 
 [node name="coin1" parent="." unique_id=667641555 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
 position = Vector2(-1198, 4033)
@@ -368,5 +368,80 @@ position = Vector2(-990, 4035)
 
 [node name="coin4" parent="." unique_id=1547176046 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
 position = Vector2(-196, 3675)
+
+[node name="coin5" parent="." unique_id=1370300531 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(500, 3400)
+
+[node name="coin6" parent="." unique_id=1242748757 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(550, 3450)
+
+[node name="coin7" parent="." unique_id=1166657798 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(650, 3450)
+
+[node name="coin8" parent="." unique_id=1006046876 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(750, 3450)
+
+[node name="coin9" parent="." unique_id=1174776067 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(850, 3450)
+
+[node name="coin10" parent="." unique_id=1637774923 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(950, 3450)
+
+[node name="coin11" parent="." unique_id=552865661 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1050, 3450)
+
+[node name="coin12" parent="." unique_id=1796157971 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1150, 3450)
+
+[node name="coin13" parent="." unique_id=439628121 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1300, 3350)
+
+[node name="coin14" parent="." unique_id=1495943147 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1370, 3320)
+
+[node name="coin15" parent="." unique_id=1966066792 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1430, 3350)
+
+[node name="coin16" parent="." unique_id=1103642020 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1800, 3420)
+
+[node name="coin17" parent="." unique_id=1397439460 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(1900, 3320)
+
+[node name="coin18" parent="." unique_id=361986109 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2000, 3420)
+
+[node name="coin19" parent="." unique_id=829201313 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2400, 3300)
+
+[node name="coin20" parent="." unique_id=462307120 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2450, 3300)
+
+[node name="coin21" parent="." unique_id=14557888 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2500, 3280)
+
+[node name="coin22" parent="." unique_id=773550479 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2550, 3240)
+
+[node name="coin23" parent="." unique_id=1069173415 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2630, 3220)
+
+[node name="coin24" parent="." unique_id=1037201985 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2670, 3180)
+
+[node name="coin25" parent="." unique_id=1562557444 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2693, 3147)
+
+[node name="coin26" parent="." unique_id=1158701300 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(2729, 3126)
+
+[node name="coin27" parent="." unique_id=737682679 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(3200, 3076)
+
+[node name="coin28" parent="." unique_id=971290968 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(3900, 3076)
+
+[node name="coin29" parent="." unique_id=1958385137 groups=["coins", "save"] instance=ExtResource("8_ugcn1")]
+position = Vector2(4050, 3016)
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
