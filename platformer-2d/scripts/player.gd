@@ -471,10 +471,20 @@ func _process(float) -> void:
 			print("Lancement d'un projectile")
 			var projectile = PROJECTILE.instantiate()
 			projectile.add_to_group("projectiles")
-			print(projectile)
-			projectile.position = position
-			projectile.set_direction("right")
 			get_parent().add_child(projectile)
+			print(projectile)
+			projectile.global_position.x = $sprite.global_position.x + 40
+			projectile.global_position.y = $sprite.global_position.y
+			
+			print("Position globale du projectile : ", projectile.global_position)
+			print("Position globale du joueur : ", global_position)
+			
+			if direction == 1.0:
+				projectile.set_direction("right")
+			
+			elif direction == -1.0:
+				projectile.set_direction("left")
+				
 			coin = 0.0
 			coin_bar_value.value = 0.0
 			
