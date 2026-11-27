@@ -12,9 +12,7 @@ var limit_right = Global.camera_limit_right
 func _ready():
 	position = get_parent().position
 	visible = true
-	print("Limite gauche de la caméra (récupérée dans global) : ", limit_left)
-	print("Limite droite de la caméra (récupérée dans global) : ", limit_right)
-
+	$launch_sound.play()
 
 func is_out_of_window() -> bool: ## Renvoie true si le projectile est sorti de l'écran, false sinon
 	#print("Position x du projectile à la sortie de l'écran : ", position.x)

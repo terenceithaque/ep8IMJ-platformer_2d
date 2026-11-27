@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bt5u5ge4p4eo" path="res://assets/img/projectile.png" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://bbff61wr5mu5b" path="res://scripts/scenes/projectile.gd" id="1_q3m7n"]
+[ext_resource type="AudioStream" uid="uid://bh2a3dru7gj8k" path="res://assets/sounds/projectiles/flaunch.mp3" id="3_softn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3m7n"]
 atlas = ExtResource("1_c8fcr")
@@ -54,3 +55,6 @@ metadata/_edit_group_ = true
 [node name="collision_shape" type="CollisionShape2D" parent="." unique_id=170620263]
 shape = SubResource("CircleShape2D_c8fcr")
 metadata/_edit_group_ = true
+
+[node name="launch_sound" type="AudioStreamPlayer" parent="." unique_id=1158581024]
+stream = ExtResource("3_softn")
