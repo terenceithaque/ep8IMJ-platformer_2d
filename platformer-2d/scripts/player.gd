@@ -53,7 +53,6 @@ var attack_key = ProjectSettings.get_setting("input/attaque")
 
 
 
-
 var action_keys = [move_right_keys, move_left_keys, jump_key, run_key, camera_up_key,
 				   camera_down_key, attack_key]
 
@@ -158,6 +157,7 @@ var attack_number = 1
 var invincible = false
 
 var direction = 0.0
+var current_heading = "right" # Direction vers laquelle le joueur est orienté
 
 var tutorial_popup_scene = preload("res://scenes/tutorial_popup.tscn")
 
@@ -354,7 +354,18 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_axis("gauche", "droite")
 		#print(direction)
 		
+		
 		if absi(direction) == 1:
+			print("Direction du joueur : ", direction)
+			
+			if direction == 1:
+				current_heading = "right"
+				print("Direction vers laquelle le joueur regarde : ", current_heading)
+			
+			else:
+				current_heading = "left"
+				print("Direction vers laquelle le joueur regarde : ", current_heading)
+				
 			if not running:
 				
 				if $sprite.animation != "walk":
@@ -476,7 +487,7 @@ func _process(float) -> void:
 			attack()
 			
 		if Input.is_action_pressed("lancer_projectile") and coin == max_coin:
-			print("Lancement d'un projectile")
+
 			var projectile = PROJECTILE.instantiate()
 			projectile.add_to_group("projectiles")
 			get_parent().add_child(projectile)
@@ -487,11 +498,7 @@ func _process(float) -> void:
 			print("Position globale du projectile : ", projectile.global_position)
 			print("Position globale du joueur : ", global_position)
 			
-			if direction == 1.0:
-				projectile.set_direction("right")
-			
-			elif direction == -1.0:
-				projectile.set_direction("left")
+			projectile.set_direction(current_heading)
 				
 			coin = 0.0
 			coin_bar_value.value = 0.0

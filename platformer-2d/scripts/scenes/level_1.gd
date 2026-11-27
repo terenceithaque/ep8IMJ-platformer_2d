@@ -12,11 +12,7 @@ var screen_height = ProjectSettings.get_setting("display/window/size/viewport_he
 @onready var initial_player_position = $player.position
 
 func _ready():
-	var camera = get_node("player/Camera2D")
-	camera.limit_left = -1400.0
-	camera.limit_top = -1500.0
-	camera.limit_right = 2000.0
-	camera.limit_bottom = 1200.0
+	$player/Camera2D.set_limits(-1400.0, -1500.0, 2000.0, 1200.0)
 
 
 

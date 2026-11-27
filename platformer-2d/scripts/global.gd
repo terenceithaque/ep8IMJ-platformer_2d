@@ -6,6 +6,12 @@ var player_name = "player"
 var player_save_state = {}
 var level_save_state = {}
 
+var camera_limit_left = -200.0
+var camera_limit_top = -1500.0
+var camera_limit_right = 1500.0
+var camera_limit_bottom = 1200.0
+
+
 var saved_players : PackedStringArray
 
 func _ready():

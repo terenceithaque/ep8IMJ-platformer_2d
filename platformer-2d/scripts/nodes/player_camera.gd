@@ -24,7 +24,17 @@ func set_limits(left:float, top:float, right:float, bottom:float) -> void: ## Re
 	limit_top = top
 	limit_right = right
 	limit_bottom = bottom
-
+	
+	# Mise à jour des coordonnées dans le script global
+	Global.camera_limit_left = left
+	Global.camera_limit_top = top
+	Global.camera_limit_right = right
+	Global.camera_limit_bottom = bottom
+	
+	print("Limite gauche globale de la caméra : ", Global.camera_limit_left)
+	print("Limite droite globale de la caméra : ", Global.camera_limit_right)
+	print("Limite haute globale de la caméra : ", Global.camera_limit_top)
+	print("Limite basse globale de la caméra : ", Global.camera_limit_bottom)
 
 func reset_limits() -> void: ## Réinitialise les limites actuelles de la caméra, suivant les limites par défaut établies.
 	
