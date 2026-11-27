@@ -58,6 +58,8 @@ func _process(delta:float) -> void:
 	
 	coins = get_tree().get_nodes_in_group("coins")
 	
+	var player_projectiles = $player.get_active_projectiles()
+	
 	if $player.is_out_of_screen():
 		#print("Le joueur est sorti de l'écran")
 		$player.position =  $player.latest_ground_position
@@ -86,6 +88,16 @@ func _process(delta:float) -> void:
 			
 			if $skeleton.is_player_colliding() and $player.attacking:
 				$skeleton.dammage($player.attack_dammage)
+		
+		
+		# Vérifier si le squelette entre en collision avec un projectile du joueur
+		
+		for projectile in player_projectiles:
+			
+			if is_instance_valid($skeleton):
+				if projectile.get_collider_name() == $skeleton.name:
+					$skeleton.dammage(5)
+					projectile.queue_free()
 			
 		# Vérifier si le joueur récupère une pièce
 		

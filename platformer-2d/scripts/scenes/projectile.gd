@@ -31,7 +31,18 @@ func set_direction(dir:String="right") -> void: ## Définit la direction vers la
 	
 	elif dir == "left":
 		direction = Vector2i.LEFT
-			
+
+
+func get_collider_name() -> String: ## Renvoie le nom du noeud avec lequel le projectile est entré en collision
+	
+	for index in get_slide_collision_count():
+		var latest_collision = get_slide_collision(index)
+		var collider = latest_collision.get_collider()
+		
+		if collider:
+			return collider.name
+	
+	return ""
 
 func move() -> void: ## Déplace le projectile selon sa direction actuelle
 	velocity = Vector2(direction.x, 0.0) * SPEED

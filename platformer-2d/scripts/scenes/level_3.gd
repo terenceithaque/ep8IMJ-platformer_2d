@@ -30,6 +30,8 @@ func _ready() -> void:
 func _process(delta:float) -> void:
 	
 	
+	var projectiles = $player.get_active_projectiles()
+	
 	food = get_tree().get_nodes_in_group("food")
 	print("Food : ", food)
 	print("Ennemis : ", enemies)
@@ -83,6 +85,12 @@ func _process(delta:float) -> void:
 				
 				if enemy.is_player_colliding() and $player.attacking:
 					enemy.dammage($player.attack_dammage)
+				
+				for projectile in projectiles:
+					if projectile.get_collider_name() == enemy.name:
+						print("Le projectile est entré en collsion avec un ennemi !")
+						enemy.dammage(10)
+						projectile.queue_free()
 				
 				"""if enemy.is_out_of_window() and enemy.falling:
 					enemy.queue_free()"""
